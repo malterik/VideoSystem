@@ -1,7 +1,7 @@
-// OpenCV Diplay camera. http://talkera.org/opencv
-#include <opencv2/objdetect/objdetect.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <opencv2/imgproc/imgproc.hpp>
+#include "opencv2/objdetect.hpp"
+#include "opencv2/videoio.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/imgproc.hpp"
 
 #include <iostream>
 #include <stdio.h>
@@ -12,33 +12,43 @@ using namespace cv;
 /** Function Headers */
 void detectAndDisplay( Mat frame );
 
+/** Global variables */
 String face_cascade_name = "haarcascade_frontalface_alt.xml";
 String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";
 CascadeClassifier face_cascade;
 CascadeClassifier eyes_cascade;
 String window_name = "Capture - Face detection";
 
-int main(void)
+/** @function main */
+int main( void )
 {
-   VideoCapture cap(0); // open the default camera
-   if(!cap.isOpened())  // check if we succeeded
-   return -1;
-   
-   //load the cascades
-   if( !face_cascade.load( face_cascade_name ) ){ printf("--(!)Error loading face cascade\n"); return -1; };
-   if( !eyes_cascade.load( eyes_cascade_name ) ){ printf("--(!)Error loading eyes cascade\n"); return -1; };
- 
+    VideoCapture capture;
+    Mat frame;
 
-   while(1) 
-   {
-       Mat frame;
-       cap >> frame; 
-       detectAndDisplay(frame);
-       int c = waitKey(10);
-       if( (char)c == 27 ) { break; } // escape
-   }
+    //-- 1. Load the cascades
+    if( !face_cascade.load( face_cascade_name ) ){ printf("--(!)Error loading face cascade\n"); return -1; };
+    if( !eyes_cascade.load( eyes_cascade_name ) ){ printf("--(!)Error loading eyes cascade\n"); return -1; };
+
+    //-- 2. Read the video stream
+    capture.open( -1 );
+    if ( ! capture.isOpened() ) { printf("--(!)Error opening video capture\n"); return -1; }
+
+    while ( capture.read(frame) )
+    {
+        if( frame.empty() )
+        {
+            printf(" --(!) No captured frame -- Break!");
+            break;
+        }
+
+        //-- 3. Apply the classifier to the frame
+        detectAndDisplay( frame );
+
+        int c = waitKey(10);
+        if( (char)c == 27 ) { break; } // escape
+    }
+    return 0;
 }
-
 
 /** @function detectAndDisplay */
 void detectAndDisplay( Mat frame )
