@@ -3,11 +3,12 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
-class CameraInteface 
+class CameraInterface 
 {
 public:
-	CameraInteface();
+	CameraInterface();
 	cv::Mat getImage();
+	void setResolution(int width, int height);
 private:
 	cv::Mat image_;
 	cv::VideoCapture cap_; 

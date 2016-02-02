@@ -239,6 +239,8 @@ COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	28;
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	167;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	208;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	33;"	d	file:
+CameraInterface	src/CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface() : image_(), cap_(0) $/;"	f	class:CameraInterface
+CameraInterface	src/CameraInterface/CameraInterface.hpp	/^class CameraInterface $/;"	c
 DEC	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
 DEC	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	415;"	d	file:
 DirectoryOfThisScript	.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	f
@@ -338,12 +340,25 @@ STRINGIFY	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	265;"	d	fi
 STRINGIFY_HELPER	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	269;"	d	file:
 STRINGIFY_HELPER	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	264;"	d	file:
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
+cap_	src/CameraInterface/CameraInterface.hpp	/^	cv::VideoCapture cap_; $/;"	m	class:CameraInterface
 compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
 database	.ycm_extra_conf.py	/^  database = None$/;"	v
 database	.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
+detectAndDisplay	objectDetection.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
+detectAndDisplay	src/main.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
+eyes_cascade	objectDetection.cpp	/^CascadeClassifier eyes_cascade;$/;"	v
+eyes_cascade	src/main.cpp	/^CascadeClassifier eyes_cascade;$/;"	v
+eyes_cascade_name	objectDetection.cpp	/^String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
+eyes_cascade_name	src/main.cpp	/^String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
+face_cascade	objectDetection.cpp	/^CascadeClassifier face_cascade;$/;"	v
+face_cascade	src/main.cpp	/^CascadeClassifier face_cascade;$/;"	v
+face_cascade_name	objectDetection.cpp	/^String face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
+face_cascade_name	src/main.cpp	/^String face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
 features	build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
 flags	.ycm_extra_conf.py	/^flags = [$/;"	v
+getImage	src/CameraInterface/CameraInterface.cpp	/^cv::Mat CameraInterface::getImage() $/;"	f	class:CameraInterface
+image_	src/CameraInterface/CameraInterface.hpp	/^	cv::Mat image_;$/;"	m	class:CameraInterface
 info_arch	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_compiler	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
@@ -363,8 +378,11 @@ main	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	
 main	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f
 main	build/CMakeFiles/feature_tests.c	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
 main	build/CMakeFiles/feature_tests.cxx	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
-main	src/main.cpp	/^int main( int argc, char** argv )$/;"	f
+main	objectDetection.cpp	/^int main( void )$/;"	f
+main	src/main.cpp	/^int main(void)$/;"	f
 os	.ycm_extra_conf.py	/^import os$/;"	i
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+window_name	objectDetection.cpp	/^String window_name = "Capture - Face detection";$/;"	v
+window_name	src/main.cpp	/^String window_name = "Capture - Face detection";$/;"	v
 ycm_core	.ycm_extra_conf.py	/^import ycm_core$/;"	i

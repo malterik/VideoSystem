@@ -1,14 +1,17 @@
 cmake_minimum_required(VERSION 2.8.9)
-project(VideoSystem)
+project (VideoSystem)
 find_package( OpenCV REQUIRED )
-#Bring the headers, such as Student.h into the project
-include_directories(src)
 
-#Can manually add the sources using the set command as follows:
-#set(SOURCES src/mainapp.cpp src/Student.cpp)
+file(GLOB_RECURSE Foo_SOURCES "src/*.cpp")
+file(GLOB_RECURSE Foo_HEADERS "src/*.h")
 
-#However, the file(GLOB...) allows for wildcard additions:
-file(GLOB SOURCES "src/*.cpp")
+set (Foo_INCLUDE_DIRS "")
+foreach (_headerFile ${Foo_HEADERS})
+	get_filename_component(_dir ${_headerFile} PATH)
+        list (APPEND Foo_INCLUDE_DIRS ${_dir})
+endforeach()
+list(REMOVE_DUPLICATES Foo_INCLUDE_DIRS)
 
-add_executable(main ${SOURCES})
+include_directories(${Foo_INCLUDE_DIRS})
+add_executable (main  ${Foo_SOURCES})
 target_link_libraries( main ${OpenCV_LIBS} )
