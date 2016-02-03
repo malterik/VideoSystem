@@ -30,6 +30,8 @@ ARCHITECTURE_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	401;
 ARCHITECTURE_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	404;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	407;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	411;"	d	file:
+BlobDetection	src/BlobDetection/BlobDetection.cpp	/^BlobDetection::BlobDetection() {$/;"	f	class:BlobDetection
+BlobDetection	src/BlobDetection/BlobDetection.hpp	/^class BlobDetection$/;"	c
 CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/erik\/Programming\/VideoSystem\/build$/;"	m
 CMAKE_COMMAND	build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
 CMAKE_SOURCE_DIR	build/Makefile	/^CMAKE_SOURCE_DIR = \/home\/erik\/Programming\/VideoSystem$/;"	m
@@ -245,6 +247,8 @@ DEC	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
 DEC	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	415;"	d	file:
 DirectoryOfThisScript	.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	f
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
+FaceDetection	src/FaceDetection/FaceDetection.cpp	/^FaceDetection::FaceDetection(std::string faceConfig, std::string eyeConfig):$/;"	f	class:FaceDetection
+FaceDetection	src/FaceDetection/FaceDetection.hpp	/^class FaceDetection$/;"	c
 FlagsForFile	.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
 GetCompilationInfoForFile	.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	f
 HEX	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	431;"	d	file:
@@ -314,6 +318,8 @@ PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	351;"	d	
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	354;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	357;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	361;"	d	file:
+PeopleDetection	src/PeopleDetection/PeopleDetection.cpp	/^PeopleDetection::PeopleDetection() {$/;"	f	class:PeopleDetection
+PeopleDetection	src/PeopleDetection/PeopleDetection.hpp	/^class PeopleDetection$/;"	c
 RM	build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SIMULATE_ID	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	155;"	d	file:
@@ -340,24 +346,33 @@ STRINGIFY	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	265;"	d	fi
 STRINGIFY_HELPER	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	269;"	d	file:
 STRINGIFY_HELPER	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	264;"	d	file:
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
+blob_image_	src/BlobDetection/BlobDetection.hpp	/^    cv::Mat blob_image_;$/;"	m	class:BlobDetection
 cap_	src/CameraInterface/CameraInterface.hpp	/^	cv::VideoCapture cap_; $/;"	m	class:CameraInterface
 compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
 database	.ycm_extra_conf.py	/^  database = None$/;"	v
 database	.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
 detectAndDisplay	objectDetection.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
-detectAndDisplay	src/main.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
+detectAndDisplay	src/FaceDetection/FaceDetection.cpp	/^void FaceDetection::detectAndDisplay( cv::Mat frame )$/;"	f	class:FaceDetection
+detectAndDisplay	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::detectAndDisplay(cv::Mat image) {$/;"	f	class:PeopleDetection
+detector_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector detector_;$/;"	m	class:BlobDetection
 eyes_cascade	objectDetection.cpp	/^CascadeClassifier eyes_cascade;$/;"	v
-eyes_cascade	src/main.cpp	/^CascadeClassifier eyes_cascade;$/;"	v
+eyes_cascade_	src/FaceDetection/FaceDetection.hpp	/^	cv::CascadeClassifier eyes_cascade_;$/;"	m	class:FaceDetection
 eyes_cascade_name	objectDetection.cpp	/^String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
-eyes_cascade_name	src/main.cpp	/^String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
+eyes_cascade_name	src/main.cpp	/^string eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
+eyes_cascade_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string eyes_cascade_name_; \/\/ = "haarcascade_eye_tree_eyeglasses.xml";$/;"	m	class:FaceDetection
 face_cascade	objectDetection.cpp	/^CascadeClassifier face_cascade;$/;"	v
-face_cascade	src/main.cpp	/^CascadeClassifier face_cascade;$/;"	v
+face_cascade_	src/FaceDetection/FaceDetection.hpp	/^	cv::CascadeClassifier face_cascade_;$/;"	m	class:FaceDetection
 face_cascade_name	objectDetection.cpp	/^String face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
-face_cascade_name	src/main.cpp	/^String face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
+face_cascade_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string face_cascade_name_; \/\/ = "haarcascade_frontalface_alt.xml";$/;"	m	class:FaceDetection
 features	build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
 flags	.ycm_extra_conf.py	/^flags = [$/;"	v
+found_	src/PeopleDetection/PeopleDetection.hpp	/^	std::vector<cv::Rect> found_;$/;"	m	class:PeopleDetection
+found_filtered_	src/PeopleDetection/PeopleDetection.hpp	/^	std::vector<cv::Rect> found_filtered_;$/;"	m	class:PeopleDetection
+getBlobImage	src/BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
 getImage	src/CameraInterface/CameraInterface.cpp	/^cv::Mat CameraInterface::getImage() $/;"	f	class:CameraInterface
+getKeyPoints	src/BlobDetection/BlobDetection.cpp	/^std::vector<cv::KeyPoint> BlobDetection::getKeyPoints(cv::Mat image){$/;"	f	class:BlobDetection
+hog_	src/PeopleDetection/PeopleDetection.hpp	/^	cv::HOGDescriptor hog_;$/;"	m	class:PeopleDetection
 image_	src/CameraInterface/CameraInterface.hpp	/^	cv::Mat image_;$/;"	m	class:CameraInterface
 info_arch	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
@@ -373,6 +388,7 @@ info_simulate_version	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^ch
 info_simulate_version	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_simulate_version[] = {$/;"	v
 info_version	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v
 info_version	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
+keypoints_	src/BlobDetection/BlobDetection.hpp	/^    std::vector<cv::KeyPoint> keypoints_;    $/;"	m	class:BlobDetection
 main	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^int main(int argc, char* argv[])$/;"	f
 main	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
 main	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f
@@ -383,6 +399,8 @@ main	src/main.cpp	/^int main(void)$/;"	f
 os	.ycm_extra_conf.py	/^import os$/;"	i
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+setResolution	src/CameraInterface/CameraInterface.cpp	/^void CameraInterface::setResolution(int width, int height)$/;"	f	class:CameraInterface
 window_name	objectDetection.cpp	/^String window_name = "Capture - Face detection";$/;"	v
-window_name	src/main.cpp	/^String window_name = "Capture - Face detection";$/;"	v
+window_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string window_name_;  $/;"	m	class:FaceDetection
+window_name_	src/PeopleDetection/PeopleDetection.hpp	/^	std::string window_name_;$/;"	m	class:PeopleDetection
 ycm_core	.ycm_extra_conf.py	/^import ycm_core$/;"	i

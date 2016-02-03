@@ -5,6 +5,7 @@ find_package( OpenCV REQUIRED )
 file(GLOB_RECURSE Foo_SOURCES "src/*.cpp")
 file(GLOB_RECURSE Foo_HEADERS "src/*.h")
 
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 set (Foo_INCLUDE_DIRS "")
 foreach (_headerFile ${Foo_HEADERS})
 	get_filename_component(_dir ${_headerFile} PATH)

@@ -9,7 +9,7 @@ eyes_cascade_name_(eyeConfig)
 {
 	window_name_ =  "Capture - Face detection";
         //load the cascades
-   	if( !face_cascade_.load( face_cascade_name_ ) )
+        if( !face_cascade_.load( face_cascade_name_ ) )
 	{ 
 		std::cout <<  "--(!)Error loading face cascade\n" << std::endl;
 	}
