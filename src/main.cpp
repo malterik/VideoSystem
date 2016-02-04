@@ -2,6 +2,8 @@
 #include "FaceDetection/FaceDetection.hpp"
 #include "PeopleDetection/PeopleDetection.hpp"
 #include "BlobDetection/BlobDetection.hpp"
+#include "WindowManager/WindowManager.hpp"
+
 using namespace cv;
 
 
@@ -15,6 +17,8 @@ int main(void)
     FaceDetection faceDetector(face_cascade_name, eyes_cascade_name);   
     PeopleDetection peopleDetector;
     BlobDetection blobDetector;
+    WindowManager wm;
+
     cv::Ptr<BackgroundSubtractorMOG> pBs;
     pBs = new cv::BackgroundSubtractorMOG();
 
@@ -30,7 +34,7 @@ int main(void)
         cv::Mat bg;  
         pBs->operator()(frame,bg);
         cv::Mat morph_img = Mat::zeros(bg.size(), CV_8UC1);
-        cv::morphologyEx(morph_img, morph_img, cv::MORPH_OPEN, kernel);
+        cv::morphologyEx(bg,morph_img, cv::MORPH_OPEN, kernel);
         cv::morphologyEx(morph_img, morph_img, cv::MORPH_CLOSE, kernel);
         cv::findContours(morph_img, contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_SIMPLE, cv::Point(0,0));
         // faceDetector.detectAndDisplay(frame);
@@ -57,13 +61,19 @@ int main(void)
             drawContours( drawing, contours_poly, i, color, 1, 8, vector<Vec4i>(), 0, Point() );
             rectangle( drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0 );
             circle( drawing, center[i], (int)radius[i], color, 2, 8, 0 );
-         } 
-        cv::imshow("Morph Image",morph_img);
-        cv::imshow("Background Mask",bg);
-        cv::imshow("Image",frame);
-               int c = waitKey(10);
-               if( (char)c == 27 ) { break; } // escape
-           }
+        } 
+        // cv::imshow("Background Mask",bg);
+        // cv::imshow("Image",frame);
+        // cv::imshow("morph_img",morph_img);
+        wm.reset();
+        wm.addImage(frame);
+        wm.addImage(bg);
+        wm.addImage(morph_img);
+        wm.addImage(drawing);
+        cv::imshow("Images" , wm.showMultipleImages(2)); 
+        int c = waitKey(10);
+        if( (char)c == 27 ) { break; } // escape
+    }
 }
 
 
