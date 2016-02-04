@@ -10,7 +10,14 @@ public:
     WindowManager();
     void addImage(cv::Mat image);
     void addImage(std::vector<cv::Mat> imageVector);
+    void reset();
+    cv::Mat& showMultipleImages(int rows );
 
 private:
     std::vector<cv::Mat> img_vector_;
+    cv::Mat dst_;
+    unsigned int dst_heigth_;
+    unsigned int dst_width_;
+    unsigned int dst_rows_;
+    unsigned int dst_cols_;
 };
