@@ -17,7 +17,6 @@ int main(void)
     FaceDetection faceDetector(face_cascade_name, eyes_cascade_name);   
     PeopleDetection peopleDetector;
     BlobDetection blobDetector;
-    WindowManager wm;
 
     cv::Ptr<BackgroundSubtractorMOG> pBs;
     pBs = new cv::BackgroundSubtractorMOG();
@@ -62,15 +61,12 @@ int main(void)
             rectangle( drawing, boundRect[i].tl(), boundRect[i].br(), color, 2, 8, 0 );
             circle( drawing, center[i], (int)radius[i], color, 2, 8, 0 );
         } 
-        // cv::imshow("Background Mask",bg);
-        // cv::imshow("Image",frame);
-        // cv::imshow("morph_img",morph_img);
-        wm.reset();
-        wm.addImage(frame);
-        wm.addImage(bg);
-        wm.addImage(morph_img);
-        wm.addImage(drawing);
-        cv::imshow("Images" , wm.showMultipleImages(2)); 
+        WindowManager::getInstance().reset();
+        WindowManager::getInstance().addImage(frame);
+        WindowManager::getInstance().addImage(bg);
+        WindowManager::getInstance().addImage(morph_img);
+        WindowManager::getInstance().addImage(drawing);
+        cv::imshow("Images" , WindowManager::getInstance().showMultipleImages(2)); 
         int c = waitKey(10);
         if( (char)c == 27 ) { break; } // escape
     }

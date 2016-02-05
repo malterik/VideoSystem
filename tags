@@ -346,7 +346,12 @@ STRINGIFY	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	265;"	d	fi
 STRINGIFY_HELPER	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	269;"	d	file:
 STRINGIFY_HELPER	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	264;"	d	file:
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
+WindowManager	src/WindowManager/WindowManager.cpp	/^WindowManager::WindowManager() {$/;"	f	class:WindowManager
+WindowManager	src/WindowManager/WindowManager.hpp	/^class WindowManager$/;"	c
+addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(cv::Mat image) {$/;"	f	class:WindowManager
+addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(std::vector<cv::Mat> imageVector) {$/;"	f	class:WindowManager
 blob_image_	src/BlobDetection/BlobDetection.hpp	/^    cv::Mat blob_image_;$/;"	m	class:BlobDetection
+blob_parameter_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector::Params blob_parameter_;$/;"	m	class:BlobDetection
 cap_	src/CameraInterface/CameraInterface.hpp	/^	cv::VideoCapture cap_; $/;"	m	class:CameraInterface
 compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
 database	.ycm_extra_conf.py	/^  database = None$/;"	v
@@ -355,6 +360,11 @@ detectAndDisplay	objectDetection.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
 detectAndDisplay	src/FaceDetection/FaceDetection.cpp	/^void FaceDetection::detectAndDisplay( cv::Mat frame )$/;"	f	class:FaceDetection
 detectAndDisplay	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::detectAndDisplay(cv::Mat image) {$/;"	f	class:PeopleDetection
 detector_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector detector_;$/;"	m	class:BlobDetection
+dst_	src/WindowManager/WindowManager.hpp	/^    cv::Mat dst_;$/;"	m	class:WindowManager
+dst_cols_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_cols_;$/;"	m	class:WindowManager
+dst_heigth_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_heigth_;$/;"	m	class:WindowManager
+dst_rows_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_rows_;$/;"	m	class:WindowManager
+dst_width_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_width_;$/;"	m	class:WindowManager
 eyes_cascade	objectDetection.cpp	/^CascadeClassifier eyes_cascade;$/;"	v
 eyes_cascade_	src/FaceDetection/FaceDetection.hpp	/^	cv::CascadeClassifier eyes_cascade_;$/;"	m	class:FaceDetection
 eyes_cascade_name	objectDetection.cpp	/^String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
@@ -371,9 +381,10 @@ found_	src/PeopleDetection/PeopleDetection.hpp	/^	std::vector<cv::Rect> found_;$
 found_filtered_	src/PeopleDetection/PeopleDetection.hpp	/^	std::vector<cv::Rect> found_filtered_;$/;"	m	class:PeopleDetection
 getBlobImage	src/BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
 getImage	src/CameraInterface/CameraInterface.cpp	/^cv::Mat CameraInterface::getImage() $/;"	f	class:CameraInterface
-getKeyPoints	src/BlobDetection/BlobDetection.cpp	/^std::vector<cv::KeyPoint> BlobDetection::getKeyPoints(cv::Mat image){$/;"	f	class:BlobDetection
+getKeyPoints	src/BlobDetection/BlobDetection.cpp	/^    std::vector<cv::KeyPoint> BlobDetection::getKeyPoints(cv::Mat image){$/;"	f	class:BlobDetection
 hog_	src/PeopleDetection/PeopleDetection.hpp	/^	cv::HOGDescriptor hog_;$/;"	m	class:PeopleDetection
 image_	src/CameraInterface/CameraInterface.hpp	/^	cv::Mat image_;$/;"	m	class:CameraInterface
+img_vector_	src/WindowManager/WindowManager.hpp	/^    std::vector<cv::Mat> img_vector_;$/;"	m	class:WindowManager
 info_arch	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_compiler	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
@@ -399,7 +410,9 @@ main	src/main.cpp	/^int main(void)$/;"	f
 os	.ycm_extra_conf.py	/^import os$/;"	i
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+reset	src/WindowManager/WindowManager.cpp	/^void WindowManager::reset() {$/;"	f	class:WindowManager
 setResolution	src/CameraInterface/CameraInterface.cpp	/^void CameraInterface::setResolution(int width, int height)$/;"	f	class:CameraInterface
+showMultipleImages	src/WindowManager/WindowManager.cpp	/^cv::Mat& WindowManager::showMultipleImages(int rows) {$/;"	f	class:WindowManager
 window_name	objectDetection.cpp	/^String window_name = "Capture - Face detection";$/;"	v
 window_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string window_name_;  $/;"	m	class:FaceDetection
 window_name_	src/PeopleDetection/PeopleDetection.hpp	/^	std::string window_name_;$/;"	m	class:PeopleDetection

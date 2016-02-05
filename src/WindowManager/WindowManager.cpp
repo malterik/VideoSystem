@@ -2,7 +2,10 @@
 #include <iostream>
 
 WindowManager::WindowManager() {
-   img_vector_.clear(); 
+}
+WindowManager& WindowManager::getInstance() {
+    static WindowManager instace_;
+    return instace_;
 }
 void WindowManager::reset() {
     img_vector_.clear();

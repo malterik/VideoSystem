@@ -7,13 +7,14 @@
 class WindowManager
 {
 public:
-    WindowManager();
+    static WindowManager& getInstance();
     void addImage(cv::Mat image);
     void addImage(std::vector<cv::Mat> imageVector);
     void reset();
     cv::Mat& showMultipleImages(int rows );
-
 private:
+    WindowManager();
+    WindowManager(const WindowManager& wm);
     std::vector<cv::Mat> img_vector_;
     cv::Mat dst_;
     unsigned int dst_heigth_;
