@@ -24,6 +24,7 @@ int main(void)
     {
         cv::Mat frame = camera.getImage();
         peopleDetector.detect(frame);
+        peopleDetector.debugImage();
         cv::imshow("Images" , WindowManager::getInstance().showMultipleImages(2)); 
         int c = waitKey(10);
         if( (char)c == 27 ) { break; } // escape
