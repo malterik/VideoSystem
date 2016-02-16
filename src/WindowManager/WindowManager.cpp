@@ -14,7 +14,7 @@ void WindowManager::reset() {
 void WindowManager::addImage(cv::Mat image) {
     if(image.type() == CV_8UC1)
     {
-        std::cout << "\e[31m A binary image was added. It will be converted to 8UC3!\033[0m" << std::endl;
+        // std::cout << "\e[31m A binary image was added. It will be converted to 8UC3!\033[0m" << std::endl;
         cv::cvtColor(image,image,CV_GRAY2RGB);
     }
     img_vector_.push_back(image); 
