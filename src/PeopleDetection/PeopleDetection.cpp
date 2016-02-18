@@ -28,8 +28,10 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
     image_=image;
     p_background_subtractor_->operator()(image,background_image_);
     cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
-    cv::blur(thresh_img_, blur_img_, cv::Size(BLUR_KERNEL_SIZE_, BLUR_KERNEL_SIZE_));
-    cv::dilate(blur_img_, contour_img_,kernel_);
+    cv::blur(thresh_img_, blur_img_, cv::Size(2 * BLUR_KERNEL_SIZE_ + 1, 2 * BLUR_KERNEL_SIZE_ +1));
+    cv::dilate(blur_img_, contour_img_,cv::getStructuringElement(0,
+                                       cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1), 
+                                       cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)));
     cv::findContours(contour_img_, contours_, hierarchy_, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE, cv::Point(0,0));
     contours_poly.resize( contours_.size() );
     for( unsigned int i = 0; i < contours_.size(); i++ )
