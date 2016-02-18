@@ -9,7 +9,7 @@ CameraInterface::CameraInterface() : image_(), cap_(0)
 }
 
 
-cv::Mat CameraInterface::getImage() 
+const cv::Mat& CameraInterface::getImage() 
 {
 	cap_ >> image_;
 	return image_;	

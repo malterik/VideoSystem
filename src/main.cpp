@@ -15,19 +15,25 @@ int main(void)
     CameraInterface camera; 
     FaceDetection faceDetector(face_cascade_name, eyes_cascade_name);   
     BlobDetection blobDetector;
-
     PeopleDetection peopleDetector;
 
-    camera.setResolution(320,240);
-
+    std::vector<cv::Rect> people;
+    // camera.setResolution(320,240);
     
-    // camera.setResolution(640,480);
+    camera.setResolution(640,480);
     while(1) 
     {
-        cv::Mat frame = camera.getImage();
-        peopleDetector.detect(frame);
+        WindowManager::getInstance().reset();
+        peopleDetector.reset();
+        cv::Mat frame(camera.getImage());
+        WindowManager::getInstance().addImage(frame);
+        
+        people = peopleDetector.detect(frame);
         peopleDetector.debugImage();
-        cv::imshow("Images" , WindowManager::getInstance().showMultipleImages(1)); 
+        
+        WindowManager::getInstance().drawBoundingBox(people,frame);
+
+        cv::imshow("Images" , WindowManager::getInstance().showMultipleImages(2)); 
         int c = cv::waitKey(10);
         if( (char)c == 27 ) { break; } // escape
     }

@@ -7,7 +7,7 @@ class CameraInterface
 {
 public:
 	CameraInterface();
-	cv::Mat getImage();
+	const cv::Mat& getImage();
 	void setResolution(int width, int height);
 private:
 	cv::Mat image_;

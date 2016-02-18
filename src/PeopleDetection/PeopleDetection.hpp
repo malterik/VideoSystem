@@ -5,13 +5,12 @@ class PeopleDetection
 {
 public:
         PeopleDetection();
-	void detect(cv::Mat image);
+        std::vector<cv::Rect> detect(cv::Mat image);
         void debugImage();
+        void reset();
 
 private:
         cv::Mat image_;
-	std::vector<cv::Rect> found_;
-	std::vector<cv::Rect> found_filtered_;
         cv::Ptr<cv::BackgroundSubtractorMOG> p_background_subtractor_;
         int kernel_size_ =4;
         cv::Mat kernel_;

@@ -473,6 +473,7 @@ COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	28;
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	167;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	208;"	d	file:
 COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	33;"	d	file:
+CRUISE	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 CameraInterface	src/CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface() : image_(), cap_(0) $/;"	f	class:CameraInterface
 CameraInterface	src/CameraInterface/CameraInterface.hpp	/^class CameraInterface $/;"	c
 DEC	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
@@ -484,6 +485,7 @@ EQUALS	build/Makefile	/^EQUALS = =$/;"	m
 FaceDetection	src/FaceDetection/FaceDetection.cpp	/^FaceDetection::FaceDetection(std::string faceConfig, std::string eyeConfig):$/;"	f	class:FaceDetection
 FaceDetection	src/FaceDetection/FaceDetection.hpp	/^class FaceDetection$/;"	c
 FlagsForFile	.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
+FlightPhase	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	g
 GetCompilationInfoForFile	.ycm_extra_conf.py	/^def GetCompilationInfoForFile( filename ):$/;"	f
 HEX	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	431;"	d	file:
 HEX	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	426;"	d	file:
@@ -492,7 +494,9 @@ HEX	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	426;"	d	file:
 ID_VOID_MAIN	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 ID_VOID_MAIN	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 IsHeaderFile	.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	f
+LANDING	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 MakeRelativePathsInFlagsAbsolute	.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
+PARKING	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	274;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	277;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	280;"	d	file:
@@ -669,6 +673,8 @@ STRINGIFY_HELPER	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	264
 STRINGIFY_HELPER	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	269;"	d	file:
 STRINGIFY_HELPER	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	264;"	d	file:
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
+SituationKnowledge	src/SituationKnowledge/SituationKnowledge.hpp	/^class SituationKnowledge $/;"	c
+TAKEOFF	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 WindowManager	src/WindowManager/WindowManager.cpp	/^WindowManager::WindowManager() {$/;"	f	class:WindowManager
 WindowManager	src/WindowManager/WindowManager.hpp	/^class WindowManager$/;"	c
 addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(cv::Mat image) {$/;"	f	class:WindowManager
@@ -676,16 +682,25 @@ addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(std:
 background_image_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat background_image_;  $/;"	m	class:PeopleDetection
 blob_image_	src/BlobDetection/BlobDetection.hpp	/^    cv::Mat blob_image_;$/;"	m	class:BlobDetection
 blob_parameter_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector::Params blob_parameter_;$/;"	m	class:BlobDetection
+blur_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat blur_img_;$/;"	m	class:PeopleDetection
+boundRect	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Rect> boundRect;$/;"	m	class:PeopleDetection
 cap_	src/CameraInterface/CameraInterface.hpp	/^	cv::VideoCapture cap_; $/;"	m	class:CameraInterface
+center	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Point2f>center;$/;"	m	class:PeopleDetection
 compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
+contour_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat contour_img_;$/;"	m	class:PeopleDetection
 contours_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point>> contours_;$/;"	m	class:PeopleDetection
+contours_poly	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point> > contours_poly; $/;"	m	class:PeopleDetection
+contours_poly_candidates_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point> > contours_poly_candidates_; $/;"	m	class:PeopleDetection
+current_flight_phase_	src/SituationKnowledge/SituationKnowledge.hpp	/^    FlightPhase current_flight_phase_;$/;"	m	class:SituationKnowledge
 database	.ycm_extra_conf.py	/^  database = None$/;"	v
 database	.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
-detect	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::detect(cv::Mat image) {$/;"	f	class:PeopleDetection
+debugImage	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::debugImage() {$/;"	f	class:PeopleDetection
+detect	src/PeopleDetection/PeopleDetection.cpp	/^std::vector<cv::Rect> PeopleDetection::detect(cv::Mat image) {$/;"	f	class:PeopleDetection
 detectAndDisplay	objectDetection.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
 detectAndDisplay	src/FaceDetection/FaceDetection.cpp	/^void FaceDetection::detectAndDisplay( cv::Mat frame )$/;"	f	class:FaceDetection
 detectAndDisplay	src/PeopleDetectionHOG/PeopleDetectionHOG.cpp	/^void PeopleDetectionHOG::detectAndDisplay(cv::Mat image) {$/;"	f	class:PeopleDetectionHOG
 detector_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector detector_;$/;"	m	class:BlobDetection
+drawBoundingBox	src/WindowManager/WindowManager.cpp	/^void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, cv::Mat img) {$/;"	f	class:WindowManager
 dst_	src/WindowManager/WindowManager.hpp	/^    cv::Mat dst_;$/;"	m	class:WindowManager
 dst_cols_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_cols_;$/;"	m	class:WindowManager
 dst_heigth_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_heigth_;$/;"	m	class:WindowManager
@@ -694,18 +709,17 @@ dst_width_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_width_;$/;
 eyes_cascade	objectDetection.cpp	/^CascadeClassifier eyes_cascade;$/;"	v
 eyes_cascade_	src/FaceDetection/FaceDetection.hpp	/^	cv::CascadeClassifier eyes_cascade_;$/;"	m	class:FaceDetection
 eyes_cascade_name	objectDetection.cpp	/^String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
-eyes_cascade_name	src/main.cpp	/^string eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
+eyes_cascade_name	src/main.cpp	/^cv::string eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
 eyes_cascade_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string eyes_cascade_name_; \/\/ = "haarcascade_eye_tree_eyeglasses.xml";$/;"	m	class:FaceDetection
 face_cascade	objectDetection.cpp	/^CascadeClassifier face_cascade;$/;"	v
 face_cascade_	src/FaceDetection/FaceDetection.hpp	/^	cv::CascadeClassifier face_cascade_;$/;"	m	class:FaceDetection
 face_cascade_name	objectDetection.cpp	/^String face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
+face_cascade_name	src/main.cpp	/^cv::string face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
 face_cascade_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string face_cascade_name_; \/\/ = "haarcascade_frontalface_alt.xml";$/;"	m	class:FaceDetection
 features	build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
 flags	.ycm_extra_conf.py	/^flags = [$/;"	v
-found_	src/PeopleDetection/PeopleDetection.hpp	/^	std::vector<cv::Rect> found_;$/;"	m	class:PeopleDetection
 found_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::vector<cv::Rect> found_;$/;"	m	class:PeopleDetectionHOG
-found_filtered_	src/PeopleDetection/PeopleDetection.hpp	/^	std::vector<cv::Rect> found_filtered_;$/;"	m	class:PeopleDetection
 found_filtered_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::vector<cv::Rect> found_filtered_;$/;"	m	class:PeopleDetectionHOG
 getBlobImage	src/BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
 getImage	src/CameraInterface/CameraInterface.cpp	/^cv::Mat CameraInterface::getImage() $/;"	f	class:CameraInterface
@@ -714,6 +728,7 @@ getKeyPoints	src/BlobDetection/BlobDetection.cpp	/^    std::vector<cv::KeyPoint>
 hierarchy_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Vec4i> hierarchy_;$/;"	m	class:PeopleDetection
 hog_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	cv::HOGDescriptor hog_;$/;"	m	class:PeopleDetectionHOG
 image_	src/CameraInterface/CameraInterface.hpp	/^	cv::Mat image_;$/;"	m	class:CameraInterface
+image_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat image_;$/;"	m	class:PeopleDetection
 img_vector_	src/WindowManager/WindowManager.hpp	/^    std::vector<cv::Mat> img_vector_;$/;"	m	class:WindowManager
 info_arch	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_arch	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
@@ -756,15 +771,21 @@ main	build/CMakeFiles/feature_tests.c	/^int main(int argc, char** argv) { (void)
 main	build/CMakeFiles/feature_tests.cxx	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
 main	objectDetection.cpp	/^int main( void )$/;"	f
 main	src/main.cpp	/^int main(void)$/;"	f
+number_of_people_	src/SituationKnowledge/SituationKnowledge.hpp	/^    int number_of_people_;$/;"	m	class:SituationKnowledge
 os	.ycm_extra_conf.py	/^import os$/;"	i
 p_background_subtractor_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractorMOG> p_background_subtractor_;$/;"	m	class:PeopleDetection
+people_candidates_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Rect> people_candidates_;$/;"	m	class:PeopleDetection
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+radius	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<float>radius;$/;"	m	class:PeopleDetection
+reset	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::reset() {$/;"	f	class:PeopleDetection
 reset	src/WindowManager/WindowManager.cpp	/^void WindowManager::reset() {$/;"	f	class:WindowManager
 setResolution	src/CameraInterface/CameraInterface.cpp	/^void CameraInterface::setResolution(int width, int height)$/;"	f	class:CameraInterface
 showMultipleImages	src/WindowManager/WindowManager.cpp	/^cv::Mat& WindowManager::showMultipleImages(int rows) {$/;"	f	class:WindowManager
+system_clock_	src/SituationKnowledge/SituationKnowledge.hpp	/^    std::chrono::time_point<std::chrono::system_clock> system_clock_;$/;"	m	class:SituationKnowledge
+thresh_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat thresh_img_;$/;"	m	class:PeopleDetection
 window_name	objectDetection.cpp	/^String window_name = "Capture - Face detection";$/;"	v
 window_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string window_name_;  $/;"	m	class:FaceDetection
 window_name_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::string window_name_;$/;"	m	class:PeopleDetectionHOG

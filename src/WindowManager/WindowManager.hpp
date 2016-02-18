@@ -10,8 +10,10 @@ public:
     static WindowManager& getInstance();
     void addImage(cv::Mat image);
     void addImage(std::vector<cv::Mat> imageVector);
+    void drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
     void reset();
     cv::Mat& showMultipleImages(int rows );
+
 private:
     WindowManager();
     WindowManager(const WindowManager& wm);
