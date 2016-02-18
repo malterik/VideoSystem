@@ -6,7 +6,7 @@ class PeopleDetection
 public:
         PeopleDetection();
         const std::vector<cv::Rect>& detect(const cv::Mat& image);
-        void debugImage();
+        void debugImage() const;
         void reset();
 
 private:

@@ -27,7 +27,6 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
 
     image_=image;
     p_background_subtractor_->operator()(image,background_image_);
-
     cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
     cv::blur(thresh_img_, blur_img_, cv::Size(BLUR_KERNEL_SIZE_, BLUR_KERNEL_SIZE_));
     cv::dilate(blur_img_, contour_img_,kernel_);
@@ -45,7 +44,7 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
     return people_candidates_;
 }
 
-void PeopleDetection::debugImage() {
+void PeopleDetection::debugImage() const  {
 
     WindowManager::getInstance().addImage(background_image_);
     WindowManager::getInstance().addImage(thresh_img_);
@@ -57,7 +56,6 @@ void PeopleDetection::debugImage() {
 void PeopleDetection::setDilateKernelSize(int dilateKernelSize) {
     DILATE_KERNEL_SIZE_ = dilateKernelSize;
 }
-
 int PeopleDetection::getDilateKernelSize() {
     return DILATE_KERNEL_SIZE_;
 }
