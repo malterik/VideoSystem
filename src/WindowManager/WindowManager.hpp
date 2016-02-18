@@ -11,12 +11,13 @@ public:
     void addImage(cv::Mat image);
     void addImage(std::vector<cv::Mat> imageVector);
     void drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
-    void reset();
     cv::Mat& showMultipleImages(int rows );
+    void reset();
 
 private:
     WindowManager();
     WindowManager(const WindowManager& wm);
+
     std::vector<cv::Mat> img_vector_;
     cv::Mat dst_;
     unsigned int dst_heigth_;
