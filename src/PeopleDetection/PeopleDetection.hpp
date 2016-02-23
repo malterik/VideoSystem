@@ -8,6 +8,8 @@ public:
         const std::vector<cv::Rect>& detect(const cv::Mat& image);
         void debugImage() const;
         void reset();
+        void writeConfig();
+        void readConfig();
 
 private:
         //Images
@@ -26,12 +28,15 @@ private:
 
         //Pointer for the backgroundsubtractor
         cv::Ptr<cv::BackgroundSubtractorMOG> p_background_subtractor_;
+        cv::Ptr<cv::BackgroundSubtractorMOG2> p_background_subtractor2_;
+        cv::Ptr<cv::BackgroundSubtractorGMG> p_background_subtractor3_;
         
         //Parameter
         int DILATE_KERNEL_SIZE_;
         int BLUR_KERNEL_SIZE_;
         int THRESHOLD_;
         int MIN_BOUNDING_BOX_AREA_;
+        std::string FILE_NAME_;
         
         //Setter and getter functions
 public:

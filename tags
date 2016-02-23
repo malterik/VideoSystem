@@ -56,6 +56,7 @@ ARCHITECTURE_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	401;
 ARCHITECTURE_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	404;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	407;"	d	file:
 ARCHITECTURE_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	411;"	d	file:
+BLUR_KERNEL_SIZE_	src/PeopleDetection/PeopleDetection.hpp	/^        int BLUR_KERNEL_SIZE_;$/;"	m	class:PeopleDetection
 BlobDetection	src/BlobDetection/BlobDetection.cpp	/^BlobDetection::BlobDetection() {$/;"	f	class:BlobDetection
 BlobDetection	src/BlobDetection/BlobDetection.hpp	/^class BlobDetection$/;"	c
 CMAKE_BINARY_DIR	build/Makefile	/^CMAKE_BINARY_DIR = \/home\/erik\/Programming\/VideoSystem\/build$/;"	m
@@ -480,8 +481,10 @@ DEC	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
 DEC	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	415;"	d	file:
 DEC	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
 DEC	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	415;"	d	file:
+DILATE_KERNEL_SIZE_	src/PeopleDetection/PeopleDetection.hpp	/^        int DILATE_KERNEL_SIZE_;$/;"	m	class:PeopleDetection
 DirectoryOfThisScript	.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	f
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
+FILE_NAME_	src/PeopleDetection/PeopleDetection.hpp	/^        std::string FILE_NAME_;$/;"	m	class:PeopleDetection
 FaceDetection	src/FaceDetection/FaceDetection.cpp	/^FaceDetection::FaceDetection(std::string faceConfig, std::string eyeConfig):$/;"	f	class:FaceDetection
 FaceDetection	src/FaceDetection/FaceDetection.hpp	/^class FaceDetection$/;"	c
 FlagsForFile	.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
@@ -495,7 +498,9 @@ ID_VOID_MAIN	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 ID_VOID_MAIN	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 IsHeaderFile	.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	f
 LANDING	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
+MIN_BOUNDING_BOX_AREA_	src/PeopleDetection/PeopleDetection.hpp	/^        int MIN_BOUNDING_BOX_AREA_;$/;"	m	class:PeopleDetection
 MakeRelativePathsInFlagsAbsolute	.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
+NLOHMANN_JSON_HPP	src/json/json.hpp	12;"	d
 PARKING	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	274;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	277;"	d	file:
@@ -621,10 +626,11 @@ PLATFORM_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	351;"	d	
 PLATFORM_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	354;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	357;"	d	file:
 PLATFORM_ID	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	361;"	d	file:
-PeopleDetection	src/PeopleDetection/PeopleDetection.cpp	/^PeopleDetection::PeopleDetection() {$/;"	f	class:PeopleDetection
+PeopleDetection	src/PeopleDetection/PeopleDetection.cpp	/^PeopleDetection::PeopleDetection() : $/;"	f	class:PeopleDetection
 PeopleDetection	src/PeopleDetection/PeopleDetection.hpp	/^class PeopleDetection$/;"	c
 PeopleDetectionHOG	src/PeopleDetectionHOG/PeopleDetectionHOG.cpp	/^PeopleDetectionHOG::PeopleDetectionHOG() {$/;"	f	class:PeopleDetectionHOG
 PeopleDetectionHOG	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^class PeopleDetectionHOG$/;"	c
+PoseEstimator	src/PoseEstimator/PoseEstimator.hpp	/^class PoseEstimator$/;"	c
 RM	build/Makefile	/^RM = \/usr\/bin\/cmake -E remove -f$/;"	m
 SHELL	build/Makefile	/^SHELL = \/bin\/sh$/;"	m
 SIMULATE_ID	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	155;"	d	file:
@@ -675,56 +681,136 @@ STRINGIFY_HELPER	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	264
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
 SituationKnowledge	src/SituationKnowledge/SituationKnowledge.hpp	/^class SituationKnowledge $/;"	c
 TAKEOFF	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
+THRESHOLD_	src/PeopleDetection/PeopleDetection.hpp	/^        int THRESHOLD_;$/;"	m	class:PeopleDetection
 WindowManager	src/WindowManager/WindowManager.cpp	/^WindowManager::WindowManager() {$/;"	f	class:WindowManager
 WindowManager	src/WindowManager/WindowManager.hpp	/^class WindowManager$/;"	c
+_json	src/json/json.hpp	/^inline nlohmann::json operator "" _json(const char* s, std::size_t)$/;"	f
 addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(cv::Mat image) {$/;"	f	class:WindowManager
 addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(std::vector<cv::Mat> imageVector) {$/;"	f	class:WindowManager
+alpha_slider_max	src/main.cpp	/^const int alpha_slider_max = 100;$/;"	v
+anchor	src/json/json.hpp	/^                : anchor(it)$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+anchor	src/json/json.hpp	/^            IteratorType anchor;$/;"	m	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+array	src/json/json.hpp	/^        array,           \/\/\/< array (ordered collection of values)$/;"	m	class:nlohmann::basic_json::value_t
+array	src/json/json.hpp	/^        array_t* array;$/;"	m	union:nlohmann::basic_json::json_value
+array	src/json/json.hpp	/^    static basic_json array(std::initializer_list<basic_json> init =$/;"	f	class:nlohmann::basic_json
+array_end	src/json/json.hpp	/^        array_end,$/;"	m	class:nlohmann::basic_json::parse_event_t
+array_index	src/json/json.hpp	/^            size_t array_index = 0;$/;"	m	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+array_iterator	src/json/json.hpp	/^        typename array_t::iterator array_iterator;$/;"	m	struct:nlohmann::basic_json::internal_iterator
+array_start	src/json/json.hpp	/^        array_start,$/;"	m	class:nlohmann::basic_json::parse_event_t
+at	src/json/json.hpp	/^    const_reference at(const typename object_t::key_type& key) const$/;"	f	class:nlohmann::basic_json
+at	src/json/json.hpp	/^    const_reference at(size_type idx) const$/;"	f	class:nlohmann::basic_json
+at	src/json/json.hpp	/^    reference at(const typename object_t::key_type& key)$/;"	f	class:nlohmann::basic_json
+at	src/json/json.hpp	/^    reference at(size_type idx)$/;"	f	class:nlohmann::basic_json
+attempt_cast	src/json/json.hpp	/^        static bool attempt_cast(T_A source, T_B& dest)$/;"	f	class:nlohmann::basic_json::lexer
+back	src/json/json.hpp	/^    const_reference back() const$/;"	f	class:nlohmann::basic_json
+back	src/json/json.hpp	/^    reference back()$/;"	f	class:nlohmann::basic_json
 background_image_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat background_image_;  $/;"	m	class:PeopleDetection
+base_iterator	src/json/json.hpp	/^            : base_iterator(it)$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+base_iterator	src/json/json.hpp	/^            : base_iterator(object)$/;"	f	class:nlohmann::basic_json::iterator
+base_iterator	src/json/json.hpp	/^            : base_iterator(other)$/;"	f	class:nlohmann::basic_json::iterator
+basic_json	src/json/json.hpp	/^        : basic_json(value_t::null)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(InputIT first, InputIT last) : m_type(first.m_object->m_type)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const CompatibleArrayType& val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const CompatibleObjectType& val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const CompatibleStringType& val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const array_t& val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const basic_json& other)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const object_t& val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const string_t& val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const typename string_t::value_type* val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(const value_t value_type)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(size_type cnt, const basic_json& val)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    basic_json(std::initializer_list<basic_json> init,$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^    explicit basic_json(std::istream& i, parser_callback_t cb = nullptr)$/;"	f	class:nlohmann::basic_json
+basic_json	src/json/json.hpp	/^class basic_json$/;"	c	namespace:nlohmann
+begin_array	src/json/json.hpp	/^            begin_array,     \/\/\/< the character for array begin "["$/;"	m	class:nlohmann::basic_json::lexer::token_type
+begin_object	src/json/json.hpp	/^            begin_object,    \/\/\/< the character for object begin "{"$/;"	m	class:nlohmann::basic_json::lexer::token_type
+begin_value	src/json/json.hpp	/^        static constexpr difference_type begin_value = 0;$/;"	m	class:nlohmann::basic_json::primitive_iterator_t
 blob_image_	src/BlobDetection/BlobDetection.hpp	/^    cv::Mat blob_image_;$/;"	m	class:BlobDetection
 blob_parameter_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector::Params blob_parameter_;$/;"	m	class:BlobDetection
+blurKernel	src/main.cpp	/^int blurKernel; $/;"	v
 blur_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat blur_img_;$/;"	m	class:PeopleDetection
-boundRect	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Rect> boundRect;$/;"	m	class:PeopleDetection
+boolean	src/json/json.hpp	/^        boolean,         \/\/\/< boolean value$/;"	m	class:nlohmann::basic_json::value_t
+boolean	src/json/json.hpp	/^        boolean_t boolean;$/;"	m	union:nlohmann::basic_json::json_value
+boolean	src/json/json.hpp	/^        json_value(boolean_t v) noexcept : boolean(v) {}$/;"	f	union:nlohmann::basic_json::json_value
+callback	src/json/json.hpp	/^        parser_callback_t callback;$/;"	m	class:nlohmann::basic_json::parser
 cap_	src/CameraInterface/CameraInterface.hpp	/^	cv::VideoCapture cap_; $/;"	m	class:CameraInterface
-center	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Point2f>center;$/;"	m	class:PeopleDetection
 compilation_database_folder	.ycm_extra_conf.py	/^compilation_database_folder = ''$/;"	v
+const_iterator	src/json/json.hpp	/^    class const_iterator : public std::iterator<std::random_access_iterator_tag, const basic_json>$/;"	c	class:nlohmann::basic_json
+container	src/json/json.hpp	/^        typename IteratorType::reference container;$/;"	m	class:nlohmann::basic_json::iteration_proxy
 contour_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat contour_img_;$/;"	m	class:PeopleDetection
 contours_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point>> contours_;$/;"	m	class:PeopleDetection
 contours_poly	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point> > contours_poly; $/;"	m	class:PeopleDetection
-contours_poly_candidates_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point> > contours_poly_candidates_; $/;"	m	class:PeopleDetection
+count	src/json/json.hpp	/^    size_type count(typename object_t::key_type key) const$/;"	f	class:nlohmann::basic_json
+create	src/json/json.hpp	/^    static T* create(Args&& ... args)$/;"	f	class:nlohmann::basic_json
 current_flight_phase_	src/SituationKnowledge/SituationKnowledge.hpp	/^    FlightPhase current_flight_phase_;$/;"	m	class:SituationKnowledge
 database	.ycm_extra_conf.py	/^  database = None$/;"	v
 database	.ycm_extra_conf.py	/^  database = ycm_core.CompilationDatabase( compilation_database_folder )$/;"	v
-debugImage	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::debugImage() {$/;"	f	class:PeopleDetection
-detect	src/PeopleDetection/PeopleDetection.cpp	/^std::vector<cv::Rect> PeopleDetection::detect(cv::Mat image) {$/;"	f	class:PeopleDetection
+debugImage	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::debugImage() const  {$/;"	f	class:PeopleDetection
+depth	src/json/json.hpp	/^        int depth = 0;$/;"	m	class:nlohmann::basic_json::parser
+detect	src/PeopleDetection/PeopleDetection.cpp	/^const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {$/;"	f	class:PeopleDetection
 detectAndDisplay	objectDetection.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
 detectAndDisplay	src/FaceDetection/FaceDetection.cpp	/^void FaceDetection::detectAndDisplay( cv::Mat frame )$/;"	f	class:FaceDetection
 detectAndDisplay	src/PeopleDetectionHOG/PeopleDetectionHOG.cpp	/^void PeopleDetectionHOG::detectAndDisplay(cv::Mat image) {$/;"	f	class:PeopleDetectionHOG
 detector_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector detector_;$/;"	m	class:BlobDetection
-drawBoundingBox	src/WindowManager/WindowManager.cpp	/^void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, cv::Mat img) {$/;"	f	class:WindowManager
+dilateKernel	src/main.cpp	/^int dilateKernel;$/;"	v
+drawBoundingBox	src/WindowManager/WindowManager.cpp	/^void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& img) {$/;"	f	class:WindowManager
 dst_	src/WindowManager/WindowManager.hpp	/^    cv::Mat dst_;$/;"	m	class:WindowManager
 dst_cols_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_cols_;$/;"	m	class:WindowManager
 dst_heigth_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_heigth_;$/;"	m	class:WindowManager
 dst_rows_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_rows_;$/;"	m	class:WindowManager
 dst_width_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_width_;$/;"	m	class:WindowManager
+dump	src/json/json.hpp	/^    string_t dump(const int indent = -1) const$/;"	f	class:nlohmann::basic_json
+dump	src/json/json.hpp	/^    void dump(std::ostream& o,$/;"	f	class:nlohmann::basic_json
+end_array	src/json/json.hpp	/^            end_array,       \/\/\/< the character for array end "]"$/;"	m	class:nlohmann::basic_json::lexer::token_type
+end_object	src/json/json.hpp	/^            end_object,      \/\/\/< the character for object end "}"$/;"	m	class:nlohmann::basic_json::lexer::token_type
+end_value	src/json/json.hpp	/^        static constexpr difference_type end_value = begin_value + 1;$/;"	m	class:nlohmann::basic_json::primitive_iterator_t
+erase	src/json/json.hpp	/^    InteratorType erase(InteratorType first, InteratorType last)$/;"	f	class:nlohmann::basic_json
+erase	src/json/json.hpp	/^    InteratorType erase(InteratorType pos)$/;"	f	class:nlohmann::basic_json
+erase	src/json/json.hpp	/^    size_type erase(const typename object_t::key_type& key)$/;"	f	class:nlohmann::basic_json
+erase	src/json/json.hpp	/^    void erase(const size_type idx)$/;"	f	class:nlohmann::basic_json
+escape_string	src/json/json.hpp	/^    static string_t escape_string(const string_t& s)$/;"	f	class:nlohmann::basic_json
+expect	src/json/json.hpp	/^        void expect(typename lexer::token_type t) const$/;"	f	class:nlohmann::basic_json::parser
 eyes_cascade	objectDetection.cpp	/^CascadeClassifier eyes_cascade;$/;"	v
 eyes_cascade_	src/FaceDetection/FaceDetection.hpp	/^	cv::CascadeClassifier eyes_cascade_;$/;"	m	class:FaceDetection
 eyes_cascade_name	objectDetection.cpp	/^String eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
-eyes_cascade_name	src/main.cpp	/^cv::string eyes_cascade_name = "haarcascade_eye_tree_eyeglasses.xml";$/;"	v
 eyes_cascade_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string eyes_cascade_name_; \/\/ = "haarcascade_eye_tree_eyeglasses.xml";$/;"	m	class:FaceDetection
 face_cascade	objectDetection.cpp	/^CascadeClassifier face_cascade;$/;"	v
 face_cascade_	src/FaceDetection/FaceDetection.hpp	/^	cv::CascadeClassifier face_cascade_;$/;"	m	class:FaceDetection
 face_cascade_name	objectDetection.cpp	/^String face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
-face_cascade_name	src/main.cpp	/^cv::string face_cascade_name = "haarcascade_frontalface_alt.xml";$/;"	v
 face_cascade_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string face_cascade_name_; \/\/ = "haarcascade_frontalface_alt.xml";$/;"	m	class:FaceDetection
 features	build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
+find	src/json/json.hpp	/^    const_iterator find(typename object_t::key_type key) const$/;"	f	class:nlohmann::basic_json
+find	src/json/json.hpp	/^    iterator find(typename object_t::key_type key)$/;"	f	class:nlohmann::basic_json
 flags	.ycm_extra_conf.py	/^flags = [$/;"	v
 found_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::vector<cv::Rect> found_;$/;"	m	class:PeopleDetectionHOG
 found_filtered_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::vector<cv::Rect> found_filtered_;$/;"	m	class:PeopleDetectionHOG
+front	src/json/json.hpp	/^    const_reference front() const$/;"	f	class:nlohmann::basic_json
+front	src/json/json.hpp	/^    reference front()$/;"	f	class:nlohmann::basic_json
+get	src/json/json.hpp	/^    ValueType get() const$/;"	f	class:nlohmann::basic_json
 getBlobImage	src/BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
-getImage	src/CameraInterface/CameraInterface.cpp	/^cv::Mat CameraInterface::getImage() $/;"	f	class:CameraInterface
+getBlurKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getBlurKernelSize() {$/;"	f	class:PeopleDetection
+getDilateKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getDilateKernelSize() {$/;"	f	class:PeopleDetection
+getImage	src/CameraInterface/CameraInterface.cpp	/^const cv::Mat& CameraInterface::getImage() $/;"	f	class:CameraInterface
 getInstance	src/WindowManager/WindowManager.cpp	/^WindowManager& WindowManager::getInstance() {$/;"	f	class:WindowManager
 getKeyPoints	src/BlobDetection/BlobDetection.cpp	/^    std::vector<cv::KeyPoint> BlobDetection::getKeyPoints(cv::Mat image){$/;"	f	class:BlobDetection
+getMinBoundingBoxArea	src/PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getMinBoundingBoxArea() {$/;"	f	class:PeopleDetection
+getThreshold	src/PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getThreshold() {$/;"	f	class:PeopleDetection
+get_allocator	src/json/json.hpp	/^    static allocator_type get_allocator()$/;"	f	class:nlohmann::basic_json
+get_impl	src/json/json.hpp	/^    T get_impl(T*) const$/;"	f	class:nlohmann::basic_json
+get_impl	src/json/json.hpp	/^    array_t get_impl(array_t*) const$/;"	f	class:nlohmann::basic_json
+get_impl	src/json/json.hpp	/^    constexpr boolean_t get_impl(boolean_t*) const$/;"	f	class:nlohmann::basic_json
+get_impl	src/json/json.hpp	/^    object_t get_impl(object_t*) const$/;"	f	class:nlohmann::basic_json
+get_impl	src/json/json.hpp	/^    std::vector<T> get_impl(std::vector<T>*) const$/;"	f	class:nlohmann::basic_json
+get_number	src/json/json.hpp	/^        void get_number(basic_json& result) const$/;"	f	class:nlohmann::basic_json::lexer
+get_ref	src/json/json.hpp	/^    ReferenceType get_ref() const$/;"	f	class:nlohmann::basic_json
+get_ref	src/json/json.hpp	/^    ReferenceType get_ref()$/;"	f	class:nlohmann::basic_json
+get_ref_impl	src/json/json.hpp	/^    static ReferenceType get_ref_impl(ThisType& obj)$/;"	f	class:nlohmann::basic_json
+get_string	src/json/json.hpp	/^        string_t get_string() const$/;"	f	class:nlohmann::basic_json::lexer
+get_token	src/json/json.hpp	/^        string_t get_token() const$/;"	f	class:nlohmann::basic_json::lexer
+has_mapped_type	src/json/json.hpp	/^struct has_mapped_type$/;"	s	namespace:nlohmann::__anon1
+hash	src/json/json.hpp	/^struct hash<nlohmann::json>$/;"	s	namespace:std
 hierarchy_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Vec4i> hierarchy_;$/;"	m	class:PeopleDetection
 hog_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	cv::HOGDescriptor hog_;$/;"	m	class:PeopleDetectionHOG
 image_	src/CameraInterface/CameraInterface.hpp	/^	cv::Mat image_;$/;"	m	class:CameraInterface
@@ -758,9 +844,58 @@ info_version	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const 
 info_version	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
 info_version	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	/^char const info_version[] = {$/;"	v
 info_version	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const info_version[] = {$/;"	v
+insert	src/json/json.hpp	/^    iterator insert(const_iterator pos, basic_json&& val)$/;"	f	class:nlohmann::basic_json
+insert	src/json/json.hpp	/^    iterator insert(const_iterator pos, const basic_json& val)$/;"	f	class:nlohmann::basic_json
+insert	src/json/json.hpp	/^    iterator insert(const_iterator pos, const_iterator first, const_iterator last)$/;"	f	class:nlohmann::basic_json
+insert	src/json/json.hpp	/^    iterator insert(const_iterator pos, size_type cnt, const basic_json& val)$/;"	f	class:nlohmann::basic_json
+insert	src/json/json.hpp	/^    iterator insert(const_iterator pos, std::initializer_list<basic_json> ilist)$/;"	f	class:nlohmann::basic_json
+internal_iterator	src/json/json.hpp	/^    struct internal_iterator$/;"	s	class:nlohmann::basic_json
+iteration_proxy	src/json/json.hpp	/^        explicit iteration_proxy(typename IteratorType::reference cont)$/;"	f	class:nlohmann::basic_json::iteration_proxy
+iteration_proxy	src/json/json.hpp	/^    class iteration_proxy$/;"	c	class:nlohmann::basic_json
+iteration_proxy_internal	src/json/json.hpp	/^        class iteration_proxy_internal$/;"	c	class:nlohmann::basic_json::iteration_proxy
+iterator	src/json/json.hpp	/^    class iterator : public const_iterator$/;"	c	class:nlohmann::basic_json
+iterator_wrapper	src/json/json.hpp	/^    static iteration_proxy<const_iterator> iterator_wrapper(const_reference cont)$/;"	f	class:nlohmann::basic_json
+iterator_wrapper	src/json/json.hpp	/^    static iteration_proxy<iterator> iterator_wrapper(reference cont)$/;"	f	class:nlohmann::basic_json
+json_reverse_iterator	src/json/json.hpp	/^    class json_reverse_iterator : public std::reverse_iterator<Base>$/;"	c	class:nlohmann::basic_json
+json_value	src/json/json.hpp	/^        json_value(const array_t& value)$/;"	f	union:nlohmann::basic_json::json_value
+json_value	src/json/json.hpp	/^        json_value(const object_t& value)$/;"	f	union:nlohmann::basic_json::json_value
+json_value	src/json/json.hpp	/^        json_value(const string_t& value)$/;"	f	union:nlohmann::basic_json::json_value
+json_value	src/json/json.hpp	/^        json_value(value_t t)$/;"	f	union:nlohmann::basic_json::json_value
+json_value	src/json/json.hpp	/^    union json_value$/;"	u	class:nlohmann::basic_json
 kernel_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat kernel_;$/;"	m	class:PeopleDetection
-kernel_size_	src/PeopleDetection/PeopleDetection.hpp	/^        int kernel_size_ =4;$/;"	m	class:PeopleDetection
+key	src/json/json.hpp	/^            typename basic_json::string_t key() const$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+key	src/json/json.hpp	/^        key,$/;"	m	class:nlohmann::basic_json::parse_event_t
+key	src/json/json.hpp	/^        typename object_t::key_type key() const$/;"	f	class:nlohmann::basic_json::const_iterator
+key	src/json/json.hpp	/^        typename object_t::key_type key() const$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
 keypoints_	src/BlobDetection/BlobDetection.hpp	/^    std::vector<cv::KeyPoint> keypoints_;    $/;"	m	class:BlobDetection
+last_token	src/json/json.hpp	/^        typename lexer::token_type last_token = lexer::token_type::uninitialized;$/;"	m	class:nlohmann::basic_json::parser
+lexer	src/json/json.hpp	/^    class lexer$/;"	c	class:nlohmann::basic_json
+literal_false	src/json/json.hpp	/^            literal_false,   \/\/\/< the "false" literal$/;"	m	class:nlohmann::basic_json::lexer::token_type
+literal_null	src/json/json.hpp	/^            literal_null,    \/\/\/< the "null" literal$/;"	m	class:nlohmann::basic_json::lexer::token_type
+literal_true	src/json/json.hpp	/^            literal_true,    \/\/\/< the "true" literal$/;"	m	class:nlohmann::basic_json::lexer::token_type
+m_buffer	src/json/json.hpp	/^            : m_stream(nullptr), m_buffer(s)$/;"	f	class:nlohmann::basic_json::lexer
+m_buffer	src/json/json.hpp	/^            : m_stream(s), m_buffer()$/;"	f	class:nlohmann::basic_json::lexer
+m_buffer	src/json/json.hpp	/^        string_t m_buffer;$/;"	m	class:nlohmann::basic_json::lexer
+m_content	src/json/json.hpp	/^        const lexer_char_t* m_content = nullptr;$/;"	m	class:nlohmann::basic_json::lexer
+m_cursor	src/json/json.hpp	/^        const lexer_char_t* m_cursor = nullptr;$/;"	m	class:nlohmann::basic_json::lexer
+m_it	src/json/json.hpp	/^            : m_object(other.m_object), m_it(other.m_it)$/;"	f	class:nlohmann::basic_json::const_iterator
+m_it	src/json/json.hpp	/^        difference_type m_it = std::numeric_limits<std::ptrdiff_t>::denorm_min();$/;"	m	class:nlohmann::basic_json::primitive_iterator_t
+m_it	src/json/json.hpp	/^        internal_iterator m_it = internal_iterator();$/;"	m	class:nlohmann::basic_json::const_iterator
+m_lexer	src/json/json.hpp	/^            : callback(cb), m_lexer(s)$/;"	f	class:nlohmann::basic_json::parser
+m_lexer	src/json/json.hpp	/^        lexer m_lexer;$/;"	m	class:nlohmann::basic_json::parser
+m_limit	src/json/json.hpp	/^        const lexer_char_t* m_limit = nullptr;$/;"	m	class:nlohmann::basic_json::lexer
+m_marker	src/json/json.hpp	/^        const lexer_char_t* m_marker = nullptr;$/;"	m	class:nlohmann::basic_json::lexer
+m_object	src/json/json.hpp	/^            : m_object(object)$/;"	f	class:nlohmann::basic_json::const_iterator
+m_object	src/json/json.hpp	/^            : m_object(other.m_object)$/;"	f	class:nlohmann::basic_json::const_iterator
+m_object	src/json/json.hpp	/^        pointer m_object = nullptr;$/;"	m	class:nlohmann::basic_json::const_iterator
+m_start	src/json/json.hpp	/^        const lexer_char_t* m_start = nullptr;$/;"	m	class:nlohmann::basic_json::lexer
+m_stream	src/json/json.hpp	/^        std::istream* m_stream = nullptr;$/;"	m	class:nlohmann::basic_json::lexer
+m_type	src/json/json.hpp	/^    value_t m_type = value_t::null;$/;"	m	class:nlohmann::basic_json
+m_value	src/json/json.hpp	/^        : m_type(value_t::boolean), m_value(val)$/;"	f	class:nlohmann::basic_json
+m_value	src/json/json.hpp	/^        : m_type(value_t::number_float), m_value(val)$/;"	f	class:nlohmann::basic_json
+m_value	src/json/json.hpp	/^        : m_type(value_t::number_integer), m_value(val)$/;"	f	class:nlohmann::basic_json
+m_value	src/json/json.hpp	/^        : m_type(value_t::number_unsigned), m_value(val)$/;"	f	class:nlohmann::basic_json
+m_value	src/json/json.hpp	/^    json_value m_value = {};$/;"	m	class:nlohmann::basic_json
 main	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^int main(int argc, char* argv[])$/;"	f
 main	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^void main() {}$/;"	f
 main	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^int main(int argc, char* argv[])$/;"	f
@@ -771,22 +906,161 @@ main	build/CMakeFiles/feature_tests.c	/^int main(int argc, char** argv) { (void)
 main	build/CMakeFiles/feature_tests.cxx	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
 main	objectDetection.cpp	/^int main( void )$/;"	f
 main	src/main.cpp	/^int main(void)$/;"	f
+minBoundingBoxArea	src/main.cpp	/^int minBoundingBoxArea;$/;"	v
+move	src/json/json.hpp	/^          m_value(std::move(other.m_value))$/;"	f	class:nlohmann::basic_json
+name_separator	src/json/json.hpp	/^            name_separator,  \/\/\/< the name separator ":"$/;"	m	class:nlohmann::basic_json::lexer::token_type
+nlohmann	src/json/json.hpp	/^namespace nlohmann$/;"	n
+noexcept	src/json/json.hpp	/^                 nlohmann::json& j2) noexcept($/;"	f	namespace:std
+noexcept	src/json/json.hpp	/^        const_iterator& operator=(const_iterator other) noexcept($/;"	f	class:nlohmann::basic_json::const_iterator
+noexcept	src/json/json.hpp	/^        internal_iterator() noexcept$/;"	m	struct:nlohmann::basic_json::internal_iterator
+noexcept	src/json/json.hpp	/^        iterator& operator=(iterator other) noexcept($/;"	f	class:nlohmann::basic_json::iterator
+noexcept	src/json/json.hpp	/^    reference& operator=(basic_json other) noexcept ($/;"	f	class:nlohmann::basic_json
+noexcept	src/json/json.hpp	/^    void swap(reference other) noexcept ($/;"	f	class:nlohmann::basic_json
+null	src/json/json.hpp	/^        null,            \/\/\/< null value$/;"	m	class:nlohmann::basic_json::value_t
+number_float	src/json/json.hpp	/^        json_value(number_float_t v) noexcept : number_float(v) {}$/;"	f	union:nlohmann::basic_json::json_value
+number_float	src/json/json.hpp	/^        number_float,    \/\/\/< number value (floating-point)$/;"	m	class:nlohmann::basic_json::value_t
+number_float	src/json/json.hpp	/^        number_float_t number_float;$/;"	m	union:nlohmann::basic_json::json_value
+number_float_t	src/json/json.hpp	/^        : basic_json(number_float_t(val))$/;"	f	class:nlohmann::basic_json
+number_integer	src/json/json.hpp	/^        json_value(number_integer_t v) noexcept : number_integer(v) {}$/;"	f	union:nlohmann::basic_json::json_value
+number_integer	src/json/json.hpp	/^        number_integer,  \/\/\/< number value (integer)$/;"	m	class:nlohmann::basic_json::value_t
+number_integer	src/json/json.hpp	/^        number_integer_t number_integer;$/;"	m	union:nlohmann::basic_json::json_value
 number_of_people_	src/SituationKnowledge/SituationKnowledge.hpp	/^    int number_of_people_;$/;"	m	class:SituationKnowledge
+number_unsigned	src/json/json.hpp	/^        json_value(number_unsigned_t v) noexcept : number_unsigned(v) {}$/;"	f	union:nlohmann::basic_json::json_value
+number_unsigned	src/json/json.hpp	/^        number_unsigned, \/\/\/< number value (unsigned integer)$/;"	m	class:nlohmann::basic_json::value_t
+number_unsigned	src/json/json.hpp	/^        number_unsigned_t number_unsigned;$/;"	m	union:nlohmann::basic_json::json_value
+object	src/json/json.hpp	/^        object,          \/\/\/< object (unordered set of name\/value pairs)$/;"	m	class:nlohmann::basic_json::value_t
+object	src/json/json.hpp	/^        object_t* object;$/;"	m	union:nlohmann::basic_json::json_value
+object	src/json/json.hpp	/^    static basic_json object(std::initializer_list<basic_json> init =$/;"	f	class:nlohmann::basic_json
+object_end	src/json/json.hpp	/^        object_end,$/;"	m	class:nlohmann::basic_json::parse_event_t
+object_iterator	src/json/json.hpp	/^        typename object_t::iterator object_iterator;$/;"	m	struct:nlohmann::basic_json::internal_iterator
+object_start	src/json/json.hpp	/^        object_start,$/;"	m	class:nlohmann::basic_json::parse_event_t
+on_trackbar_area	src/main.cpp	/^void on_trackbar_area( int, void* )$/;"	f
+on_trackbar_blur	src/main.cpp	/^void on_trackbar_blur( int, void* )$/;"	f
+on_trackbar_dilate	src/main.cpp	/^void on_trackbar_dilate( int, void* )$/;"	f
+on_trackbar_threshold	src/main.cpp	/^void on_trackbar_threshold( int, void* )$/;"	f
+operator !=	src/json/json.hpp	/^            bool operator!= (const iteration_proxy_internal& o) const$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+operator !=	src/json/json.hpp	/^        bool operator!=(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator ()	src/json/json.hpp	/^    std::size_t operator()(const nlohmann::json& j) const$/;"	f	struct:std::hash
+operator *	src/json/json.hpp	/^            iteration_proxy_internal& operator*()$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+operator *	src/json/json.hpp	/^        reference operator*() const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator *	src/json/json.hpp	/^        reference operator*()$/;"	f	class:nlohmann::basic_json::iterator
+operator +	src/json/json.hpp	/^        const_iterator operator+(difference_type i)$/;"	f	class:nlohmann::basic_json::const_iterator
+operator +	src/json/json.hpp	/^        iterator operator+(difference_type i)$/;"	f	class:nlohmann::basic_json::iterator
+operator +	src/json/json.hpp	/^        json_reverse_iterator operator+(difference_type i) const$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator ++	src/json/json.hpp	/^            iteration_proxy_internal& operator++()$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+operator ++	src/json/json.hpp	/^        const_iterator operator++(int)$/;"	f	class:nlohmann::basic_json::const_iterator
+operator ++	src/json/json.hpp	/^        const_iterator& operator++()$/;"	f	class:nlohmann::basic_json::const_iterator
+operator ++	src/json/json.hpp	/^        iterator operator++(int)$/;"	f	class:nlohmann::basic_json::iterator
+operator ++	src/json/json.hpp	/^        iterator& operator++()$/;"	f	class:nlohmann::basic_json::iterator
+operator ++	src/json/json.hpp	/^        json_reverse_iterator operator++(int)$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator ++	src/json/json.hpp	/^        json_reverse_iterator& operator++()$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator +=	src/json/json.hpp	/^        const_iterator& operator+=(difference_type i)$/;"	f	class:nlohmann::basic_json::const_iterator
+operator +=	src/json/json.hpp	/^        iterator& operator+=(difference_type i)$/;"	f	class:nlohmann::basic_json::iterator
+operator +=	src/json/json.hpp	/^        json_reverse_iterator& operator+=(difference_type i)$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator +=	src/json/json.hpp	/^    reference operator+=(basic_json&& val)$/;"	f	class:nlohmann::basic_json
+operator +=	src/json/json.hpp	/^    reference operator+=(const basic_json& val)$/;"	f	class:nlohmann::basic_json
+operator +=	src/json/json.hpp	/^    reference operator+=(const typename object_t::value_type& val)$/;"	f	class:nlohmann::basic_json
+operator -	src/json/json.hpp	/^        const_iterator operator-(difference_type i)$/;"	f	class:nlohmann::basic_json::const_iterator
+operator -	src/json/json.hpp	/^        difference_type operator-(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator -	src/json/json.hpp	/^        difference_type operator-(const iterator& other) const$/;"	f	class:nlohmann::basic_json::iterator
+operator -	src/json/json.hpp	/^        difference_type operator-(const json_reverse_iterator& other) const$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator -	src/json/json.hpp	/^        iterator operator-(difference_type i)$/;"	f	class:nlohmann::basic_json::iterator
+operator -	src/json/json.hpp	/^        json_reverse_iterator operator-(difference_type i) const$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator --	src/json/json.hpp	/^        const_iterator operator--(int)$/;"	f	class:nlohmann::basic_json::const_iterator
+operator --	src/json/json.hpp	/^        const_iterator& operator--()$/;"	f	class:nlohmann::basic_json::const_iterator
+operator --	src/json/json.hpp	/^        iterator operator--(int)$/;"	f	class:nlohmann::basic_json::iterator
+operator --	src/json/json.hpp	/^        iterator& operator--()$/;"	f	class:nlohmann::basic_json::iterator
+operator --	src/json/json.hpp	/^        json_reverse_iterator operator--(int)$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator --	src/json/json.hpp	/^        json_reverse_iterator& operator--()$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator -=	src/json/json.hpp	/^        const_iterator& operator-=(difference_type i)$/;"	f	class:nlohmann::basic_json::const_iterator
+operator -=	src/json/json.hpp	/^        iterator& operator-=(difference_type i)$/;"	f	class:nlohmann::basic_json::iterator
+operator ->	src/json/json.hpp	/^        pointer operator->() const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator ->	src/json/json.hpp	/^        pointer operator->()$/;"	f	class:nlohmann::basic_json::iterator
+operator <	src/json/json.hpp	/^        bool operator<(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator <<	src/json/json.hpp	/^    friend std::istream& operator<<(basic_json& j, std::istream& i)$/;"	f	class:nlohmann::basic_json
+operator <<	src/json/json.hpp	/^    friend std::ostream& operator<<(std::ostream& o, const basic_json& j)$/;"	f	class:nlohmann::basic_json
+operator <=	src/json/json.hpp	/^        bool operator<=(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator ==	src/json/json.hpp	/^        bool operator==(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator >	src/json/json.hpp	/^        bool operator>(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator >=	src/json/json.hpp	/^        bool operator>=(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator >>	src/json/json.hpp	/^    friend std::istream& operator>>(std::istream& i, basic_json& j)$/;"	f	class:nlohmann::basic_json
+operator >>	src/json/json.hpp	/^    friend std::ostream& operator>>(const basic_json& j, std::ostream& o)$/;"	f	class:nlohmann::basic_json
+operator ValueType	src/json/json.hpp	/^    operator ValueType() const$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^        reference operator[](difference_type n) const$/;"	f	class:nlohmann::basic_json::const_iterator
+operator []	src/json/json.hpp	/^        reference operator[](difference_type n) const$/;"	f	class:nlohmann::basic_json::iterator
+operator []	src/json/json.hpp	/^        reference operator[](difference_type n) const$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+operator []	src/json/json.hpp	/^    const_reference operator[](T * (&key)[n]) const$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^    const_reference operator[](T* key) const$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^    const_reference operator[](const typename object_t::key_type& key) const$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^    const_reference operator[](size_type idx) const$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^    reference operator[](T * (&key)[n])$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^    reference operator[](T* key)$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^    reference operator[](const typename object_t::key_type& key)$/;"	f	class:nlohmann::basic_json
+operator []	src/json/json.hpp	/^    reference operator[](size_type idx)$/;"	f	class:nlohmann::basic_json
 os	.ycm_extra_conf.py	/^import os$/;"	i
 p_background_subtractor_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractorMOG> p_background_subtractor_;$/;"	m	class:PeopleDetection
+parse	src/json/json.hpp	/^        basic_json parse()$/;"	f	class:nlohmann::basic_json::parser
+parse	src/json/json.hpp	/^    static basic_json parse(const string_t& s, parser_callback_t cb = nullptr)$/;"	f	class:nlohmann::basic_json
+parse	src/json/json.hpp	/^    static basic_json parse(std::istream& i, parser_callback_t cb = nullptr)$/;"	f	class:nlohmann::basic_json
+parse	src/json/json.hpp	/^    static basic_json parse(std::istream&& i, parser_callback_t cb = nullptr)$/;"	f	class:nlohmann::basic_json
+parse_error	src/json/json.hpp	/^            parse_error,     \/\/\/< indicating a parse error$/;"	m	class:nlohmann::basic_json::lexer::token_type
+parse_event_t	src/json/json.hpp	/^    enum class parse_event_t : uint8_t$/;"	c	class:nlohmann::basic_json
+parse_internal	src/json/json.hpp	/^        basic_json parse_internal(bool keep)$/;"	f	class:nlohmann::basic_json::parser
+parser	src/json/json.hpp	/^    class parser$/;"	c	class:nlohmann::basic_json
+peopleDetector	src/main.cpp	/^PeopleDetection peopleDetector;$/;"	v
 people_candidates_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Rect> people_candidates_;$/;"	m	class:PeopleDetection
+primitive_iterator	src/json/json.hpp	/^            : object_iterator(), array_iterator(), primitive_iterator()$/;"	f	struct:nlohmann::basic_json::internal_iterator
+primitive_iterator	src/json/json.hpp	/^        primitive_iterator_t primitive_iterator;$/;"	m	struct:nlohmann::basic_json::internal_iterator
+primitive_iterator_t	src/json/json.hpp	/^    class primitive_iterator_t$/;"	c	class:nlohmann::basic_json
+push_back	src/json/json.hpp	/^    void push_back(basic_json&& val)$/;"	f	class:nlohmann::basic_json
+push_back	src/json/json.hpp	/^    void push_back(const basic_json& val)$/;"	f	class:nlohmann::basic_json
+push_back	src/json/json.hpp	/^    void push_back(const typename object_t::value_type& val)$/;"	f	class:nlohmann::basic_json
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
-radius	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<float>radius;$/;"	m	class:PeopleDetection
+readConfig	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::readConfig() {$/;"	f	class:PeopleDetection
 reset	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::reset() {$/;"	f	class:PeopleDetection
 reset	src/WindowManager/WindowManager.cpp	/^void WindowManager::reset() {$/;"	f	class:WindowManager
+setBlurKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setBlurKernelSize(int blurKernelSize) {$/;"	f	class:PeopleDetection
+setDilateKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setDilateKernelSize(int dilateKernelSize) {$/;"	f	class:PeopleDetection
+setMinBoundingBoxArea	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setMinBoundingBoxArea(int minBoundingBoxArea) {$/;"	f	class:PeopleDetection
 setResolution	src/CameraInterface/CameraInterface.cpp	/^void CameraInterface::setResolution(int width, int height)$/;"	f	class:CameraInterface
+setThreshold	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setThreshold(int threshold) {$/;"	f	class:PeopleDetection
 showMultipleImages	src/WindowManager/WindowManager.cpp	/^cv::Mat& WindowManager::showMultipleImages(int rows) {$/;"	f	class:WindowManager
+static_cast	src/json/json.hpp	/^          m_value(static_cast<number_integer_t>(val))$/;"	f	class:nlohmann::basic_json
+static_cast	src/json/json.hpp	/^          m_value(static_cast<number_unsigned_t>(val))$/;"	f	class:nlohmann::basic_json
+std	src/json/json.hpp	/^namespace std$/;"	n
+str_to_float_t	src/json/json.hpp	/^        double str_to_float_t(double* \/* type *\/, char** endptr) const$/;"	f	class:nlohmann::basic_json::lexer
+str_to_float_t	src/json/json.hpp	/^        float str_to_float_t(float* \/* type *\/, char** endptr) const$/;"	f	class:nlohmann::basic_json::lexer
+str_to_float_t	src/json/json.hpp	/^        long double str_to_float_t(long double* \/* type *\/, char** endptr) const$/;"	f	class:nlohmann::basic_json::lexer
+string	src/json/json.hpp	/^        string,          \/\/\/< string value$/;"	m	class:nlohmann::basic_json::value_t
+string	src/json/json.hpp	/^        string_t* string;$/;"	m	union:nlohmann::basic_json::json_value
+swap	src/json/json.hpp	/^    void swap(array_t& other)$/;"	f	class:nlohmann::basic_json
+swap	src/json/json.hpp	/^    void swap(object_t& other)$/;"	f	class:nlohmann::basic_json
+swap	src/json/json.hpp	/^    void swap(string_t& other)$/;"	f	class:nlohmann::basic_json
 system_clock_	src/SituationKnowledge/SituationKnowledge.hpp	/^    std::chrono::time_point<std::chrono::system_clock> system_clock_;$/;"	m	class:SituationKnowledge
 thresh_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat thresh_img_;$/;"	m	class:PeopleDetection
+threshold	src/main.cpp	/^int threshold;$/;"	v
+to_unicode	src/json/json.hpp	/^        static string_t to_unicode(const std::size_t codepoint1,$/;"	f	class:nlohmann::basic_json::lexer
+token_type	src/json/json.hpp	/^        enum class token_type$/;"	c	class:nlohmann::basic_json::lexer
+token_type_name	src/json/json.hpp	/^        static std::string token_type_name(token_type t)$/;"	f	class:nlohmann::basic_json::lexer
+unexpect	src/json/json.hpp	/^        void unexpect(typename lexer::token_type t) const$/;"	f	class:nlohmann::basic_json::parser
+uninitialized	src/json/json.hpp	/^            uninitialized,   \/\/\/< indicating the scanner is uninitialized$/;"	m	class:nlohmann::basic_json::lexer::token_type
+value	src/json/json.hpp	/^            typename IteratorType::reference value() const$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
+value	src/json/json.hpp	/^        reference value() const$/;"	f	class:nlohmann::basic_json::const_iterator
+value	src/json/json.hpp	/^        reference value() const$/;"	f	class:nlohmann::basic_json::iterator
+value	src/json/json.hpp	/^        reference value() const$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
+value	src/json/json.hpp	/^    ValueType value(const typename object_t::key_type& key, ValueType default_value) const$/;"	f	class:nlohmann::basic_json
+value	src/json/json.hpp	/^    static constexpr bool value = sizeof(test<T>(0)) == 1;$/;"	m	struct:nlohmann::__anon1::has_mapped_type
+value	src/json/json.hpp	/^    string_t value(const typename object_t::key_type& key, const char* default_value) const$/;"	f	class:nlohmann::basic_json
+value_number	src/json/json.hpp	/^            value_number,    \/\/\/< a number -- use get_number() for actual value$/;"	m	class:nlohmann::basic_json::lexer::token_type
+value_separator	src/json/json.hpp	/^            value_separator, \/\/\/< the value separator ","$/;"	m	class:nlohmann::basic_json::lexer::token_type
+value_string	src/json/json.hpp	/^            value_string,    \/\/\/< a string -- use get_string() for actual value$/;"	m	class:nlohmann::basic_json::lexer::token_type
+value_t	src/json/json.hpp	/^    enum class value_t : uint8_t$/;"	c	class:nlohmann::basic_json
 window_name	objectDetection.cpp	/^String window_name = "Capture - Face detection";$/;"	v
 window_name_	src/FaceDetection/FaceDetection.hpp	/^	std::string window_name_;  $/;"	m	class:FaceDetection
 window_name_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::string window_name_;$/;"	m	class:PeopleDetectionHOG
+writeConfig	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::writeConfig() {$/;"	f	class:PeopleDetection
 ycm_core	.ycm_extra_conf.py	/^import ycm_core$/;"	i
+~basic_json	src/json/json.hpp	/^    ~basic_json()$/;"	f	class:nlohmann::basic_json
