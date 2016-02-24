@@ -19,7 +19,7 @@ PeopleDetection::PeopleDetection() :
                 cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1), 
                 cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)
              );
-    p_background_subtractor2_->set("nmixtures",1); 
+    // p_background_subtractor2_->set("nmixtures",1); 
 
 }
 
@@ -37,7 +37,7 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
     hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
     std::vector<cv::Point> foundLocations;
     image_=image;
-    // p_background_subtractor_->operator()(image,background_image_);
+    p_background_subtractor_->operator()(image,background_image_);
     // p_background_subtractor2_->operator()(image,background_image_);
     // p_background_subtractor3_->operator()(image,background_image_);
     // cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);

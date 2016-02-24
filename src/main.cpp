@@ -2,6 +2,7 @@
 #include "WindowManager/WindowManager.hpp"
 #include "PeopleDetection/PeopleDetection.hpp"
 #include "json/json.hpp"
+#include "Utils/Log.hpp"
 
 using json = nlohmann::json;
 
@@ -43,7 +44,11 @@ int main(void)
 {
     CameraInterface camera; 
     std::vector<cv::Rect> people;
-                                                         
+    Log::print(ERROR, "Dies ist ein Fehler");                                                         
+    Log::print(WARNING, "Dies ist eine Warnung");                                                         
+    Log::print(INFO, "Dies ist eine Info");                                                         
+    // Log::print(WARNING, "Dies ist test nummer %d \r\n",1);                                                         
+    // Log::print(INFO, "Dies ist test nummer %d \r\n",1);                                                         
     camera.setResolution(320,240);
     // camera.setResolution(640,480);
     dilateKernel = peopleDetector.getDilateKernelSize();
@@ -69,7 +74,7 @@ int main(void)
          
         WindowManager::getInstance().drawBoundingBox(people,frame);
           
-        cv::imshow("Images" , WindowManager::getInstance().showMultipleImages(2)); 
+        // cv::imshow("Images" , WindowManager::getInstance().showMultipleImages(2)); 
 
         if( (char)cv::waitKey(10) == 27 )  break;  
     }
