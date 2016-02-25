@@ -6,6 +6,7 @@
 
 using json = nlohmann::json;
 
+
 PeopleDetection::PeopleDetection() : 
     background_image_(), blur_img_(), contour_img_(),
     image_(), kernel_(), thresh_img_(),
@@ -30,9 +31,56 @@ void PeopleDetection::reset() {
     contours_poly.clear();
 }
 
+// Trackbars
 
+int dilateKernel;
+int blurKernel; 
+int threshold;
+int minBoundingBoxArea;
+
+void on_trackbar_dilate( int, void* )
+{
+    PeopleDetection peopleDetector;
+    if(dilateKernel == 0) return;
+    peopleDetector.writeConfig();
+}
+
+void on_trackbar_blur( int, void* )
+{
+    PeopleDetection peopleDetector;
+    if(blurKernel == 0) return;
+    peopleDetector.writeConfig();
+}
+
+void on_trackbar_threshold( int, void* )
+{
+    PeopleDetection peopleDetector;
+    peopleDetector.writeConfig();
+}
+
+void on_trackbar_area( int, void* )
+{
+    PeopleDetection peopleDetector;
+    peopleDetector.writeConfig();
+}
+
+
+void PeopleDetection::showTrackbars(const char* windowName) {
+
+    dilateKernel = DILATE_KERNEL_SIZE_;
+    blurKernel = BLUR_KERNEL_SIZE_; 
+    threshold = THRESHOLD_; 
+    minBoundingBoxArea = MIN_BOUNDING_BOX_AREA_; 
+
+    cv::createTrackbar("Dilate Kernel" , windowName, &dilateKernel, 30, on_trackbar_dilate );
+    cv::createTrackbar("Blur Kernel" , windowName, &blurKernel, 30, on_trackbar_blur );
+    cv::createTrackbar("Threshold" , windowName, &threshold, 255, on_trackbar_threshold );
+    cv::createTrackbar("minBoundingBoxArea" , windowName, &minBoundingBoxArea, 50000, on_trackbar_area );
+
+}
 const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
 
+    readConfig();
     cv::HOGDescriptor hog;
     hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
     std::vector<cv::Point> foundLocations;
@@ -70,30 +118,7 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
     // HOG verification of bounding boxes
     return people_candidates_;
 }
-//** Alternative method only using a threshold ( without background subtraction)
-// const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
-//
-//     image_=image;
-//     // p_background_subtractor_->operator()(image,background_image_);
-//     cv::cvtColor(image_,background_image_,CV_BGR2GRAY);
-//     cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
-//     cv::blur(thresh_img_, blur_img_, cv::Size(2 * BLUR_KERNEL_SIZE_ + 1, 2 * BLUR_KERNEL_SIZE_ +1));
-//     cv::dilate(blur_img_, contour_img_,cv::getStructuringElement(0,
-//                                        cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1), 
-//                                        cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)));
-//     cv::findContours(contour_img_, contours_, hierarchy_, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE, cv::Point(0,0));
-//     contours_poly.resize( contours_.size() );
-//     for( unsigned int i = 0; i < contours_.size(); i++ )
-//     { 
-//         approxPolyDP( cv::Mat(contours_[i]), contours_poly[i], 3, true );
-//         cv::Rect boundRect = boundingRect( cv::Mat(contours_poly[i]) );
-//         if(boundRect.area() > MIN_BOUNDING_BOX_AREA_)
-//         {
-//            people_candidates_.push_back(boundRect); 
-//         }
-//     }
-//     return people_candidates_;
-// }
+
 void PeopleDetection::debugImage() const  {
 
     WindowManager::getInstance().addImage(background_image_);
@@ -123,21 +148,16 @@ void PeopleDetection::readConfig() {
     std::string line;
     json peopleDetectionConfig; 
     std::ifstream configFile (FILE_NAME_);
-    if (configFile.is_open())
-    {
+    if (configFile.is_open()) {
         std::string str((std::istreambuf_iterator<char>(configFile)),
                          std::istreambuf_iterator<char>());
         peopleDetectionConfig = json::parse(str);    
-        // std::cout << peopleDetectionConfig.dump(4) << std::endl;
         DILATE_KERNEL_SIZE_ = peopleDetectionConfig["DILATE_KERNEL_SIZE_"];
         BLUR_KERNEL_SIZE_ = peopleDetectionConfig["BLUR_KERNEL_SIZE_"];
         THRESHOLD_ = peopleDetectionConfig["THRESHOLD_"];
         MIN_BOUNDING_BOX_AREA_ = peopleDetectionConfig["MIN_BOUNDING_BOX_AREA_"];
-        std::cout << DILATE_KERNEL_SIZE_ << std::endl;
         configFile.close();
-    }
-
-    else std::cout << "Unable to open file"; 
+    } else std::cout << "Unable to open people detection config file" << std::endl; 
 }
 
 

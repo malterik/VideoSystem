@@ -10,6 +10,7 @@ public:
         void reset();
         void writeConfig();
         void readConfig();
+        void showTrackbars(const char* windowName);
 
 private:
         //Images
@@ -37,6 +38,7 @@ private:
         int THRESHOLD_;
         int MIN_BOUNDING_BOX_AREA_;
         std::string FILE_NAME_;
+
         
         //Setter and getter functions
 public:
