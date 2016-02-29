@@ -1,6 +1,6 @@
 #pragma once
+
 #include <string>
-#define FILE_NAME_ "config/logLevel.json"
 
 enum LogLevel {
     DEBUG,

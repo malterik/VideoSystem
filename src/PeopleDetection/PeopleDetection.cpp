@@ -3,6 +3,8 @@
 #include "../json/json.hpp"
 #include <iostream>
 #include <fstream>
+#include "../CameraInterface/CameraInterface.hpp"
+#include "../Utils/print.hpp"
 
 using json = nlohmann::json;
 
@@ -16,11 +18,14 @@ PeopleDetection::PeopleDetection() :
     FILE_NAME_("config/PeopleDetection.json")
 {
     readConfig();
+    CameraInterface camera;
+    p_image_subtractor_ = new ImageSubtractor(camera.getImage());
     kernel_= cv::getStructuringElement(0,
                 cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1), 
                 cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)
              );
     // p_background_subtractor2_->set("nmixtures",1); 
+    
 
 }
 
@@ -85,7 +90,10 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
     hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
     std::vector<cv::Point> foundLocations;
     image_=image;
-    p_background_subtractor_->operator()(image,background_image_);
+    // p_background_subtractor_->operator()(image,background_image_);
+    print(DEBUG,"Debug 1");
+    background_image_ = p_image_subtractor_->subtractBackground(image);
+    print(DEBUG,"Debug 2");
     // p_background_subtractor2_->operator()(image,background_image_);
     // p_background_subtractor3_->operator()(image,background_image_);
     // cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);

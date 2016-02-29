@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 
+#define FILE_NAME_ "config/logLevel.json"
 using json = nlohmann::json;
 
 void readConfig();

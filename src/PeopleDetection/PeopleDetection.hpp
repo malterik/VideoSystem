@@ -1,6 +1,9 @@
+#pragma once 
+
 #include <opencv2/opencv.hpp>
 #include <string>
 #include <vector>
+#include "../ImageSubtractor/ImageSubtractor.hpp"
 class PeopleDetection
 {
 public:
@@ -31,6 +34,7 @@ private:
         cv::Ptr<cv::BackgroundSubtractorMOG> p_background_subtractor_;
         cv::Ptr<cv::BackgroundSubtractorMOG2> p_background_subtractor2_;
         cv::Ptr<cv::BackgroundSubtractorGMG> p_background_subtractor3_;
+        cv::Ptr<ImageSubtractor> p_image_subtractor_; 
         
         //Parameter
         int DILATE_KERNEL_SIZE_;

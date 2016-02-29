@@ -477,6 +477,7 @@ COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.c
 CRUISE	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 CameraInterface	src/CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface() : image_(), cap_(0) $/;"	f	class:CameraInterface
 CameraInterface	src/CameraInterface/CameraInterface.hpp	/^class CameraInterface $/;"	c
+DEBUG	src/Utils/print.hpp	/^    DEBUG,$/;"	e	enum:LogLevel
 DEC	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
 DEC	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	415;"	d	file:
 DEC	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	420;"	d	file:
@@ -484,7 +485,9 @@ DEC	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	415;"	d	file:
 DILATE_KERNEL_SIZE_	src/PeopleDetection/PeopleDetection.hpp	/^        int DILATE_KERNEL_SIZE_;$/;"	m	class:PeopleDetection
 DirectoryOfThisScript	.ycm_extra_conf.py	/^def DirectoryOfThisScript():$/;"	f
 EQUALS	build/Makefile	/^EQUALS = =$/;"	m
+ERROR	src/Utils/print.hpp	/^    ERROR,$/;"	e	enum:LogLevel
 FILE_NAME_	src/PeopleDetection/PeopleDetection.hpp	/^        std::string FILE_NAME_;$/;"	m	class:PeopleDetection
+FILE_NAME_	src/Utils/print.cpp	9;"	d	file:
 FaceDetection	src/FaceDetection/FaceDetection.cpp	/^FaceDetection::FaceDetection(std::string faceConfig, std::string eyeConfig):$/;"	f	class:FaceDetection
 FaceDetection	src/FaceDetection/FaceDetection.hpp	/^class FaceDetection$/;"	c
 FlagsForFile	.ycm_extra_conf.py	/^def FlagsForFile( filename, **kwargs ):$/;"	f
@@ -496,8 +499,12 @@ HEX	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	431;"	d	file:
 HEX	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	426;"	d	file:
 ID_VOID_MAIN	build/CMakeFiles/3.4.2/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 ID_VOID_MAIN	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
+INFO	src/Utils/print.hpp	/^    INFO$/;"	e	enum:LogLevel
+ImageSubtractor	src/ImageSubtractor/ImageSubtractor.cpp	/^ImageSubtractor::ImageSubtractor(const cv::Mat& initialBackground) : background_image_(initialBackground.clone())$/;"	f	class:ImageSubtractor
+ImageSubtractor	src/ImageSubtractor/ImageSubtractor.hpp	/^class ImageSubtractor {$/;"	c
 IsHeaderFile	.ycm_extra_conf.py	/^def IsHeaderFile( filename ):$/;"	f
 LANDING	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
+LogLevel	src/Utils/print.hpp	/^enum LogLevel {$/;"	g
 MIN_BOUNDING_BOX_AREA_	src/PeopleDetection/PeopleDetection.hpp	/^        int MIN_BOUNDING_BOX_AREA_;$/;"	m	class:PeopleDetection
 MakeRelativePathsInFlagsAbsolute	.ycm_extra_conf.py	/^def MakeRelativePathsInFlagsAbsolute( flags, working_directory ):$/;"	f
 NLOHMANN_JSON_HPP	src/json/json.hpp	12;"	d
@@ -681,13 +688,14 @@ STRINGIFY_HELPER	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	264
 SUFFIXES	build/Makefile	/^SUFFIXES =$/;"	m
 SituationKnowledge	src/SituationKnowledge/SituationKnowledge.hpp	/^class SituationKnowledge $/;"	c
 TAKEOFF	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
+TESTING	src/Utils/print.hpp	/^    TESTING,$/;"	e	enum:LogLevel
 THRESHOLD_	src/PeopleDetection/PeopleDetection.hpp	/^        int THRESHOLD_;$/;"	m	class:PeopleDetection
+WARNING	src/Utils/print.hpp	/^    WARNING,$/;"	e	enum:LogLevel
 WindowManager	src/WindowManager/WindowManager.cpp	/^WindowManager::WindowManager() {$/;"	f	class:WindowManager
 WindowManager	src/WindowManager/WindowManager.hpp	/^class WindowManager$/;"	c
 _json	src/json/json.hpp	/^inline nlohmann::json operator "" _json(const char* s, std::size_t)$/;"	f
 addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(cv::Mat image) {$/;"	f	class:WindowManager
 addImage	src/WindowManager/WindowManager.cpp	/^void WindowManager::addImage(std::vector<cv::Mat> imageVector) {$/;"	f	class:WindowManager
-alpha_slider_max	src/main.cpp	/^const int alpha_slider_max = 100;$/;"	v
 anchor	src/json/json.hpp	/^                : anchor(it)$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
 anchor	src/json/json.hpp	/^            IteratorType anchor;$/;"	m	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
 array	src/json/json.hpp	/^        array,           \/\/\/< array (ordered collection of values)$/;"	m	class:nlohmann::basic_json::value_t
@@ -704,6 +712,7 @@ at	src/json/json.hpp	/^    reference at(size_type idx)$/;"	f	class:nlohmann::bas
 attempt_cast	src/json/json.hpp	/^        static bool attempt_cast(T_A source, T_B& dest)$/;"	f	class:nlohmann::basic_json::lexer
 back	src/json/json.hpp	/^    const_reference back() const$/;"	f	class:nlohmann::basic_json
 back	src/json/json.hpp	/^    reference back()$/;"	f	class:nlohmann::basic_json
+background_image_	src/ImageSubtractor/ImageSubtractor.hpp	/^    cv::Mat background_image_;$/;"	m	class:ImageSubtractor
 background_image_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat background_image_;  $/;"	m	class:PeopleDetection
 base_iterator	src/json/json.hpp	/^            : base_iterator(it)$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
 base_iterator	src/json/json.hpp	/^            : base_iterator(object)$/;"	f	class:nlohmann::basic_json::iterator
@@ -728,7 +737,7 @@ begin_object	src/json/json.hpp	/^            begin_object,    \/\/\/< the charac
 begin_value	src/json/json.hpp	/^        static constexpr difference_type begin_value = 0;$/;"	m	class:nlohmann::basic_json::primitive_iterator_t
 blob_image_	src/BlobDetection/BlobDetection.hpp	/^    cv::Mat blob_image_;$/;"	m	class:BlobDetection
 blob_parameter_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector::Params blob_parameter_;$/;"	m	class:BlobDetection
-blurKernel	src/main.cpp	/^int blurKernel; $/;"	v
+blurKernel	src/PeopleDetection/PeopleDetection.cpp	/^int blurKernel; $/;"	v
 blur_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat blur_img_;$/;"	m	class:PeopleDetection
 boolean	src/json/json.hpp	/^        boolean,         \/\/\/< boolean value$/;"	m	class:nlohmann::basic_json::value_t
 boolean	src/json/json.hpp	/^        boolean_t boolean;$/;"	m	union:nlohmann::basic_json::json_value
@@ -753,7 +762,8 @@ detectAndDisplay	objectDetection.cpp	/^void detectAndDisplay( Mat frame )$/;"	f
 detectAndDisplay	src/FaceDetection/FaceDetection.cpp	/^void FaceDetection::detectAndDisplay( cv::Mat frame )$/;"	f	class:FaceDetection
 detectAndDisplay	src/PeopleDetectionHOG/PeopleDetectionHOG.cpp	/^void PeopleDetectionHOG::detectAndDisplay(cv::Mat image) {$/;"	f	class:PeopleDetectionHOG
 detector_	src/BlobDetection/BlobDetection.hpp	/^    cv::SimpleBlobDetector detector_;$/;"	m	class:BlobDetection
-dilateKernel	src/main.cpp	/^int dilateKernel;$/;"	v
+diff_image_	src/ImageSubtractor/ImageSubtractor.hpp	/^    cv::Mat diff_image_;$/;"	m	class:ImageSubtractor
+dilateKernel	src/PeopleDetection/PeopleDetection.cpp	/^int dilateKernel;$/;"	v
 drawBoundingBox	src/WindowManager/WindowManager.cpp	/^void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& img) {$/;"	f	class:WindowManager
 dst_	src/WindowManager/WindowManager.hpp	/^    cv::Mat dst_;$/;"	m	class:WindowManager
 dst_cols_	src/WindowManager/WindowManager.hpp	/^    unsigned int dst_cols_;$/;"	m	class:WindowManager
@@ -789,8 +799,10 @@ found_filtered_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::vector<cv:
 front	src/json/json.hpp	/^    const_reference front() const$/;"	f	class:nlohmann::basic_json
 front	src/json/json.hpp	/^    reference front()$/;"	f	class:nlohmann::basic_json
 get	src/json/json.hpp	/^    ValueType get() const$/;"	f	class:nlohmann::basic_json
+getBackground	src/ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::getBackground() {$/;"	f	class:ImageSubtractor
 getBlobImage	src/BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
 getBlurKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getBlurKernelSize() {$/;"	f	class:PeopleDetection
+getDiffImage	src/ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::getDiffImage() {$/;"	f	class:ImageSubtractor
 getDilateKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getDilateKernelSize() {$/;"	f	class:PeopleDetection
 getImage	src/CameraInterface/CameraInterface.cpp	/^const cv::Mat& CameraInterface::getImage() $/;"	f	class:CameraInterface
 getInstance	src/WindowManager/WindowManager.cpp	/^WindowManager& WindowManager::getInstance() {$/;"	f	class:WindowManager
@@ -906,7 +918,7 @@ main	build/CMakeFiles/feature_tests.c	/^int main(int argc, char** argv) { (void)
 main	build/CMakeFiles/feature_tests.cxx	/^int main(int argc, char** argv) { (void)argv; return features[argc]; }$/;"	f
 main	objectDetection.cpp	/^int main( void )$/;"	f
 main	src/main.cpp	/^int main(void)$/;"	f
-minBoundingBoxArea	src/main.cpp	/^int minBoundingBoxArea;$/;"	v
+minBoundingBoxArea	src/PeopleDetection/PeopleDetection.cpp	/^int minBoundingBoxArea;$/;"	v
 move	src/json/json.hpp	/^          m_value(std::move(other.m_value))$/;"	f	class:nlohmann::basic_json
 name_separator	src/json/json.hpp	/^            name_separator,  \/\/\/< the name separator ":"$/;"	m	class:nlohmann::basic_json::lexer::token_type
 nlohmann	src/json/json.hpp	/^namespace nlohmann$/;"	n
@@ -934,10 +946,10 @@ object	src/json/json.hpp	/^    static basic_json object(std::initializer_list<ba
 object_end	src/json/json.hpp	/^        object_end,$/;"	m	class:nlohmann::basic_json::parse_event_t
 object_iterator	src/json/json.hpp	/^        typename object_t::iterator object_iterator;$/;"	m	struct:nlohmann::basic_json::internal_iterator
 object_start	src/json/json.hpp	/^        object_start,$/;"	m	class:nlohmann::basic_json::parse_event_t
-on_trackbar_area	src/main.cpp	/^void on_trackbar_area( int, void* )$/;"	f
-on_trackbar_blur	src/main.cpp	/^void on_trackbar_blur( int, void* )$/;"	f
-on_trackbar_dilate	src/main.cpp	/^void on_trackbar_dilate( int, void* )$/;"	f
-on_trackbar_threshold	src/main.cpp	/^void on_trackbar_threshold( int, void* )$/;"	f
+on_trackbar_area	src/PeopleDetection/PeopleDetection.cpp	/^void on_trackbar_area( int, void* )$/;"	f
+on_trackbar_blur	src/PeopleDetection/PeopleDetection.cpp	/^void on_trackbar_blur( int, void* )$/;"	f
+on_trackbar_dilate	src/PeopleDetection/PeopleDetection.cpp	/^void on_trackbar_dilate( int, void* )$/;"	f
+on_trackbar_threshold	src/PeopleDetection/PeopleDetection.cpp	/^void on_trackbar_threshold( int, void* )$/;"	f
 operator !=	src/json/json.hpp	/^            bool operator!= (const iteration_proxy_internal& o) const$/;"	f	class:nlohmann::basic_json::iteration_proxy::iteration_proxy_internal
 operator !=	src/json/json.hpp	/^        bool operator!=(const const_iterator& other) const$/;"	f	class:nlohmann::basic_json::const_iterator
 operator ()	src/json/json.hpp	/^    std::size_t operator()(const nlohmann::json& j) const$/;"	f	struct:std::hash
@@ -998,7 +1010,10 @@ operator []	src/json/json.hpp	/^    reference operator[](T* key)$/;"	f	class:nlo
 operator []	src/json/json.hpp	/^    reference operator[](const typename object_t::key_type& key)$/;"	f	class:nlohmann::basic_json
 operator []	src/json/json.hpp	/^    reference operator[](size_type idx)$/;"	f	class:nlohmann::basic_json
 os	.ycm_extra_conf.py	/^import os$/;"	i
+p_background_subtractor2_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractorMOG2> p_background_subtractor2_;$/;"	m	class:PeopleDetection
+p_background_subtractor3_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractorGMG> p_background_subtractor3_;$/;"	m	class:PeopleDetection
 p_background_subtractor_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractorMOG> p_background_subtractor_;$/;"	m	class:PeopleDetection
+p_image_subtractor_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<ImageSubtractor> p_image_subtractor_; $/;"	m	class:PeopleDetection
 parse	src/json/json.hpp	/^        basic_json parse()$/;"	f	class:nlohmann::basic_json::parser
 parse	src/json/json.hpp	/^    static basic_json parse(const string_t& s, parser_callback_t cb = nullptr)$/;"	f	class:nlohmann::basic_json
 parse	src/json/json.hpp	/^    static basic_json parse(std::istream& i, parser_callback_t cb = nullptr)$/;"	f	class:nlohmann::basic_json
@@ -1007,11 +1022,11 @@ parse_error	src/json/json.hpp	/^            parse_error,     \/\/\/< indicating 
 parse_event_t	src/json/json.hpp	/^    enum class parse_event_t : uint8_t$/;"	c	class:nlohmann::basic_json
 parse_internal	src/json/json.hpp	/^        basic_json parse_internal(bool keep)$/;"	f	class:nlohmann::basic_json::parser
 parser	src/json/json.hpp	/^    class parser$/;"	c	class:nlohmann::basic_json
-peopleDetector	src/main.cpp	/^PeopleDetection peopleDetector;$/;"	v
 people_candidates_	src/PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Rect> people_candidates_;$/;"	m	class:PeopleDetection
 primitive_iterator	src/json/json.hpp	/^            : object_iterator(), array_iterator(), primitive_iterator()$/;"	f	struct:nlohmann::basic_json::internal_iterator
 primitive_iterator	src/json/json.hpp	/^        primitive_iterator_t primitive_iterator;$/;"	m	struct:nlohmann::basic_json::internal_iterator
 primitive_iterator_t	src/json/json.hpp	/^    class primitive_iterator_t$/;"	c	class:nlohmann::basic_json
+print	src/Utils/print.cpp	/^void print(LogLevel logLevel, const char* format, ...) {$/;"	f
 push_back	src/json/json.hpp	/^    void push_back(basic_json&& val)$/;"	f	class:nlohmann::basic_json
 push_back	src/json/json.hpp	/^    void push_back(const basic_json& val)$/;"	f	class:nlohmann::basic_json
 push_back	src/json/json.hpp	/^    void push_back(const typename object_t::value_type& val)$/;"	f	class:nlohmann::basic_json
@@ -1020,14 +1035,22 @@ qnxnto	build/CMakeFiles/3.4.2/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const*
 qnxnto	build/CMakeFiles/3.4.3/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 qnxnto	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.cpp	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
 readConfig	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::readConfig() {$/;"	f	class:PeopleDetection
+readConfig	src/Utils/print.cpp	/^void readConfig() {$/;"	f
 reset	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::reset() {$/;"	f	class:PeopleDetection
 reset	src/WindowManager/WindowManager.cpp	/^void WindowManager::reset() {$/;"	f	class:WindowManager
+setBackground	src/ImageSubtractor/ImageSubtractor.cpp	/^void ImageSubtractor::setBackground( const cv::Mat& img) {$/;"	f	class:ImageSubtractor
 setBlurKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setBlurKernelSize(int blurKernelSize) {$/;"	f	class:PeopleDetection
 setDilateKernelSize	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setDilateKernelSize(int dilateKernelSize) {$/;"	f	class:PeopleDetection
 setMinBoundingBoxArea	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setMinBoundingBoxArea(int minBoundingBoxArea) {$/;"	f	class:PeopleDetection
 setResolution	src/CameraInterface/CameraInterface.cpp	/^void CameraInterface::setResolution(int width, int height)$/;"	f	class:CameraInterface
 setThreshold	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setThreshold(int threshold) {$/;"	f	class:PeopleDetection
 showMultipleImages	src/WindowManager/WindowManager.cpp	/^cv::Mat& WindowManager::showMultipleImages(int rows) {$/;"	f	class:WindowManager
+showTrackbars	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::showTrackbars(const char* windowName) {$/;"	f	class:PeopleDetection
+show_debug_	src/Utils/print.cpp	/^bool show_debug_;$/;"	v
+show_error_	src/Utils/print.cpp	/^bool show_error_;$/;"	v
+show_info_	src/Utils/print.cpp	/^bool show_info_; $/;"	v
+show_testing_	src/Utils/print.cpp	/^bool show_testing_;$/;"	v
+show_warning_	src/Utils/print.cpp	/^bool show_warning_;$/;"	v
 static_cast	src/json/json.hpp	/^          m_value(static_cast<number_integer_t>(val))$/;"	f	class:nlohmann::basic_json
 static_cast	src/json/json.hpp	/^          m_value(static_cast<number_unsigned_t>(val))$/;"	f	class:nlohmann::basic_json
 std	src/json/json.hpp	/^namespace std$/;"	n
@@ -1036,12 +1059,13 @@ str_to_float_t	src/json/json.hpp	/^        float str_to_float_t(float* \/* type 
 str_to_float_t	src/json/json.hpp	/^        long double str_to_float_t(long double* \/* type *\/, char** endptr) const$/;"	f	class:nlohmann::basic_json::lexer
 string	src/json/json.hpp	/^        string,          \/\/\/< string value$/;"	m	class:nlohmann::basic_json::value_t
 string	src/json/json.hpp	/^        string_t* string;$/;"	m	union:nlohmann::basic_json::json_value
+subtractBackground	src/ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::subtractBackground(const cv::Mat& img) {$/;"	f	class:ImageSubtractor
 swap	src/json/json.hpp	/^    void swap(array_t& other)$/;"	f	class:nlohmann::basic_json
 swap	src/json/json.hpp	/^    void swap(object_t& other)$/;"	f	class:nlohmann::basic_json
 swap	src/json/json.hpp	/^    void swap(string_t& other)$/;"	f	class:nlohmann::basic_json
 system_clock_	src/SituationKnowledge/SituationKnowledge.hpp	/^    std::chrono::time_point<std::chrono::system_clock> system_clock_;$/;"	m	class:SituationKnowledge
 thresh_img_	src/PeopleDetection/PeopleDetection.hpp	/^        cv::Mat thresh_img_;$/;"	m	class:PeopleDetection
-threshold	src/main.cpp	/^int threshold;$/;"	v
+threshold	src/PeopleDetection/PeopleDetection.cpp	/^int threshold;$/;"	v
 to_unicode	src/json/json.hpp	/^        static string_t to_unicode(const std::size_t codepoint1,$/;"	f	class:nlohmann::basic_json::lexer
 token_type	src/json/json.hpp	/^        enum class token_type$/;"	c	class:nlohmann::basic_json::lexer
 token_type_name	src/json/json.hpp	/^        static std::string token_type_name(token_type t)$/;"	f	class:nlohmann::basic_json::lexer
