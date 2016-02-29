@@ -1,0 +1,6 @@
+{
+    "BLUR_KERNEL_SIZE_": 1,
+    "DILATE_KERNEL_SIZE_": 15,
+    "MIN_BOUNDING_BOX_AREA_": 5435,
+    "THRESHOLD_": 75
+}

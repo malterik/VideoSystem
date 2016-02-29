@@ -1,0 +1,8 @@
+{
+    "show_error" : true,
+    "show_info" : true,
+    "show_warning" : true,
+    "show_debug" : true,
+    "show_testing" : true
+}
+        
