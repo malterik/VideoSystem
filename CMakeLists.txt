@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 2.8.9)
 project (VideoSystem)
 find_package( OpenCV REQUIRED )
 
+
 file(GLOB_RECURSE Foo_SOURCES "src/*.cpp")
 file(GLOB_RECURSE Foo_HEADERS "src/*.h")
 

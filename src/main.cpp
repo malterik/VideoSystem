@@ -4,16 +4,18 @@
 #include "json/json.hpp"
 #include "Utils/print.hpp"
 #include "ImageSubtractor/ImageSubtractor.hpp"
+#include "CameraMatrix/CameraMatrix.hpp"
 
 int main(void)
 {
     CameraInterface camera; 
     PeopleDetection peopleDetector;
+    CameraMatrix cm;
     std::vector<cv::Rect> people;
     std::string windowName = "Main Window";
 
-    // camera.setResolution(320,240);
-    camera.setResolution(640,480);
+    camera.setResolution(320,240);
+    // camera.setResolution(640,480);
 
     cv::namedWindow(windowName,1);
     
