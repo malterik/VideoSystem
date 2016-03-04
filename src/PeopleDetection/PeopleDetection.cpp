@@ -18,8 +18,8 @@ PeopleDetection::PeopleDetection() :
     FILE_NAME_("config/PeopleDetection.json")
 {
     readConfig();
-    CameraInterface camera;
-    p_image_subtractor_ = new ImageSubtractor(camera.getImage());
+    // CameraInterface camera;
+    // p_image_subtractor_ = new ImageSubtractor(camera.getImage());
     kernel_= cv::getStructuringElement(0,
                 cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1), 
                 cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)

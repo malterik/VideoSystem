@@ -1,5 +1,6 @@
 #include "CameraInterface.hpp"
 #include <iostream>
+
 CameraInterface::CameraInterface() : image_(), cap_(0) 
 {
 

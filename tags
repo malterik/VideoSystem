@@ -818,7 +818,7 @@ COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.c
 CRUISE	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 CameraInterface	src/CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface() : image_(), cap_(0) $/;"	f	class:CameraInterface
 CameraInterface	src/CameraInterface/CameraInterface.hpp	/^class CameraInterface $/;"	c
-CameraMatrix	src/CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix() : FILE_NAME_("config\/CameraParameterThinkpad.json") {$/;"	f	class:CameraMatrix
+CameraMatrix	src/CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix() : FILE_NAME_("config\/CamMatrix.json") {$/;"	f	class:CameraMatrix
 CameraMatrix	src/CameraMatrix/CameraMatrix.hpp	/^class CameraMatrix$/;"	c
 CanVectorizeInner	src/Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner =    SameType$/;"	e	enum:Eigen::internal::traits::__anon294
 CanVectorizeInner	src/Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner = internal::traits<CoeffBasedProduct>::CanVectorizeInner$/;"	e	enum:Eigen::CoeffBasedProduct::__anon295
@@ -7466,6 +7466,7 @@ intersection	src/Eigen/src/Geometry/ParametrizedLine.h	/^inline _Scalar Parametr
 intersectionParameter	src/Eigen/src/Geometry/ParametrizedLine.h	/^inline _Scalar ParametrizedLine<_Scalar, _AmbientDim,_Options>::intersectionParameter(const Hyperplane<_Scalar, _AmbientDim, OtherOptions>& hyperplane) const$/;"	f	class:Eigen::ParametrizedLine
 intersectionPoint	src/Eigen/src/Geometry/ParametrizedLine.h	/^ParametrizedLine<_Scalar, _AmbientDim,_Options>::intersectionPoint(const Hyperplane<_Scalar, _AmbientDim, OtherOptions>& hyperplane) const$/;"	f	class:Eigen::ParametrizedLine
 intersects	src/Eigen/src/Geometry/AlignedBox.h	/^  inline bool intersects(const AlignedBox& b) const$/;"	f	class:Eigen::AlignedBox
+intrinsic_paramter_	src/CameraMatrix/CameraMatrix.hpp	/^    Eigen::Matrix3d intrinsic_paramter_;$/;"	m	class:CameraMatrix
 inverse	src/Eigen/src/Core/DiagonalMatrix.h	/^    inverse() const$/;"	f	class:Eigen::DiagonalBase
 inverse	src/Eigen/src/Core/PermutationMatrix.h	/^    inline Transpose<PermutationBase> inverse() const$/;"	f	class:Eigen::PermutationBase
 inverse	src/Eigen/src/Core/Transpositions.h	/^    inline Transpose<TranspositionsBase> inverse() const$/;"	f	class:Eigen::TranspositionsBase
@@ -9513,6 +9514,7 @@ pfirst	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE
 pfirst	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE int    pfirst<Packet4i>(const Packet4i& a) { int x = _mm_cvtsi128_si32(a); return x; }$/;"	f	namespace:Eigen::internal
 pfirst	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE int    pfirst<Packet4i>(const Packet4i& a) { return _mm_cvtsi128_si32(a); }$/;"	f	namespace:Eigen::internal
 pivotL	src/Eigen/src/SparseLU/SparseLU_pivotL.h	/^Index SparseLUImpl<Scalar,Index>::pivotL(const Index jcol, const RealScalar& diagpivotthresh, IndexVector& perm_r, IndexVector& iperm_c, Index& pivrow, GlobalLU_t& glu)$/;"	f	class:Eigen::internal::SparseLUImpl
+pixel2world	src/CameraMatrix/CameraMatrix.cpp	/^Eigen::Array3d CameraMatrix::pixel2world(Eigen::Vector2d& pixelCoord) {$/;"	f	class:CameraMatrix
 plain_array	src/Eigen/src/Core/DenseStorage.h	/^  plain_array() $/;"	f	struct:Eigen::internal::plain_array
 plain_array	src/Eigen/src/Core/DenseStorage.h	/^  plain_array() {}$/;"	f	struct:Eigen::internal::plain_array
 plain_array	src/Eigen/src/Core/DenseStorage.h	/^  plain_array(constructor_without_unaligned_array_assert) $/;"	f	struct:Eigen::internal::plain_array
@@ -11589,6 +11591,7 @@ window_name_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::string window
 workaround_msvc_stl_support	src/Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support() : T() {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	src/Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support(const T& other) : T(other) {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	src/Eigen/src/StlSupport/details.h	/^  template<typename T> struct workaround_msvc_stl_support : public T$/;"	s	namespace:Eigen::internal
+world2pixel	src/CameraMatrix/CameraMatrix.cpp	/^Eigen::Array2d CameraMatrix::world2pixel(Eigen::Vector3d& worldCoord) {$/;"	f	class:CameraMatrix
 writeConfig	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::writeConfig() {$/;"	f	class:PeopleDetection
 writePacket	src/Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::ArrayWrapper
 writePacket	src/Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::MatrixWrapper
