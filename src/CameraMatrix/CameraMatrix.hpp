@@ -6,8 +6,8 @@ class CameraMatrix
 {
 public:
     CameraMatrix();
-    Eigen::Vector3d pixel2world(Eigen::Vector2i& pixelCoord);
-    Eigen::Vector2i world2pixel(Eigen::Vector3d& pixelCoord);
+    Eigen::Vector3d pixel2camera(const Eigen::Vector2i& pixelCoord);
+    Eigen::Vector2i camera2pixel(const Eigen::Vector3d& cameralCoord);
 
 private:
 
@@ -18,6 +18,7 @@ private:
     double f_x_;
     double f_y_;
     Eigen::MatrixXd intrinsic_paramter_;
+    Eigen::Matrix3d intrinsic_paramter_inv_;
 
     std::string FILE_NAME_;
 

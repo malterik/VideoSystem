@@ -19,12 +19,10 @@ int main(void)
     // camera.setResolution(1024,768);
 
     cv::namedWindow(windowName,1);
-    Eigen::Vector3d poi(0.2,0,0.2);    
-    Eigen::Vector2i poi2(320,240);    
-    Eigen::Vector2i pixelPoint = cm.world2pixel(poi);
-    // Eigen::Vector3d pixelPoint2 = cm.pixel2world(poi2);
-    std::cout << pixelPoint << std::endl;
-    // std::cout << pixelPoint2 << std::endl;
+    Eigen::Vector3d poi(0.2,0.72,2);    
+    Eigen::Vector2i poi2(120,250);    
+    Eigen::Vector3d pixelPoint2 = cm.pixel2camera(cm.camera2pixel(poi));
+    std::cout << "cameraPoint main: " << std::endl << pixelPoint2 << std::endl;
     // peopleDetector.showTrackbars(windowName.c_str());    
     cv::Mat img1, img2, diffImg, test;
     cv::Mat frame(camera.getImage());
@@ -34,7 +32,7 @@ int main(void)
         WindowManager::getInstance().reset();
         // peopleDetector.reset();
         frame = camera.getImage();
-        cv::circle(frame,cv::Point(pixelPoint(0),pixelPoint(1)), 5 , cv::Scalar(0,0,255));
+        // cv::circle(frame,cv::Point(pixelPoint(0),pixelPoint(1)), 5 , cv::Scalar(0,0,255));
         WindowManager::getInstance().addImage(frame);
         // people = peopleDetector.detect(frame);
         // peopleDetector.debugImage();
