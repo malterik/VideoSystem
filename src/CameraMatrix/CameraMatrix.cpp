@@ -6,18 +6,22 @@
 
 using json = nlohmann::json;
 
-CameraMatrix::CameraMatrix() : FILE_NAME_("config/CamMatrix.json") {
-
-   readConfig(); 
-
-   intrinsic_paramter_ = Eigen::MatrixXd::Zero(3,4);
-   intrinsic_paramter_(0,0) = f_x_;
-   intrinsic_paramter_(1,1) = f_y_;
-   intrinsic_paramter_(0,2) = c_x_;
-   intrinsic_paramter_(1,2) = c_y_;
-   intrinsic_paramter_(2,2) = 1;
-
-   intrinsic_paramter_inv_ = intrinsic_paramter_.block<3,3>(0,0).inverse();;    
+CameraMatrix::CameraMatrix() : 
+    camera2ground_("config/Camera2Ground.json"),
+    camera2ground_inv_(camera2ground_.inverse()),
+    FILE_NAME_("config/CamMatrix.json")
+{
+    // Read the values from the json file
+    readConfig(); 
+    // Construct the Matrix
+    intrinsic_paramter_ = Eigen::MatrixXd::Zero(3,4);
+    intrinsic_paramter_(0,0) = f_x_;
+    intrinsic_paramter_(1,1) = f_y_;
+    intrinsic_paramter_(0,2) = c_x_;
+    intrinsic_paramter_(1,2) = c_y_;
+    intrinsic_paramter_(2,2) = 1;
+    // Compute the inverse of the matrix once, becaus it is used more often
+    intrinsic_paramter_inv_ = intrinsic_paramter_.block<3,3>(0,0).inverse();;    
 }
 
 void CameraMatrix::readConfig() {
@@ -50,8 +54,26 @@ Eigen::Vector3d CameraMatrix::pixel2camera(const Eigen::Vector2i& pixelCoord) {
     cameraCoord = intrinsic_paramter_inv_ * pixelCoordHomo;
 
     return cameraCoord;
+}
 
-        
+Eigen::Vector3d CameraMatrix::pixel2world(const Eigen::Vector2i& pixelCoord) {
+
+    Eigen::Vector3d cameraCoord;
+    Eigen::Vector3d worldCoord(0,0,0);
+    
+    cameraCoord = pixel2camera(pixelCoord);
+    
+    cameraCoord = camera2ground_.rotM() * cameraCoord;
+
+    if(cameraCoord(2) == 0.0f){ 
+        return worldCoord;
+    }
+
+    worldCoord(0) = camera2ground_.posV()(0) - camera2ground_.posV()(2) * cameraCoord(0) / cameraCoord(2);
+    worldCoord(1) = camera2ground_.posV()(1) - camera2ground_.posV()(2) * cameraCoord(1) / cameraCoord(2);
+    // robot_coordinates.x = camera2ground.posV.x - camera2ground.posV.z * camera_coordinates.x / camera_coordinates.z; 
+    // robot_coordinates.y = camera2ground.posV.y - camera2ground.posV.z * camera_coordinates.y / camera_coordinates.z;
+    return worldCoord;
 }
 
 Eigen::Vector2i CameraMatrix::camera2pixel(const Eigen::Vector3d& cameraCoord) {
@@ -75,6 +97,30 @@ Eigen::Vector2i CameraMatrix::camera2pixel(const Eigen::Vector3d& cameraCoord) {
 
     pixelCoord(0) = (int) pixelCoordHomo(0);
     pixelCoord(1) = (int) pixelCoordHomo(1);
+
+    return pixelCoord;
+}
+
+Eigen::Vector2i CameraMatrix::world2pixel(Eigen::Vector3d& worldCoord) {
+
+    Eigen::Vector2i pixelCoord(0,0);
+    Eigen::Vector3d cameraCoord(0,0,0);
+
+    worldCoord(2) = 0;
+
+    print(DEBUG," worldCoord: ");
+    std::cout << worldCoord  << std::endl << std::endl;
+    
+    // cameraCoord = camera2ground_.inverse().rotM() * worldCoord;
+    cameraCoord = camera2ground_inv_.transform(worldCoord); 
+    
+    print(DEBUG," cameraCoord: ");
+    std::cout << cameraCoord  << std::endl;
+
+    // pixelCoord = camera2pixel(cameraCoord);
+
+    print(DEBUG," pixelCoord: ");
+    std::cout << pixelCoord  << std::endl;
 
     return pixelCoord;
 }

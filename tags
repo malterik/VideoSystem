@@ -586,7 +586,7 @@ COMPILER_VERSION_TWEAK	build/CMakeFiles/3.4.3/CompilerIdCXX/CMakeCXXCompilerId.c
 CRUISE	src/SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
 CameraInterface	src/CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface() : image_(), cap_(0) $/;"	f	class:CameraInterface
 CameraInterface	src/CameraInterface/CameraInterface.hpp	/^class CameraInterface $/;"	c
-CameraMatrix	src/CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix() : FILE_NAME_("config\/CamMatrix.json") {$/;"	f	class:CameraMatrix
+CameraMatrix	src/CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix() : $/;"	f	class:CameraMatrix
 CameraMatrix	src/CameraMatrix/CameraMatrix.hpp	/^class CameraMatrix$/;"	c
 CanVectorizeInner	src/Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner =    SameType$/;"	e	enum:Eigen::internal::traits::__anon294
 CanVectorizeInner	src/Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner = internal::traits<CoeffBasedProduct>::CanVectorizeInner$/;"	e	enum:Eigen::CoeffBasedProduct::__anon295
@@ -4647,6 +4647,9 @@ TransformType	src/Eigen/src/Geometry/Homogeneous.h	/^  typedef Transform<Scalar,
 TransformType	src/Eigen/src/Geometry/Homogeneous.h	/^  typedef Transform<Scalar, Dim, Projective, Options> TransformType;$/;"	t	struct:Eigen::internal::take_matrix_for_product
 TransformType	src/Eigen/src/Geometry/Transform.h	/^  typedef Transform<typename Other::Scalar,Dim,AffineCompact,Options> TransformType;$/;"	t	struct:Eigen::internal::transform_left_product_impl
 TransformType	src/Eigen/src/Geometry/Transform.h	/^  typedef Transform<typename Other::Scalar,Dim,Mode,Options> TransformType;$/;"	t	struct:Eigen::internal::transform_left_product_impl
+TransformationMatrix	src/Utils/TransformationMatrix.cpp	/^TransformationMatrix::TransformationMatrix(const Eigen::Matrix3d& rotation_matrix, const Eigen::Vector3d& position_vector) : $/;"	f	class:TransformationMatrix
+TransformationMatrix	src/Utils/TransformationMatrix.cpp	/^TransformationMatrix::TransformationMatrix(const std::string& filename) : $/;"	f	class:TransformationMatrix
+TransformationMatrix	src/Utils/TransformationMatrix.hpp	/^class TransformationMatrix$/;"	c
 Translation	src/Eigen/src/Eigen2Support/Geometry/All.h	43;"	d
 Translation	src/Eigen/src/Eigen2Support/Geometry/All.h	98;"	d
 Translation	src/Eigen/src/Eigen2Support/Geometry/Translation.h	/^  Translation() {}$/;"	f	class:Eigen::Translation
@@ -5399,6 +5402,7 @@ c_to_fortran_numbering	src/Eigen/src/PaStiXSupport/PaStiXSupport.h	/^  void c_to
 c_x_	src/CameraMatrix/CameraMatrix.hpp	/^    double c_x_;$/;"	m	class:CameraMatrix
 c_y_	src/CameraMatrix/CameraMatrix.hpp	/^    double c_y_;$/;"	m	class:CameraMatrix
 callback	src/json/json.hpp	/^        parser_callback_t callback;$/;"	m	class:nlohmann::basic_json::parser
+camera2ground_	src/CameraMatrix/CameraMatrix.hpp	/^    TransformationMatrix camera2ground_;$/;"	m	class:CameraMatrix
 camera2pixel	src/CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector2i CameraMatrix::camera2pixel(const Eigen::Vector3d& cameraCoord) {$/;"	f	class:CameraMatrix
 cap_	src/CameraInterface/CameraInterface.hpp	/^	cv::VideoCapture cap_; $/;"	m	class:CameraInterface
 cast	src/Eigen/src/Core/MathFunctions.h	/^inline NewType cast(const OldType& x)$/;"	f	namespace:Eigen::internal
@@ -6461,6 +6465,7 @@ factorize_preordered	src/Eigen/src/SparseCholesky/SimplicialCholesky_impl.h	/^vo
 false_type	src/Eigen/src/Core/util/Meta.h	/^struct false_type { enum { value = 0 }; };$/;"	s	namespace:Eigen::internal
 features	build/CMakeFiles/feature_tests.c	/^  const char features[] = {"\\n"$/;"	v
 features	build/CMakeFiles/feature_tests.cxx	/^  const char features[] = {"\\n"$/;"	v
+filename_	src/Utils/TransformationMatrix.hpp	/^    std::string filename_;$/;"	m	class:TransformationMatrix
 fill	src/Eigen/src/Core/CwiseNullaryOp.h	/^EIGEN_STRONG_INLINE void DenseBase<Derived>::fill(const Scalar& val)$/;"	f	class:Eigen::DenseBase
 fill	src/Eigen/src/Core/TriangularMatrix.h	/^    void fill(const Scalar& value) { setConstant(value); }$/;"	f	class:Eigen::TriangularView
 fill	src/Eigen/src/SparseCore/SparseVector.h	/^    EIGEN_DEPRECATED Scalar& fill(Index i)$/;"	f	class:Eigen::SparseVector
@@ -7159,6 +7164,7 @@ inverse	src/Eigen/src/LU/PartialPivLU.h	/^    inline const internal::solve_retva
 inverse	src/Eigen/src/QR/ColPivHouseholderQR.h	/^    inverse() const$/;"	f	class:Eigen::ColPivHouseholderQR
 inverse	src/Eigen/src/QR/FullPivHouseholderQR.h	/^    inverse() const$/;"	f	class:Eigen::FullPivHouseholderQR
 inverse	src/Eigen/src/plugins/ArrayCwiseUnaryOps.h	/^inverse() const$/;"	f
+inverse	src/Utils/TransformationMatrix.cpp	/^const TransformationMatrix TransformationMatrix::inverse() const {$/;"	f	class:TransformationMatrix
 inverse_impl	src/Eigen/src/LU/Inverse.h	/^  inverse_impl(const MatrixType& matrix)$/;"	f	struct:Eigen::internal::inverse_impl
 inverse_impl	src/Eigen/src/LU/Inverse.h	/^struct inverse_impl : public ReturnByValue<inverse_impl<MatrixType> >$/;"	s	namespace:Eigen::internal
 iparm	src/Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    Array<Index,IPARM_SIZE,1>& iparm()$/;"	f	class:Eigen::PastixBase
@@ -9179,6 +9185,7 @@ pfirst	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE
 pfirst	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE int    pfirst<Packet4i>(const Packet4i& a) { return _mm_cvtsi128_si32(a); }$/;"	f	namespace:Eigen::internal
 pivotL	src/Eigen/src/SparseLU/SparseLU_pivotL.h	/^Index SparseLUImpl<Scalar,Index>::pivotL(const Index jcol, const RealScalar& diagpivotthresh, IndexVector& perm_r, IndexVector& iperm_c, Index& pivrow, GlobalLU_t& glu)$/;"	f	class:Eigen::internal::SparseLUImpl
 pixel2camera	src/CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector3d CameraMatrix::pixel2camera(const Eigen::Vector2i& pixelCoord) {$/;"	f	class:CameraMatrix
+pixel2world	src/CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector3d CameraMatrix::pixel2world(const Eigen::Vector2i& pixelCoord) {$/;"	f	class:CameraMatrix
 plain_array	src/Eigen/src/Core/DenseStorage.h	/^  plain_array() $/;"	f	struct:Eigen::internal::plain_array
 plain_array	src/Eigen/src/Core/DenseStorage.h	/^  plain_array() {}$/;"	f	struct:Eigen::internal::plain_array
 plain_array	src/Eigen/src/Core/DenseStorage.h	/^  plain_array(constructor_without_unaligned_array_assert) $/;"	f	struct:Eigen::internal::plain_array
@@ -9321,6 +9328,9 @@ por	src/Eigen/src/Core/arch/SSE/Complex.h	/^template<> EIGEN_STRONG_INLINE Packe
 por	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet2d por<Packet2d>(const Packet2d& a, const Packet2d& b) { return _mm_or_pd(a,b); }$/;"	f	namespace:Eigen::internal
 por	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4f por<Packet4f>(const Packet4f& a, const Packet4f& b) { return _mm_or_ps(a,b); }$/;"	f	namespace:Eigen::internal
 por	src/Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4i por<Packet4i>(const Packet4i& a, const Packet4i& b) { return _mm_or_si128(a,b); }$/;"	f	namespace:Eigen::internal
+posV	src/Utils/TransformationMatrix.cpp	/^const Eigen::Vector3d& TransformationMatrix::posV() const {$/;"	f	class:TransformationMatrix
+position_vector_	src/Utils/TransformationMatrix.hpp	/^    Eigen::Vector3d position_vector_;$/;"	m	class:TransformationMatrix
+position_vector_inv_	src/Utils/TransformationMatrix.hpp	/^    Eigen::Vector3d position_vector_inv_;$/;"	m	class:TransformationMatrix
 pow	src/Eigen/src/Core/GlobalFunctions.h	/^  pow(const Eigen::ArrayBase<Derived>& x, const Eigen::ArrayBase<Derived>& exponents) $/;"	f	namespace:Eigen
 pow	src/Eigen/src/Core/GlobalFunctions.h	/^  pow(const Eigen::ArrayBase<Derived>& x, const typename Derived::Scalar& exponent) {$/;"	f	namespace:Eigen
 pow	src/Eigen/src/Core/MathFunctions.h	/^inline EIGEN_MATHFUNC_RETVAL(pow, Scalar) pow(const Scalar& x, const Scalar& y)$/;"	f	namespace:Eigen::numext
@@ -9831,6 +9841,7 @@ rightCols	src/Eigen/src/plugins/BlockMethods.h	/^inline ConstColsBlockXpr rightC
 rightCols	src/Eigen/src/plugins/BlockMethods.h	/^inline typename ConstNColsBlockXpr<N>::Type rightCols(Index n = N) const$/;"	f
 rightCols	src/Eigen/src/plugins/BlockMethods.h	/^inline typename NColsBlockXpr<N>::Type rightCols(Index n = N)$/;"	f
 rightHouseholderSequence	src/Eigen/src/Householder/HouseholderSequence.h	/^HouseholderSequence<VectorsType,CoeffsType,OnTheRight> rightHouseholderSequence(const VectorsType& v, const CoeffsType& h)$/;"	f	namespace:Eigen
+rotM	src/Utils/TransformationMatrix.cpp	/^const Eigen::Matrix3d& TransformationMatrix::rotM() const {$/;"	f	class:TransformationMatrix
 rotate	src/Eigen/src/Eigen2Support/Geometry/Transform.h	/^Transform<Scalar,Dim>::rotate(const RotationType& rotation)$/;"	f	class:Eigen::Transform
 rotate	src/Eigen/src/Geometry/Transform.h	/^Transform<Scalar,Dim,Mode,Options>::rotate(const RotationType& rotation)$/;"	f	class:Eigen::Transform
 rotation	src/Eigen/src/Eigen2Support/Geometry/Transform.h	/^Transform<Scalar,Dim>::rotation() const$/;"	f	class:Eigen::Transform
@@ -9838,6 +9849,8 @@ rotation	src/Eigen/src/Geometry/Transform.h	/^Transform<Scalar,Dim,Mode,Options>
 rotation_base_generic_product_selector	src/Eigen/src/Geometry/RotationBase.h	/^struct rotation_base_generic_product_selector< RotationDerived, DiagonalMatrix<Scalar,Dim,MaxDim>, false >$/;"	s	namespace:Eigen::internal
 rotation_base_generic_product_selector	src/Eigen/src/Geometry/RotationBase.h	/^struct rotation_base_generic_product_selector<RotationDerived,MatrixType,false>$/;"	s	namespace:Eigen::internal
 rotation_base_generic_product_selector	src/Eigen/src/Geometry/RotationBase.h	/^struct rotation_base_generic_product_selector<RotationDerived,OtherVectorType,true>$/;"	s	namespace:Eigen::internal
+rotation_matrix_	src/Utils/TransformationMatrix.hpp	/^    Eigen::Matrix3d rotation_matrix_;$/;"	m	class:TransformationMatrix
+rotation_matrix_inv_	src/Utils/TransformationMatrix.hpp	/^    Eigen::Matrix3d rotation_matrix_inv_;$/;"	m	class:TransformationMatrix
 row	src/Eigen/src/Core/BooleanRedux.h	/^    row = (UnrollCount-1) % Derived::RowsAtCompileTime$/;"	e	enum:Eigen::internal::all_unroller::__anon267
 row	src/Eigen/src/Core/BooleanRedux.h	/^    row = (UnrollCount-1) % Derived::RowsAtCompileTime$/;"	e	enum:Eigen::internal::any_unroller::__anon268
 row	src/Eigen/src/Core/CoreIterators.h	/^    inline Index row() const { return IsRowMajor ? m_outer : index(); }$/;"	f	class:Eigen::DenseBase::InnerIterator
@@ -11253,6 +11266,7 @@ window_name_	src/PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::string window
 workaround_msvc_stl_support	src/Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support() : T() {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	src/Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support(const T& other) : T(other) {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	src/Eigen/src/StlSupport/details.h	/^  template<typename T> struct workaround_msvc_stl_support : public T$/;"	s	namespace:Eigen::internal
+world2pixel	src/CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector2i CameraMatrix::world2pixel(Eigen::Vector3d& worldCoord) {$/;"	f	class:CameraMatrix
 writeConfig	src/PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::writeConfig() {$/;"	f	class:PeopleDetection
 writePacket	src/Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::ArrayWrapper
 writePacket	src/Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::MatrixWrapper

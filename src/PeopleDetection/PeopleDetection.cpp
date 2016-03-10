@@ -154,18 +154,18 @@ void PeopleDetection::writeConfig() {
 
 void PeopleDetection::readConfig() {
     std::string line;
-    json peopleDetectionConfig; 
-    std::ifstream configFile (FILE_NAME_);
-    if (configFile.is_open()) {
-        std::string str((std::istreambuf_iterator<char>(configFile)),
-                         std::istreambuf_iterator<char>());
-        peopleDetectionConfig = json::parse(str);    
-        DILATE_KERNEL_SIZE_ = peopleDetectionConfig["DILATE_KERNEL_SIZE_"];
-        BLUR_KERNEL_SIZE_ = peopleDetectionConfig["BLUR_KERNEL_SIZE_"];
-        THRESHOLD_ = peopleDetectionConfig["THRESHOLD_"];
-        MIN_BOUNDING_BOX_AREA_ = peopleDetectionConfig["MIN_BOUNDING_BOX_AREA_"];
-        configFile.close();
-    } else std::cout << "Unable to open people detection config file" << std::endl; 
+json peopleDetectionConfig; 
+std::ifstream configFile (FILE_NAME_);
+if (configFile.is_open()) {
+    std::string str((std::istreambuf_iterator<char>(configFile)),
+                     std::istreambuf_iterator<char>());
+    peopleDetectionConfig = json::parse(str);    
+    DILATE_KERNEL_SIZE_ = peopleDetectionConfig["DILATE_KERNEL_SIZE_"];
+    BLUR_KERNEL_SIZE_ = peopleDetectionConfig["BLUR_KERNEL_SIZE_"];
+    THRESHOLD_ = peopleDetectionConfig["THRESHOLD_"];
+    MIN_BOUNDING_BOX_AREA_ = peopleDetectionConfig["MIN_BOUNDING_BOX_AREA_"];
+    configFile.close();
+} else std::cout << "Unable to open people detection config file" << std::endl; 
 }
 
 
