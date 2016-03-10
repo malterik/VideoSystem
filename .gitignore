@@ -1,2 +1,4 @@
 build/
 *.swp
+CMakeLists.txt.user
+*.log

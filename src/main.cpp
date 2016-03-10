@@ -58,4 +58,3 @@ int main(void)
         cv::imshow(windowName , WindowManager::getInstance().showMultipleImages(1)); 
     }
 }
-
