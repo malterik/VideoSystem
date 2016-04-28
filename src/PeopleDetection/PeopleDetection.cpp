@@ -13,11 +13,11 @@ PeopleDetection::PeopleDetection() :
     background_image_(), blur_img_(), contour_img_(),
     image_(), kernel_(), thresh_img_(),
     contours_(), contours_poly(), hierarchy_(),
-    people_candidates_(),
+    people_candidates_(), p_background_subtractor2_(new cv::BackgroundSubtractorMOG2),
     FILE_NAME_("config/PeopleDetection.json")
 {
     readConfig();
-    p_background_subtractor2_ = cv::createBackgroundSubtractorMOG2();
+    // p_background_subtractor2_ = cv::createBackgroundSubtractorMOG2();
 
     // CameraInterface camera;
     // p_image_subtractor_ = new ImageSubtractor(camera.getImage());
