@@ -8,12 +8,14 @@
 #include "Utils/TransformationMatrix.hpp"
 
 
+
 int main(void)
 {
 
-    CameraInterface camera(IP_CAM);
+    Camera cam = IP_CAM;
+    CameraInterface camera(cam);
     PeopleDetection peopleDetector;
-    CameraMatrix cm;
+    CameraMatrix cm(cam);
     std::vector<cv::Rect> people;
     std::string windowName = "Main Window";
 
@@ -22,7 +24,7 @@ int main(void)
     camera.setResolution(1920,1080);
 
     cv::namedWindow(windowName,1);
-    // Eigen::Vector2i poi2(320,400);
+    Eigen::Vector2i poi2(960,540);
     // Eigen::Vector3d poi = cm.pixel2world(poi2);
     // Eigen::Vector3d pixelPoint2 = cm.pixel2world(poi2);
     // std::cout << "Pixel Point: " << std::endl << poi <<  std::endl;

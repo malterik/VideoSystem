@@ -2,11 +2,12 @@
 #include <string>
 #include "../Eigen/Dense"
 #include "../Utils/TransformationMatrix.hpp"
+#include "../Utils/Utils.hpp"
 
 class CameraMatrix
 {
 public:
-    CameraMatrix();
+    CameraMatrix(Camera camType);
     Eigen::Vector3d pixel2camera(const Eigen::Vector2i& pixelCoord);
     Eigen::Vector3d pixel2world(const Eigen::Vector2i& pixelCoord);
 
@@ -28,5 +29,6 @@ private:
     TransformationMatrix camera2ground_;
 
     std::string FILE_NAME_;
+    Camera cam_type_;
 
 };

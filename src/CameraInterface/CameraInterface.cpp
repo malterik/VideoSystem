@@ -1,7 +1,7 @@
 #include "CameraInterface.hpp"
 #include <iostream>
 
-CameraInterface::CameraInterface(camera CamType) : image_(), cam_type_(CamType)
+CameraInterface::CameraInterface(Camera CamType) : image_(), cam_type_(CamType)
 {
   if(cam_type_ == IP_CAM) {
     cap_.open(STREAM_ADDR);

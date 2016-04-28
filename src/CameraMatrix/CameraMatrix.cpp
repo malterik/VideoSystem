@@ -6,10 +6,17 @@
 
 using json = nlohmann::json;
 
-CameraMatrix::CameraMatrix() :
+CameraMatrix::CameraMatrix(Camera camType) :
     camera2ground_("config/Camera2Ground.json"),
-    FILE_NAME_("config/CamMatrix.json")
+    cam_type_(camType)
 {
+    if(cam_type_ == IP_CAM) {
+      FILE_NAME_ = "config/CamMatrix.json";
+
+    } else if(cam_type_ == LOCAL_CAM) {
+      FILE_NAME_ = "config/IPCamMatrix.json";
+    }
+
     // Read the values from the json file
     readConfig();
     // Construct the Matrix
