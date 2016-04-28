@@ -1,8 +1,8 @@
 #include "CameraMatrix.hpp"
-#include "../json/json.hpp"
 #include <iostream>
 #include <fstream>
 #include "../Utils/print.hpp"
+#include "../json/json.hpp"
 
 using json = nlohmann::json;
 
@@ -11,10 +11,9 @@ CameraMatrix::CameraMatrix(Camera camType) :
     cam_type_(camType)
 {
     if(cam_type_ == IP_CAM) {
-      FILE_NAME_ = "config/CamMatrix.json";
-
-    } else if(cam_type_ == LOCAL_CAM) {
       FILE_NAME_ = "config/IPCamMatrix.json";
+    } else if(cam_type_ == LOCAL_CAM) {
+      FILE_NAME_ = "config/CamMatrix.json";
     }
 
     // Read the values from the json file
