@@ -15,7 +15,7 @@ public:
 
 private:
 
-    void readConfig(); 
+    void readConfig();
 
     double c_x_;
     double c_y_;
@@ -24,8 +24,8 @@ private:
 
     Eigen::MatrixXd intrinsic_paramter_;
     Eigen::Matrix3d intrinsic_paramter_inv_;
+    Eigen::Matrix3d bottomRight2topLeft_;
     TransformationMatrix camera2ground_;
-    TransformationMatrix camera2ground_inv_;
 
     std::string FILE_NAME_;
 

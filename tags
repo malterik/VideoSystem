@@ -5403,6 +5403,7 @@ c_x_	src/CameraMatrix/CameraMatrix.hpp	/^    double c_x_;$/;"	m	class:CameraMatr
 c_y_	src/CameraMatrix/CameraMatrix.hpp	/^    double c_y_;$/;"	m	class:CameraMatrix
 callback	src/json/json.hpp	/^        parser_callback_t callback;$/;"	m	class:nlohmann::basic_json::parser
 camera2ground_	src/CameraMatrix/CameraMatrix.hpp	/^    TransformationMatrix camera2ground_;$/;"	m	class:CameraMatrix
+camera2ground_inv_	src/CameraMatrix/CameraMatrix.hpp	/^    TransformationMatrix camera2ground_inv_;$/;"	m	class:CameraMatrix
 camera2pixel	src/CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector2i CameraMatrix::camera2pixel(const Eigen::Vector3d& cameraCoord) {$/;"	f	class:CameraMatrix
 cap_	src/CameraInterface/CameraInterface.hpp	/^	cv::VideoCapture cap_; $/;"	m	class:CameraInterface
 cast	src/Eigen/src/Core/MathFunctions.h	/^inline NewType cast(const OldType& x)$/;"	f	namespace:Eigen::internal
@@ -6656,6 +6657,7 @@ getL	src/Eigen/src/SparseCholesky/SimplicialCholesky.h	/^  static inline MatrixL
 getMatrix	src/Eigen/src/PardisoSupport/PardisoSupport.h	/^    void getMatrix(const MatrixType& matrix)$/;"	f	class:Eigen::PardisoLDLT
 getMatrix	src/Eigen/src/PardisoSupport/PardisoSupport.h	/^    void getMatrix(const MatrixType& matrix)$/;"	f	class:Eigen::PardisoLLT
 getMatrix	src/Eigen/src/PardisoSupport/PardisoSupport.h	/^    void getMatrix(const MatrixType& matrix)$/;"	f	class:Eigen::PardisoLU
+getMatrix	src/Utils/TransformationMatrix.cpp	/^const Eigen::Matrix4d& TransformationMatrix::getMatrix() const {$/;"	f	class:TransformationMatrix
 getMaxIterations	src/Eigen/src/Eigenvalues/ComplexEigenSolver.h	/^    Index getMaxIterations()$/;"	f	class:Eigen::ComplexEigenSolver
 getMaxIterations	src/Eigen/src/Eigenvalues/ComplexSchur.h	/^    Index getMaxIterations()$/;"	f	class:Eigen::ComplexSchur
 getMaxIterations	src/Eigen/src/Eigenvalues/EigenSolver.h	/^    Index getMaxIterations()$/;"	f	class:Eigen::EigenSolver
@@ -7137,7 +7139,7 @@ intersection	src/Eigen/src/Geometry/ParametrizedLine.h	/^inline _Scalar Parametr
 intersectionParameter	src/Eigen/src/Geometry/ParametrizedLine.h	/^inline _Scalar ParametrizedLine<_Scalar, _AmbientDim,_Options>::intersectionParameter(const Hyperplane<_Scalar, _AmbientDim, OtherOptions>& hyperplane) const$/;"	f	class:Eigen::ParametrizedLine
 intersectionPoint	src/Eigen/src/Geometry/ParametrizedLine.h	/^ParametrizedLine<_Scalar, _AmbientDim,_Options>::intersectionPoint(const Hyperplane<_Scalar, _AmbientDim, OtherOptions>& hyperplane) const$/;"	f	class:Eigen::ParametrizedLine
 intersects	src/Eigen/src/Geometry/AlignedBox.h	/^  inline bool intersects(const AlignedBox& b) const$/;"	f	class:Eigen::AlignedBox
-intrinsic_paramter_	src/CameraMatrix/CameraMatrix.hpp	/^    Eigen::MatrixXd intrinsic_paramter_;$/;"	m	class:CameraMatrix
+intrinsic_paramter_	src/CameraMatrix/CameraMatrix.hpp	/^    Eigen::Matrix3d intrinsic_paramter_;$/;"	m	class:CameraMatrix
 intrinsic_paramter_inv_	src/CameraMatrix/CameraMatrix.hpp	/^    Eigen::Matrix3d intrinsic_paramter_inv_;$/;"	m	class:CameraMatrix
 inverse	src/Eigen/src/Core/DiagonalMatrix.h	/^    inverse() const$/;"	f	class:Eigen::DiagonalBase
 inverse	src/Eigen/src/Core/PermutationMatrix.h	/^    inline Transpose<PermutationBase> inverse() const$/;"	f	class:Eigen::PermutationBase
@@ -10857,6 +10859,7 @@ transform	src/Eigen/src/Eigen2Support/Geometry/Hyperplane.h	/^  inline Hyperplan
 transform	src/Eigen/src/Eigen2Support/Geometry/Hyperplane.h	/^  inline Hyperplane& transform(const Transform<Scalar,AmbientDimAtCompileTime>& t,$/;"	f	class:Eigen::Hyperplane
 transform	src/Eigen/src/Geometry/Hyperplane.h	/^  inline Hyperplane& transform(const MatrixBase<XprType>& mat, TransformTraits traits = Affine)$/;"	f	class:Eigen::Hyperplane
 transform	src/Eigen/src/Geometry/Hyperplane.h	/^  inline Hyperplane& transform(const Transform<Scalar,AmbientDimAtCompileTime,Affine,TrOptions>& t,$/;"	f	class:Eigen::Hyperplane
+transform	src/Utils/TransformationMatrix.cpp	/^const Eigen::Vector3d TransformationMatrix::transform(const Eigen::Vector3d& vec) const {$/;"	f	class:TransformationMatrix
 transform_construct_from_matrix	src/Eigen/src/Geometry/Transform.h	/^struct transform_construct_from_matrix<Other, AffineCompact,Options,Dim,HDim, HDim,HDim>$/;"	s	namespace:Eigen::internal
 transform_construct_from_matrix	src/Eigen/src/Geometry/Transform.h	/^struct transform_construct_from_matrix<Other, Mode,Options,Dim,HDim, Dim,Dim>$/;"	s	namespace:Eigen::internal
 transform_construct_from_matrix	src/Eigen/src/Geometry/Transform.h	/^struct transform_construct_from_matrix<Other, Mode,Options,Dim,HDim, Dim,HDim>$/;"	s	namespace:Eigen::internal
@@ -10879,6 +10882,7 @@ transform_transform_product_impl	src/Eigen/src/Geometry/Transform.h	/^struct tra
 transform_transform_product_impl	src/Eigen/src/Geometry/Transform.h	/^struct transform_transform_product_impl<Transform<Scalar,Dim,LhsMode,LhsOptions>,Transform<Scalar,Dim,RhsMode,RhsOptions>,false >$/;"	s	namespace:Eigen::internal
 transform_transform_product_impl	src/Eigen/src/Geometry/Transform.h	/^struct transform_transform_product_impl<Transform<Scalar,Dim,LhsMode,LhsOptions>,Transform<Scalar,Dim,RhsMode,RhsOptions>,true >$/;"	s	namespace:Eigen::internal
 transform_transform_product_impl	src/Eigen/src/Geometry/Transform.h	/^struct transform_transform_product_impl<Transform<Scalar,Dim,Projective,LhsOptions>,Transform<Scalar,Dim,AffineCompact,RhsOptions>,true >$/;"	s	namespace:Eigen::internal
+transformation_matrix_	src/Utils/TransformationMatrix.hpp	/^    Eigen::Matrix4d transformation_matrix_; $/;"	m	class:TransformationMatrix
 translate	src/Eigen/src/Eigen2Support/Geometry/AlignedBox.h	/^  inline AlignedBox& translate(const VectorType& t)$/;"	f	class:Eigen::AlignedBox
 translate	src/Eigen/src/Eigen2Support/Geometry/Transform.h	/^Transform<Scalar,Dim>::translate(const MatrixBase<OtherDerived> &other)$/;"	f	class:Eigen::Transform
 translate	src/Eigen/src/Geometry/AlignedBox.h	/^  inline AlignedBox& translate(const MatrixBase<Derived>& a_t)$/;"	f	class:Eigen::AlignedBox

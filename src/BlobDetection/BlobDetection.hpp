@@ -9,7 +9,7 @@ public:
     cv::Mat getBlobImage(cv::Mat image);
 private:
     cv::SimpleBlobDetector detector_;
-    std::vector<cv::KeyPoint> keypoints_;    
+    std::vector<cv::KeyPoint> keypoints_;
     cv::Mat blob_image_;
     cv::SimpleBlobDetector::Params blob_parameter_;
 };
