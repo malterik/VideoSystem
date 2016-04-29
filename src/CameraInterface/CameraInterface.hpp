@@ -9,17 +9,17 @@
 class CameraInterface
 {
 public:
-        CameraInterface(Camera cameraToUse);
-        const cv::Mat& getImage();
-        void setResolution(int width, int height);
+  CameraInterface(Camera cameraToUse);
+  const cv::Mat& getImage();
+  void setResolution(int width, int height);
 private:
-        //Private Member
-        cv::Mat image_;
-        cv::VideoCapture cap_;
-        unsigned int width_;
-        unsigned int height_;
-        Camera cam_type_;
+  //Private Member
+  cv::Mat image_;
+  cv::VideoCapture cap_;
+  unsigned int width_;
+  unsigned int height_;
+  Camera cam_type_;
 
-        //Constants
-        const std::string STREAM_ADDR="rtp://239.192.140.99:5004";
+  //Constants
+  const std::string STREAM_ADDR="rtp://239.192.140.99:5004";
 };

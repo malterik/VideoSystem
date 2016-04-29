@@ -7,21 +7,21 @@
 class WindowManager
 {
 public:
-    static WindowManager& getInstance();
-    void addImage(cv::Mat image);
-    void addImage(std::vector<cv::Mat> imageVector);
-    void drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
-    cv::Mat& showMultipleImages(int rows );
-    void reset();
+  static WindowManager& getInstance();
+  void addImage(cv::Mat image);
+  void addImage(std::vector<cv::Mat> imageVector);
+  void drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
+  cv::Mat& showMultipleImages(int rows );
+  void reset();
 
 private:
-    WindowManager();
-    WindowManager(const WindowManager& wm);
+  WindowManager();
+  WindowManager(const WindowManager& wm);
 
-    std::vector<cv::Mat> img_vector_;
-    cv::Mat dst_;
-    unsigned int dst_heigth_;
-    unsigned int dst_width_;
-    unsigned int dst_rows_;
-    unsigned int dst_cols_;
+  std::vector<cv::Mat> img_vector_;
+  cv::Mat dst_;
+  unsigned int dst_heigth_;
+  unsigned int dst_width_;
+  unsigned int dst_rows_;
+  unsigned int dst_cols_;
 };
