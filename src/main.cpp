@@ -9,7 +9,16 @@
 
 int main(void)
 {
-  Camera cam = IP_CAM;
+  cv::VideoCapture cap;
+  cap.open(0);
+  if(cap.isOpened()) {
+    std::cout << "alles gut" << std::endl;
+  } else {
+    std::cout << "nicht gut" << std::endl;
+  }
+  return EXIT_SUCCESS;
+
+  Camera cam = LOCAL_CAM;
   CameraInterface camera(cam);
   PeopleDetection peopleDetector;
   CameraMatrix cm(cam);
@@ -21,11 +30,11 @@ int main(void)
   camera.setResolution(1920,1080);
 
   cv::namedWindow(windowName,1);
-  Eigen::Vector2i poi2(960,540);
-  Eigen::Vector3d poi = cm.pixel2world(poi2);
-  Eigen::Vector3d pixelPoint2 = cm.pixel2world(poi2);
-  std::cout << "Pixel Point: " << std::endl << poi <<  std::endl;
-  std::cout << "Pixel Point2: " << std::endl << pixelPoint2 <<  std::endl;
+  // Eigen::Vector2i poi2(960,540);
+  // Eigen::Vector3d poi(0.3,0,0);
+  // Eigen::Vector2i pixelPoint2 = cm.world2pixel(poi);
+  // std::cout << "Pixel Point: " << std::endl << poi <<  std::endl;
+  // std::cout << "Pixel Point2: " << std::endl << pixelPoint2 <<  std::endl;
   // peopleDetector.showTrackbars(windowName.c_str());
   cv::Mat img1, img2, diffImg, test;
   cv::Mat frame(camera.getImage());
@@ -36,7 +45,7 @@ int main(void)
     WindowManager::getInstance().reset();
     // peopleDetector.reset();
     frame = camera.getImage();
-    cv::circle(frame,cv::Point(pixelPoint2(0),pixelPoint2(1)), 5 , cv::Scalar(0,0,255));
+    // cv::circle(frame,cv::Point(pixelPoint2(0),pixelPoint2(1)), 5 , cv::Scalar(0,0,255));
     WindowManager::getInstance().addImage(frame);
     // people = peopleDetector.detect(frame);
     // peopleDetector.debugImage();
@@ -46,7 +55,7 @@ int main(void)
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {
       break;
-    } else if (key == 32) { // Hit space bar for resetting the background
+    } else if (key == 32) { // If the space bar is pressed
        // imageSubtractor.setBackground(frame);
       std::string path ="Images/test";
       path += std::to_string(counter);
