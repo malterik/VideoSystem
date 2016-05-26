@@ -47,7 +47,7 @@ TransformationMatrix::TransformationMatrix(const std::string& filename) :
 
     std::cout << transformation_matrix_ << std::endl;
 
-  } else std::cout << "Unable to open people detection config file" << std::endl;
+  } else std::cout << "Unable to open Transformation Matrix config file" << std::endl;
 }
 
 const TransformationMatrix TransformationMatrix::inverse() const {

@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../Eigen/Dense"
-#include "../json/json.hpp"
 #include <string>
+#include "../json/json.hpp"
 
 using json = nlohmann::json;
 
