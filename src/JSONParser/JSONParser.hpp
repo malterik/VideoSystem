@@ -13,7 +13,7 @@ class JSONParser
 {
 public:
   JSONParser();
-  std::vector<Eigen::Vector2f> getVector(std::string filename);
+  std::vector<Eigen::Vector2d> getVector(std::string filename);
 
 private:
   unsigned int numberOfLines(std::ifstream file);

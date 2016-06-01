@@ -4,7 +4,7 @@
 #include "CameraMatrix/CameraMatrix.hpp"
 #include "Utils/TransformationMatrix.hpp"
 #include "JSONParser/JSONParser.hpp"
-#include <opencv2/opencv.hpp>
+#include "PositionEstimator/PositionEstimator.hpp"
 
 int main(void)
 {
@@ -12,40 +12,14 @@ int main(void)
   CameraInterface camera(cam);
   CameraMatrix leftCam(cam, "config/CameraPose1.json");
   CameraMatrix rightCam(cam, "config/CameraPose2.json");
+  PositionEstimator pe(leftCam, rightCam);
   std::string windowName = "Main Window";
   camera.setResolution(1280,720);
 
   JSONParser jp;
-  std::vector<Eigen::Vector2f> mp1 = jp.getVector("config/matchedPoints1.json");
-  std::vector<Eigen::Vector2f> mp2 = jp.getVector("config/matchedPoints2.json");
-
-  // std::cout << "----Left Cam----" << std::endl;
-  // std::cout << std::endl;
-  // std::cout << "Extrinsic Matrix: " << std::endl;
-  // std::cout << leftCam.getExtrinsicMatrix() << std::endl;
-  //
-  // std::cout << std::endl;
-  // std::cout << "Intrinsic Matrix: " << std::endl;
-  // std::cout << leftCam.getIntrinsicMatrix()<< std::endl;
-  //
-  // std::cout << std::endl;
-  // std::cout << "Camera Matrix" << std::endl;
-  // std::cout << leftCam.getCameraMatrix() << std::endl;
-  // std::cout << std::endl;
-  //
-  // std::cout << "----Right Cam----" << std::endl;
-  // std::cout << std::endl;
-  // std::cout << "Extrinsic Matrix: " << std::endl;
-  // std::cout << rightCam.getExtrinsicMatrix() << std::endl;
-  //
-  // std::cout << std::endl;
-  // std::cout << "Intrinsic Matrix: " << std::endl;
-  // std::cout << rightCam.getIntrinsicMatrix()<< std::endl;
-  //
-  // std::cout << std::endl;
-  // std::cout << "Camera Matrix" << std::endl;
-  // std::cout << rightCam.getCameraMatrix() << std::endl;
-
+  std::vector<Eigen::Vector2d> mp1 = jp.getVector("config/matchedPoints1.json");
+  std::vector<Eigen::Vector2d> mp2 = jp.getVector("config/matchedPoints2.json");
+  pe.triangulate(mp1,mp2);
 
   cv::namedWindow(windowName,1);
   int counter=0;
