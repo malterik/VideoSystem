@@ -6332,6 +6332,7 @@ getU	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixU getU(const MatrixType& 
 getU	Eigen/src/Cholesky/LLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::LLT_Traits
 getU	Eigen/src/Cholesky/LLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m; }$/;"	f	struct:Eigen::internal::LLT_Traits
 getU	Eigen/src/SparseCholesky/SimplicialCholesky.h	/^  static inline MatrixU getU(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::traits
+getVector	JSONParser/JSONParser.cpp	/^std::vector<Eigen::Vector2f> JSONParser::getVector(std::string filename)$/;"	f	class:JSONParser
 get_allocator	json/json.hpp	/^    static allocator_type get_allocator()$/;"	f	class:nlohmann::basic_json
 get_factor	Eigen/src/Core/util/BlasUtil.h	/^template<typename From,typename To> struct get_factor {$/;"	s	namespace:Eigen::internal
 get_factor	Eigen/src/Core/util/BlasUtil.h	/^template<typename Scalar> struct get_factor<Scalar,typename NumTraits<Scalar>::Real> {$/;"	s	namespace:Eigen::internal

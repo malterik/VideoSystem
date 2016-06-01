@@ -123,3 +123,7 @@ Eigen::Vector2i CameraMatrix::world2pixel(Eigen::Vector3d& worldCoord) {
 
   return pixelCoord;
 }
+
+Eigen::MatrixXf CameraMatrix::getCameraMatrix() {
+
+}

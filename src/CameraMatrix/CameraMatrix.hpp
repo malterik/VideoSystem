@@ -14,6 +14,9 @@ public:
   Eigen::Vector2i camera2pixel(const Eigen::Vector3d& cameraCoord);
   Eigen::Vector2i world2pixel(Eigen::Vector3d& worldCoord);
 
+  Eigen::MatrixXf getCameraMatrix();
+
+
 private:
 
   void readConfig();
@@ -26,6 +29,7 @@ private:
   Eigen::MatrixXd intrinsic_paramter_;
   Eigen::Matrix3d intrinsic_paramter_inv_;
   Eigen::Matrix3d bottomRight2topLeft_;
+  Eigen::MatrixXf cameraMatrix;
   TransformationMatrix camera2ground_;
 
   std::string FILE_NAME_;

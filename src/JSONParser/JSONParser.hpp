@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Eigen/Dense"
+
 #include <vector>
 #include <string>
 #include <fstream>
@@ -11,7 +13,7 @@ class JSONParser
 {
 public:
   JSONParser();
-  std::vector<float> getVector(std::string filename);
+  std::vector<Eigen::Vector2f> getVector(std::string filename);
 
 private:
   unsigned int numberOfLines(std::ifstream file);

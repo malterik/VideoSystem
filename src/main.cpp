@@ -4,6 +4,7 @@
 #include "CameraMatrix/CameraMatrix.hpp"
 #include "Utils/TransformationMatrix.hpp"
 #include "JSONParser/JSONParser.hpp"
+#include <opencv2/opencv.hpp>
 
 int main(void)
 {
@@ -13,9 +14,9 @@ int main(void)
   std::string windowName = "Main Window";
   camera.setResolution(1280,720);
   JSONParser jp;
-  jp.getVector("config/matchedPoints1.json");
+  std::vector<Eigen::Vector2f> mp1 = jp.getVector("config/matchedPoints1.json");
+  std::vector<Eigen::Vector2f> mp2 = jp.getVector("config/matchedPoints2.json");
 
-  std::cout << "Test" << std::endl;
   // std::cout << camPose.getMatrix() << std::endl;
 
   cv::namedWindow(windowName,1);
