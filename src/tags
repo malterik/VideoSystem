@@ -5078,7 +5078,7 @@ callback	json/json.hpp	/^        parser_callback_t callback;$/;"	m	class:nlohman
 cam_type_	CameraInterface/CameraInterface.hpp	/^  Camera cam_type_;$/;"	m	class:CameraInterface
 cam_type_	CameraMatrix/CameraMatrix.hpp	/^  Camera cam_type_;$/;"	m	class:CameraMatrix
 camera2ground_	CameraMatrix/CameraMatrix.hpp	/^  TransformationMatrix camera2ground_;$/;"	m	class:CameraMatrix
-camera2pixel	CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector2i CameraMatrix::camera2pixel(const Eigen::Vector3d& cameraCoord) {$/;"	f	class:CameraMatrix
+camera_matrix	CameraMatrix/CameraMatrix.hpp	/^  Eigen::MatrixXd camera_matrix;$/;"	m	class:CameraMatrix
 cap_	CameraInterface/CameraInterface.hpp	/^  cv::VideoCapture cap_;$/;"	m	class:CameraInterface
 cast	Eigen/src/Core/MathFunctions.h	/^inline NewType cast(const OldType& x)$/;"	f	namespace:Eigen::internal
 cast	Eigen/src/Eigen2Support/Geometry/AlignedBox.h	/^           AlignedBox<NewScalarType,AmbientDimAtCompileTime> >::type cast() const$/;"	f	class:Eigen::AlignedBox
@@ -6307,6 +6307,7 @@ get	json/json.hpp	/^    ValueType get() const$/;"	f	class:nlohmann::basic_json
 getBackground	ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::getBackground() {$/;"	f	class:ImageSubtractor
 getBlobImage	BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
 getBlurKernelSize	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getBlurKernelSize() {$/;"	f	class:PeopleDetection
+getCameraMatrix	CameraMatrix/CameraMatrix.cpp	/^Eigen::MatrixXf CameraMatrix::getCameraMatrix() {$/;"	f	class:CameraMatrix
 getDiffImage	ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::getDiffImage() {$/;"	f	class:ImageSubtractor
 getDilateKernelSize	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getDilateKernelSize() {$/;"	f	class:PeopleDetection
 getImage	CameraInterface/CameraInterface.cpp	/^const cv::Mat& CameraInterface::getImage()$/;"	f	class:CameraInterface
@@ -6326,6 +6327,7 @@ getMaxIterations	Eigen/src/Eigenvalues/ComplexSchur.h	/^    Index getMaxIteratio
 getMaxIterations	Eigen/src/Eigenvalues/EigenSolver.h	/^    Index getMaxIterations()$/;"	f	class:Eigen::EigenSolver
 getMaxIterations	Eigen/src/Eigenvalues/RealSchur.h	/^    Index getMaxIterations()$/;"	f	class:Eigen::RealSchur
 getMinBoundingBoxArea	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getMinBoundingBoxArea() {$/;"	f	class:PeopleDetection
+getSingularMatrix	Utils/TransformationMatrix.cpp	/^Eigen::MatrixXd TransformationMatrix::getSingularMatrix() const {$/;"	f	class:TransformationMatrix
 getThreshold	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getThreshold() {$/;"	f	class:PeopleDetection
 getU	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::LDLT_Traits
 getU	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m; }$/;"	f	struct:Eigen::internal::LDLT_Traits
@@ -6790,7 +6792,7 @@ intersection	Eigen/src/Geometry/ParametrizedLine.h	/^inline _Scalar Parametrized
 intersectionParameter	Eigen/src/Geometry/ParametrizedLine.h	/^inline _Scalar ParametrizedLine<_Scalar, _AmbientDim,_Options>::intersectionParameter(const Hyperplane<_Scalar, _AmbientDim, OtherOptions>& hyperplane) const$/;"	f	class:Eigen::ParametrizedLine
 intersectionPoint	Eigen/src/Geometry/ParametrizedLine.h	/^ParametrizedLine<_Scalar, _AmbientDim,_Options>::intersectionPoint(const Hyperplane<_Scalar, _AmbientDim, OtherOptions>& hyperplane) const$/;"	f	class:Eigen::ParametrizedLine
 intersects	Eigen/src/Geometry/AlignedBox.h	/^  inline bool intersects(const AlignedBox& b) const$/;"	f	class:Eigen::AlignedBox
-intrinsic_paramter_	CameraMatrix/CameraMatrix.hpp	/^  Eigen::MatrixXd intrinsic_paramter_;$/;"	m	class:CameraMatrix
+intrinsic_paramter_	CameraMatrix/CameraMatrix.hpp	/^  Eigen::Matrix3d intrinsic_paramter_;$/;"	m	class:CameraMatrix
 intrinsic_paramter_inv_	CameraMatrix/CameraMatrix.hpp	/^  Eigen::Matrix3d intrinsic_paramter_inv_;$/;"	m	class:CameraMatrix
 inverse	Eigen/src/Core/DiagonalMatrix.h	/^    inverse() const$/;"	f	class:Eigen::DiagonalBase
 inverse	Eigen/src/Core/PermutationMatrix.h	/^    inline Transpose<PermutationBase> inverse() const$/;"	f	class:Eigen::PermutationBase
@@ -8830,8 +8832,6 @@ pfirst	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE flo
 pfirst	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE int    pfirst<Packet4i>(const Packet4i& a) { int x = _mm_cvtsi128_si32(a); return x; }$/;"	f	namespace:Eigen::internal
 pfirst	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE int    pfirst<Packet4i>(const Packet4i& a) { return _mm_cvtsi128_si32(a); }$/;"	f	namespace:Eigen::internal
 pivotL	Eigen/src/SparseLU/SparseLU_pivotL.h	/^Index SparseLUImpl<Scalar,Index>::pivotL(const Index jcol, const RealScalar& diagpivotthresh, IndexVector& perm_r, IndexVector& iperm_c, Index& pivrow, GlobalLU_t& glu)$/;"	f	class:Eigen::internal::SparseLUImpl
-pixel2camera	CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector3d CameraMatrix::pixel2camera(const Eigen::Vector2i& pixelCoord) {$/;"	f	class:CameraMatrix
-pixel2world	CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector3d CameraMatrix::pixel2world(const Eigen::Vector2i& pixelCoord) {$/;"	f	class:CameraMatrix
 plain_array	Eigen/src/Core/DenseStorage.h	/^  plain_array() $/;"	f	struct:Eigen::internal::plain_array
 plain_array	Eigen/src/Core/DenseStorage.h	/^  plain_array() {}$/;"	f	struct:Eigen::internal::plain_array
 plain_array	Eigen/src/Core/DenseStorage.h	/^  plain_array(constructor_without_unaligned_array_assert) $/;"	f	struct:Eigen::internal::plain_array
@@ -10912,7 +10912,6 @@ window_name_	PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::string window_nam
 workaround_msvc_stl_support	Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support() : T() {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support(const T& other) : T(other) {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	Eigen/src/StlSupport/details.h	/^  template<typename T> struct workaround_msvc_stl_support : public T$/;"	s	namespace:Eigen::internal
-world2pixel	CameraMatrix/CameraMatrix.cpp	/^Eigen::Vector2i CameraMatrix::world2pixel(Eigen::Vector3d& worldCoord) {$/;"	f	class:CameraMatrix
 writeConfig	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::writeConfig() {$/;"	f	class:PeopleDetection
 writePacket	Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::ArrayWrapper
 writePacket	Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::MatrixWrapper

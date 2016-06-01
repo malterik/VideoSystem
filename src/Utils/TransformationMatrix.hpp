@@ -15,6 +15,7 @@ public:
   const Eigen::Vector3d transform(const Eigen::Vector3d& vec) const;
 
   const Eigen::Matrix4d& getMatrix() const;
+  Eigen::MatrixXd getSingularMatrix() const;
   const Eigen::Matrix3d& rotM() const;
   const Eigen::Vector3d& posV() const;
 

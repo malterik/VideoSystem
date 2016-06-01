@@ -69,6 +69,14 @@ const Eigen::Vector3d TransformationMatrix::transform(const Eigen::Vector3d& vec
 const Eigen::Matrix4d& TransformationMatrix::getMatrix() const {
   return transformation_matrix_;
 }
+
+Eigen::MatrixXd TransformationMatrix::getSingularMatrix() const {
+  Eigen::MatrixXd result(3,4);
+  result.block<3,3>(0,0) = rotation_matrix_;
+  result.block<3,1>(0,3) = position_vector_;
+
+  return result;
+}
 const Eigen::Matrix3d& TransformationMatrix::rotM() const {
   return rotation_matrix_;
 }

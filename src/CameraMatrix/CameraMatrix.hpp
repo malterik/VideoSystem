@@ -7,14 +7,10 @@
 class CameraMatrix
 {
 public:
-  CameraMatrix(Camera camType);
-  Eigen::Vector3d pixel2camera(const Eigen::Vector2i& pixelCoord);
-  Eigen::Vector3d pixel2world(const Eigen::Vector2i& pixelCoord);
-
-  Eigen::Vector2i camera2pixel(const Eigen::Vector3d& cameraCoord);
-  Eigen::Vector2i world2pixel(Eigen::Vector3d& worldCoord);
-
-  Eigen::MatrixXf getCameraMatrix();
+  CameraMatrix(Camera camType, std::string camera2groundFile);
+  Eigen::MatrixXd getCameraMatrix();
+  Eigen::MatrixXd getIntrinsicMatrix();
+  Eigen::MatrixXd getExtrinsicMatrix();
 
 
 private:
@@ -26,10 +22,9 @@ private:
   double f_x_;
   double f_y_;
 
-  Eigen::MatrixXd intrinsic_paramter_;
+  Eigen::Matrix3d intrinsic_paramter_;
   Eigen::Matrix3d intrinsic_paramter_inv_;
   Eigen::Matrix3d bottomRight2topLeft_;
-  Eigen::MatrixXf cameraMatrix;
   TransformationMatrix camera2ground_;
 
   std::string FILE_NAME_;
