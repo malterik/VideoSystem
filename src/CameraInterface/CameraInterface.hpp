@@ -12,6 +12,7 @@ public:
   CameraInterface(Camera cameraToUse);
   const cv::Mat& getImage();
   void setResolution(int width, int height);
+  void reset(Camera cameraToUse);
 private:
   //Private Member
   cv::Mat image_;

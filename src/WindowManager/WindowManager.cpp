@@ -14,13 +14,13 @@ void WindowManager::reset() {
 void WindowManager::addImage(cv::Mat image) {
   if(image.type() == CV_8UC1) {
     // std::cout << "\e[31m A binary image was added. It will be converted to 8UC3!\033[0m" << std::endl;
-    cv::cvtColor(image,image,CV_GRAY2RGB);
+    cv::cvtColor(image, image, CV_GRAY2RGB);
   }
   img_vector_.push_back(image);
 }
 
   void WindowManager::addImage(std::vector<cv::Mat> imageVector) {
-     img_vector_.insert(img_vector_.end(), imageVector.begin(),imageVector.end());
+     img_vector_.insert(img_vector_.end(), imageVector.begin(), imageVector.end());
 }
 
 cv::Mat& WindowManager::showMultipleImages(int rows)
@@ -66,4 +66,14 @@ void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& i
     rectangle(bBoxImg, bBox[i].tl(),bBox[i].br(), color, 2, 8, 0 );
   }
   addImage(bBoxImg);
+}
+
+std::array<cv::Vec2i,5> WindowManager::getInfo() {
+  std::array<cv::Vec2i,5> result;
+  result[0] = dst_heigth_;
+  result[1] = dst_width_;
+  result[2] = dst_rows_;
+  result[3] = dst_cols_;
+  result[4] = img_vector_.size();
+  return result;
 }

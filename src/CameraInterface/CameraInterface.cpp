@@ -29,3 +29,18 @@ void CameraInterface::setResolution(int width, int height)
   cap_.set(CV_CAP_PROP_FRAME_WIDTH, width);
   cap_.set(CV_CAP_PROP_FRAME_HEIGHT, height);
 }
+
+void CameraInterface::reset(Camera cameraToUse) {
+  cam_type_ = cameraToUse;
+  if(cap_.isOpened()) {
+    cap_.release();
+  }
+  if(cam_type_ == IP_CAM) {
+    cap_.open(STREAM_ADDR);
+  } else if(cam_type_ == LOCAL_CAM) {
+    cap_.open(0);
+  }
+  if(!cap_.isOpened()) {
+    std::cout << "Could not open camera"  << std::endl;
+  }
+}

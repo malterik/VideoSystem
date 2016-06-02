@@ -6,6 +6,7 @@
 #include "JSONParser/JSONParser.hpp"
 #include "PositionEstimator/PositionEstimator.hpp"
 #include "ImageWriter/ImageWriter.hpp"
+#include "ImageViewer/ImageViewer.hpp"
 
 int main(void)
 {
@@ -15,25 +16,13 @@ int main(void)
   CameraMatrix rightCam(cam, "config/CameraPose2.json");
   PositionEstimator pe(leftCam, rightCam);
   std::string windowName = "Main Window";
-  camera.setResolution(1280,720);
-  ImageWriter iw("Images/");
+  // camera.setResolution(1280,720);
+  ImageViewer iv("Main Window");
 
   std::vector<Eigen::Vector2d> mp1 = JSONParser::getInstance().getVector("config/matchedPoints1.json");
   std::vector<Eigen::Vector2d> mp2 = JSONParser::getInstance().getVector("config/matchedPoints2.json");
   pe.triangulate(mp1,mp2);
 
-  cv::namedWindow(windowName,1);
-  while(1)
-  {
-    WindowManager::getInstance().reset();
-    cv::Mat frame = camera.getImage();
-    WindowManager::getInstance().addImage(frame);
-    char key = (char)cv::waitKey(10);
-    if( key  == 27 ) {
-      break;
-    } else if (key == 32) { // Hit space bar for taking a picture
-      iw.writeImage(frame, "test");
-    }
-    cv::imshow(windowName , WindowManager::getInstance().showMultipleImages(1));
-  }
+  cv::Mat frame = camera.getImage();
+  iv.dualView(frame, frame);
 }

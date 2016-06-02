@@ -3,6 +3,7 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <vector>
+#include <array>
 
 class WindowManager
 {
@@ -13,6 +14,7 @@ public:
   void drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
   cv::Mat& showMultipleImages(int rows );
   void reset();
+  std::array<cv::Vec2i,5> getInfo();
 
 private:
   WindowManager();
