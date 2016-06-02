@@ -5,6 +5,7 @@
 #include "Utils/TransformationMatrix.hpp"
 #include "JSONParser/JSONParser.hpp"
 #include "PositionEstimator/PositionEstimator.hpp"
+#include "ImageWriter/ImageWriter.hpp"
 
 int main(void)
 {
@@ -15,6 +16,7 @@ int main(void)
   PositionEstimator pe(leftCam, rightCam);
   std::string windowName = "Main Window";
   camera.setResolution(1280,720);
+  ImageWriter iw("Images/");
 
   JSONParser jp;
   std::vector<Eigen::Vector2d> mp1 = jp.getVector("config/matchedPoints1.json");
@@ -32,12 +34,7 @@ int main(void)
     if( key  == 27 ) {
       break;
     } else if (key == 32) { // Hit space bar for taking a picture
-      std::string path ="Images/test";
-      path += std::to_string(counter);
-      path += ".png";
-      cv::imwrite(path, frame);
-      std::cout << "Image written: " << path << std::endl;
-      counter++;
+      iw.writeImage(frame, "test");
     }
     cv::imshow(windowName , WindowManager::getInstance().showMultipleImages(1));
   }
