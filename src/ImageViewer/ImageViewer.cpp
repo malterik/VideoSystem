@@ -7,6 +7,7 @@ ImageViewer::ImageViewer(std::string windowName) :
   window_name_(windowName),
   camera_(LOCAL_CAM),
   camera_interface_(camera_),
+  image_writer_("Images/"),
   image_coordinates_l_(),
   image_coordinates_r_(),
   rng_(0xFFFFFFFF),
@@ -46,8 +47,8 @@ void ImageViewer::mouseCallback(int event, int x, int y)
     }
   }
   if  ( event == cv::EVENT_RBUTTONDOWN ) {
-    std::cout << "Left Coords: " << std::endl << image_coordinates_l_  << std::endl;
-    std::cout << "Right Coords: " << std::endl << image_coordinates_r_  << std::endl;
+    // std::cout << "Left Coords: " << std::endl << image_coordinates_l_  << std::endl;
+    // std::cout << "Right Coords: " << std::endl << image_coordinates_r_  << std::endl;
   }
 }
 
@@ -95,3 +96,38 @@ void ImageViewer::showCamera(Camera camera) {
   }
 }
 
+void ImageViewer::snapshots(Camera camera) {
+  camera_ = camera;
+  camera_interface_.reset(camera);
+  while(1) {
+    WindowManager::getInstance().reset();
+    cv::Mat frame = camera_interface_.getImage();
+    WindowManager::getInstance().addImage(frame);
+    char key = (char)cv::waitKey(10);
+    if( key  == 27 ) {
+      break;
+    } else if(key == 32) {
+      image_writer_.writeImage(frame,"snapshot");
+    }
+    cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1) );
+  }
+}
+std::array<std::vector<Eigen::Vector2d>,2> ImageViewer::pointPairs(const cv::Mat& img1, const cv::Mat& img2) {
+  std::array<std::vector<Eigen::Vector2d>,2> result;
+  image_coordinates_l_.clear();
+  image_coordinates_r_.clear();
+  WindowManager::getInstance().reset();
+  WindowManager::getInstance().addImage(img1);
+  WindowManager::getInstance().addImage(img2);
+  while(1) {
+    char key = (char)cv::waitKey(10);
+    if( key  == 27 ) {
+      break;
+    }
+    cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1));
+  }
+  result[0] = image_coordinates_l_;
+  result[1] = image_coordinates_r_;
+
+  return result;
+}

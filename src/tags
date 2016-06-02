@@ -352,7 +352,7 @@ CRUISE	SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TA
 Camera	Utils/Utils.hpp	/^enum Camera {$/;"	g
 CameraInterface	CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface(Camera CamType) : image_(), cam_type_(CamType)$/;"	f	class:CameraInterface
 CameraInterface	CameraInterface/CameraInterface.hpp	/^class CameraInterface$/;"	c
-CameraMatrix	CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix(Camera camType) :$/;"	f	class:CameraMatrix
+CameraMatrix	CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix(Camera camType, std::string camera2groundFile) :$/;"	f	class:CameraMatrix
 CameraMatrix	CameraMatrix/CameraMatrix.hpp	/^class CameraMatrix$/;"	c
 CanVectorizeInner	Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner =    SameType$/;"	e	enum:Eigen::internal::traits::__anon242
 CanVectorizeInner	Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner = internal::traits<CoeffBasedProduct>::CanVectorizeInner$/;"	e	enum:Eigen::CoeffBasedProduct::__anon243
@@ -2052,6 +2052,10 @@ ImagReturnType	Eigen/src/plugins/CommonCwiseUnaryOps.h	/^typedef CwiseUnaryOp<in
 ImageResultType	Eigen/src/Eigen2Support/LU.h	/^    > ImageResultType;$/;"	t	class:Eigen::LU
 ImageSubtractor	ImageSubtractor/ImageSubtractor.cpp	/^ImageSubtractor::ImageSubtractor(const cv::Mat& initialBackground) : background_image_(initialBackground.clone())$/;"	f	class:ImageSubtractor
 ImageSubtractor	ImageSubtractor/ImageSubtractor.hpp	/^class ImageSubtractor {$/;"	c
+ImageViewer	ImageViewer/ImageViewer.cpp	/^ImageViewer::ImageViewer(std::string windowName) :$/;"	f	class:ImageViewer
+ImageViewer	ImageViewer/ImageViewer.hpp	/^class ImageViewer$/;"	c
+ImageWriter	ImageWriter/ImageWriter.cpp	/^ImageWriter::ImageWriter(const std::string& imageFolder) :$/;"	f	class:ImageWriter
+ImageWriter	ImageWriter/ImageWriter.hpp	/^class ImageWriter$/;"	c
 Impl	Eigen/src/Core/Block.h	/^    typedef BlockImpl<XprType, BlockRows, BlockCols, InnerPanel, typename internal::traits<XprType>::StorageKind> Impl;$/;"	t	class:Eigen::Block
 Impl	Eigen/src/Core/Block.h	/^    typedef internal::BlockImpl_dense<XprType, BlockRows, BlockCols, InnerPanel> Impl;$/;"	t	class:Eigen::BlockImpl
 IncompleteLUT	Eigen/src/IterativeLinearSolvers/IncompleteLUT.h	/^    IncompleteLUT()$/;"	f	class:Eigen::IncompleteLUT
@@ -3283,6 +3287,8 @@ PointerType	Eigen/src/Core/Map.h	/^    typedef typename Base::PointerType Pointe
 PointerType	Eigen/src/Core/MapBase.h	/^                     PointerType;$/;"	t	class:Eigen::MapBase
 PointerType	Eigen/src/Core/MapBase.h	/^    typedef typename Base::PointerType PointerType;$/;"	t	class:Eigen::MapBase
 PoseEstimator	PoseEstimator/PoseEstimator.hpp	/^class PoseEstimator$/;"	c
+PositionEstimator	PositionEstimator/PositionEstimator.cpp	/^PositionEstimator::PositionEstimator(const CameraMatrix& leftCameraMatrix, const CameraMatrix& rightCameraMatrix) :$/;"	f	class:PositionEstimator
+PositionEstimator	PositionEstimator/PositionEstimator.hpp	/^class PositionEstimator$/;"	c
 PositiveSemiDef	Eigen/src/Cholesky/LDLT.h	/^  enum SignMatrix { PositiveSemiDef, NegativeSemiDef, ZeroSign, Indefinite };$/;"	e	enum:Eigen::internal::SignMatrix
 PreconditionIfMoreColsThanRows	Eigen/src/SVD/JacobiSVD.h	/^enum { PreconditionIfMoreColsThanRows, PreconditionIfMoreRowsThanCols };$/;"	e	enum:Eigen::internal::__anon416
 PreconditionIfMoreRowsThanCols	Eigen/src/SVD/JacobiSVD.h	/^enum { PreconditionIfMoreColsThanRows, PreconditionIfMoreRowsThanCols };$/;"	e	enum:Eigen::internal::__anon416
@@ -5078,7 +5084,8 @@ callback	json/json.hpp	/^        parser_callback_t callback;$/;"	m	class:nlohman
 cam_type_	CameraInterface/CameraInterface.hpp	/^  Camera cam_type_;$/;"	m	class:CameraInterface
 cam_type_	CameraMatrix/CameraMatrix.hpp	/^  Camera cam_type_;$/;"	m	class:CameraMatrix
 camera2ground_	CameraMatrix/CameraMatrix.hpp	/^  TransformationMatrix camera2ground_;$/;"	m	class:CameraMatrix
-camera_matrix	CameraMatrix/CameraMatrix.hpp	/^  Eigen::MatrixXd camera_matrix;$/;"	m	class:CameraMatrix
+camera_	ImageViewer/ImageViewer.hpp	/^  Camera camera_;$/;"	m	class:ImageViewer
+camera_interface_	ImageViewer/ImageViewer.hpp	/^  CameraInterface camera_interface_;$/;"	m	class:ImageViewer
 cap_	CameraInterface/CameraInterface.hpp	/^  cv::VideoCapture cap_;$/;"	m	class:CameraInterface
 cast	Eigen/src/Core/MathFunctions.h	/^inline NewType cast(const OldType& x)$/;"	f	namespace:Eigen::internal
 cast	Eigen/src/Eigen2Support/Geometry/AlignedBox.h	/^           AlignedBox<NewScalarType,AmbientDimAtCompileTime> >::type cast() const$/;"	f	class:Eigen::AlignedBox
@@ -5140,6 +5147,7 @@ check_transpose_aliasing_run_time_selector	Eigen/src/Core/Transpose.h	/^struct c
 cholmod	Eigen/src/CholmodSupport/CholmodSupport.h	/^    cholmod_common& cholmod() { return m_cholmod; }$/;"	f	class:Eigen::CholmodBase
 cholmodCommon	Eigen/src/SPQRSupport/SuiteSparseQRSupport.h	/^    cholmod_common *cholmodCommon() const { return &m_cc; }$/;"	f	class:Eigen::SPQR
 cholmod_configure_matrix	Eigen/src/CholmodSupport/CholmodSupport.h	/^void cholmod_configure_matrix(CholmodType& mat)$/;"	f	namespace:Eigen::internal
+circle_color_	ImageViewer/ImageViewer.hpp	/^  cv::Scalar circle_color_;$/;"	m	class:ImageViewer
 cj	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^  conj_helper<LhsScalar,RhsScalar,ConjLhs,ConjRhs> cj;$/;"	m	class:Eigen::internal::gebp_traits
 cj	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^  conj_helper<ResPacket,ResPacket,ConjLhs,false> cj;$/;"	m	class:Eigen::internal::gebp_traits
 cj	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^  conj_helper<ResPacket,ResPacket,false,ConjRhs> cj;$/;"	m	class:Eigen::internal::gebp_traits
@@ -5350,6 +5358,7 @@ colamd_recommended	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^inline Index colam
 colamd_set_defaults	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^static inline void colamd_set_defaults(double knobs[COLAMD_KNOBS])$/;"	f	namespace:internal
 colblk	Eigen/src/SparseLU/SparseLU_Structs.h	/^  Index colblk; \/\/ The minimum column dimension for 2-D blocking to be used;$/;"	m	struct:Eigen::internal::perfvalues
 coletree	Eigen/src/SparseCore/SparseColEtree.h	/^int coletree(const MatrixType& mat, IndexVector& parent, IndexVector& firstRowElt, typename MatrixType::Index *perm=0)$/;"	f	namespace:Eigen::internal
+color_counter_	ImageViewer/ImageViewer.hpp	/^  int color_counter_;$/;"	m	class:ImageViewer
 cols	Eigen/src/Cholesky/LDLT.h	/^    inline Index cols() const { return m_matrix.cols(); }$/;"	f	class:Eigen::LDLT
 cols	Eigen/src/Cholesky/LLT.h	/^    inline Index cols() const { return m_matrix.cols(); }$/;"	f	class:Eigen::LLT
 cols	Eigen/src/CholmodSupport/CholmodSupport.h	/^    inline Index cols() const { return m_cholmodFactor->n; }$/;"	f	class:Eigen::CholmodBase
@@ -5669,6 +5678,7 @@ cos	Eigen/src/plugins/ArrayCwiseUnaryOps.h	/^cos() const$/;"	f
 count	Eigen/src/Core/BooleanRedux.h	/^inline typename DenseBase<Derived>::Index DenseBase<Derived>::count() const$/;"	f	class:Eigen::DenseBase
 count	Eigen/src/Core/VectorwiseOp.h	/^    const PartialReduxExpr<ExpressionType, internal::member_count<Index>, Direction> count() const$/;"	f	class:Eigen::VectorwiseOp
 count	json/json.hpp	/^    size_type count(typename object_t::key_type key) const$/;"	f	class:nlohmann::basic_json
+counter_	ImageWriter/ImageWriter.hpp	/^  int counter_;$/;"	m	class:ImageWriter
 countnz	Eigen/src/SparseLU/SparseLU_Utils.h	/^void SparseLUImpl<Scalar,Index>::countnz(const Index n, Index& nnzL, Index& nnzU, GlobalLU_t& glu)$/;"	f	class:Eigen::internal::SparseLUImpl
 cpuid_is_vendor	Eigen/src/Core/util/Memory.h	/^inline bool cpuid_is_vendor(int abcd[4], const int vendor[3])$/;"	f	namespace:Eigen::internal
 create	json/json.hpp	/^    static T* create(Args&& ... args)$/;"	f	class:nlohmann::basic_json
@@ -5863,11 +5873,13 @@ dot_nocheck	Eigen/src/Core/Dot.h	/^struct dot_nocheck<T, U, true>$/;"	s	namespac
 dparm	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    Array<RealScalar,IPARM_SIZE,1>& dparm()$/;"	f	class:Eigen::PastixBase
 dparm	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    double& dparm(int idxparam)$/;"	f	class:Eigen::PastixBase
 drawBoundingBox	WindowManager/WindowManager.cpp	/^void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& img) {$/;"	f	class:WindowManager
+drawCircle	WindowManager/WindowManager.cpp	/^void WindowManager::drawCircle(cv::Point coord, cv::Scalar color, int index) {$/;"	f	class:WindowManager
 dst_	WindowManager/WindowManager.hpp	/^  cv::Mat dst_;$/;"	m	class:WindowManager
 dst_cols_	WindowManager/WindowManager.hpp	/^  unsigned int dst_cols_;$/;"	m	class:WindowManager
 dst_heigth_	WindowManager/WindowManager.hpp	/^  unsigned int dst_heigth_;$/;"	m	class:WindowManager
 dst_rows_	WindowManager/WindowManager.hpp	/^  unsigned int dst_rows_;$/;"	m	class:WindowManager
 dst_width_	WindowManager/WindowManager.hpp	/^  unsigned int dst_width_;$/;"	m	class:WindowManager
+dualView	ImageViewer/ImageViewer.cpp	/^void ImageViewer::dualView(const cv::Mat& img1, const cv::Mat& img2) {$/;"	f	class:ImageViewer
 dump	json/json.hpp	/^    string_t dump(const int indent = -1) const$/;"	f	class:nlohmann::basic_json
 dump	json/json.hpp	/^    void dump(std::ostream& o,$/;"	f	class:nlohmann::basic_json
 dumpMemory	Eigen/src/CholmodSupport/CholmodSupport.h	/^    void dumpMemory(Stream& \/*s*\/)$/;"	f	class:Eigen::CholmodBase
@@ -6307,11 +6319,15 @@ get	json/json.hpp	/^    ValueType get() const$/;"	f	class:nlohmann::basic_json
 getBackground	ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::getBackground() {$/;"	f	class:ImageSubtractor
 getBlobImage	BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
 getBlurKernelSize	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getBlurKernelSize() {$/;"	f	class:PeopleDetection
-getCameraMatrix	CameraMatrix/CameraMatrix.cpp	/^Eigen::MatrixXf CameraMatrix::getCameraMatrix() {$/;"	f	class:CameraMatrix
+getCameraMatrix	CameraMatrix/CameraMatrix.cpp	/^Eigen::MatrixXd CameraMatrix::getCameraMatrix() {$/;"	f	class:CameraMatrix
 getDiffImage	ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::getDiffImage() {$/;"	f	class:ImageSubtractor
 getDilateKernelSize	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getDilateKernelSize() {$/;"	f	class:PeopleDetection
+getExtrinsicMatrix	CameraMatrix/CameraMatrix.cpp	/^Eigen::MatrixXd CameraMatrix::getExtrinsicMatrix() {$/;"	f	class:CameraMatrix
 getImage	CameraInterface/CameraInterface.cpp	/^const cv::Mat& CameraInterface::getImage()$/;"	f	class:CameraInterface
+getInfo	WindowManager/WindowManager.cpp	/^std::array<int,5> WindowManager::getInfo() {$/;"	f	class:WindowManager
+getInstance	JSONParser/JSONParser.cpp	/^JSONParser& JSONParser::getInstance() {$/;"	f	class:JSONParser
 getInstance	WindowManager/WindowManager.cpp	/^WindowManager& WindowManager::getInstance() {$/;"	f	class:WindowManager
+getIntrinsicMatrix	CameraMatrix/CameraMatrix.cpp	/^Eigen::MatrixXd CameraMatrix::getIntrinsicMatrix() {$/;"	f	class:CameraMatrix
 getKeyPoints	BlobDetection/BlobDetection.cpp	/^    std::vector<cv::KeyPoint> BlobDetection::getKeyPoints(cv::Mat image){$/;"	f	class:BlobDetection
 getL	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixL getL(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::LDLT_Traits
 getL	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixL getL(const MatrixType& m) { return m; }$/;"	f	struct:Eigen::internal::LDLT_Traits
@@ -6334,7 +6350,7 @@ getU	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixU getU(const MatrixType& 
 getU	Eigen/src/Cholesky/LLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::LLT_Traits
 getU	Eigen/src/Cholesky/LLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m; }$/;"	f	struct:Eigen::internal::LLT_Traits
 getU	Eigen/src/SparseCholesky/SimplicialCholesky.h	/^  static inline MatrixU getU(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::traits
-getVector	JSONParser/JSONParser.cpp	/^std::vector<Eigen::Vector2f> JSONParser::getVector(std::string filename)$/;"	f	class:JSONParser
+getVector	JSONParser/JSONParser.cpp	/^std::vector<Eigen::Vector2d> JSONParser::getVector(std::string filename)$/;"	f	class:JSONParser
 get_allocator	json/json.hpp	/^    static allocator_type get_allocator()$/;"	f	class:nlohmann::basic_json
 get_factor	Eigen/src/Core/util/BlasUtil.h	/^template<typename From,typename To> struct get_factor {$/;"	s	namespace:Eigen::internal
 get_factor	Eigen/src/Core/util/BlasUtil.h	/^template<typename Scalar> struct get_factor<Scalar,typename NumTraits<Scalar>::Real> {$/;"	s	namespace:Eigen::internal
@@ -6432,9 +6448,13 @@ image	Eigen/src/Eigen2Support/LU.h	/^    const ImageResultType image() const$/;"
 image	Eigen/src/LU/FullPivLU.h	/^      image(const MatrixType& originalMatrix) const$/;"	f	class:Eigen::FullPivLU
 image_	CameraInterface/CameraInterface.hpp	/^  cv::Mat image_;$/;"	m	class:CameraInterface
 image_	PeopleDetection/PeopleDetection.hpp	/^        cv::Mat image_;$/;"	m	class:PeopleDetection
+image_coordinates_l_	ImageViewer/ImageViewer.hpp	/^  std::vector<cv::Point> image_coordinates_l_;$/;"	m	class:ImageViewer
+image_coordinates_r_	ImageViewer/ImageViewer.hpp	/^  std::vector<cv::Point> image_coordinates_r_;$/;"	m	class:ImageViewer
+image_folder_	ImageWriter/ImageWriter.hpp	/^  std::string image_folder_;$/;"	m	class:ImageWriter
 image_retval	Eigen/src/LU/FullPivLU.h	/^struct image_retval<FullPivLU<_MatrixType> >$/;"	s	namespace:Eigen::internal
 image_retval_base	Eigen/src/misc/Image.h	/^  image_retval_base(const DecompositionType& dec, const MatrixType& originalMatrix)$/;"	f	struct:Eigen::internal::image_retval_base
 image_retval_base	Eigen/src/misc/Image.h	/^template<typename _DecompositionType> struct image_retval_base$/;"	s	namespace:Eigen::internal
+image_writer_	ImageViewer/ImageViewer.hpp	/^  ImageWriter image_writer_;$/;"	m	class:ImageViewer
 img_vector_	WindowManager/WindowManager.hpp	/^  std::vector<cv::Mat> img_vector_;$/;"	m	class:WindowManager
 impl	Eigen/src/Core/Functors.h	/^  const linspaced_op_impl<Scalar,RandomAccess> impl;$/;"	m	struct:Eigen::internal::linspaced_op
 incrementToNonZero	Eigen/src/SparseCore/SparseView.h	/^  void incrementToNonZero()$/;"	f	class:Eigen::SparseView::InnerIterator
@@ -6983,6 +7003,7 @@ leftCols	Eigen/src/plugins/BlockMethods.h	/^inline ColsBlockXpr leftCols(Index n
 leftCols	Eigen/src/plugins/BlockMethods.h	/^inline ConstColsBlockXpr leftCols(Index n) const$/;"	f
 leftCols	Eigen/src/plugins/BlockMethods.h	/^inline typename ConstNColsBlockXpr<N>::Type leftCols(Index n = N) const$/;"	f
 leftCols	Eigen/src/plugins/BlockMethods.h	/^inline typename NColsBlockXpr<N>::Type leftCols(Index n = N)$/;"	f
+left_camera_matrix_	PositionEstimator/PositionEstimator.hpp	/^  CameraMatrix left_camera_matrix_;$/;"	m	class:PositionEstimator
 length	Eigen/src/Householder/HouseholderSequence.h	/^    Index length() const { return m_length; }  \/**< \\brief Returns the length of the Householder sequence. *\/$/;"	f	class:Eigen::HouseholderSequence
 length	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^  Index length ;  \/* number of principal columns in this row *\/$/;"	m	struct:internal::Colamd_Row
 length	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^  Index length ;  \/* number of rows in this column *\/$/;"	m	struct:internal::colamd_col
@@ -7861,6 +7882,8 @@ min_coeff_visitor	Eigen/src/Core/Visitor.h	/^struct min_coeff_visitor : coeff_vi
 minimum_degree_ordering	Eigen/src/OrderingMethods/Amd.h	/^void minimum_degree_ordering(SparseMatrix<Scalar,ColMajor,Index>& C, PermutationMatrix<Dynamic,Dynamic,Index>& perm)$/;"	f	namespace:Eigen::internal
 minor	Eigen/src/Eigen2Support/Minor.h	/^MatrixBase<Derived>::minor(Index row, Index col) const$/;"	f	class:Eigen::MatrixBase
 minor	Eigen/src/Eigen2Support/Minor.h	/^MatrixBase<Derived>::minor(Index row, Index col)$/;"	f	class:Eigen::MatrixBase
+mouseCallback	ImageViewer/ImageViewer.cpp	/^void ImageViewer::mouseCallback(int event, int x, int y)$/;"	f	class:ImageViewer
+mouseCallback	ImageViewer/ImageViewer.cpp	/^void ImageViewer::mouseCallback(int event, int x, int y, int, void* this_) {$/;"	f	class:ImageViewer
 move	json/json.hpp	/^          m_value(std::move(other.m_value))$/;"	f	class:nlohmann::basic_json
 mp_matrix	Eigen/src/IterativeLinearSolvers/IterativeSolverBase.h	/^  const MatrixType* mp_matrix;$/;"	m	class:Eigen::IterativeSolverBase
 mr	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^    mr = 2 * LhsPacketSize,$/;"	e	enum:Eigen::internal::gebp_traits::__anon246
@@ -9356,8 +9379,10 @@ reserve	Eigen/src/SparseCore/SparseMatrix.h	/^    inline void reserve(const Size
 reserve	Eigen/src/SparseCore/SparseMatrix.h	/^    inline void reserve(const SizesType& reserveSizes, const typename SizesType::value_type& enableif = typename SizesType::value_type())$/;"	f	class:Eigen::SparseMatrix
 reserve	Eigen/src/SparseCore/SparseVector.h	/^    inline void reserve(Index reserveSize) { m_data.reserve(reserveSize); }$/;"	f	class:Eigen::SparseVector
 reserveInnerVectors	Eigen/src/SparseCore/SparseMatrix.h	/^    inline void reserveInnerVectors(const SizesType& reserveSizes)$/;"	f	class:Eigen::SparseMatrix
+reset	CameraInterface/CameraInterface.cpp	/^void CameraInterface::reset(Camera cameraToUse) {$/;"	f	class:CameraInterface
 reset	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::reset() {$/;"	f	class:PeopleDetection
 reset	WindowManager/WindowManager.cpp	/^void WindowManager::reset() {$/;"	f	class:WindowManager
+resetCounter	ImageWriter/ImageWriter.cpp	/^void ImageWriter::resetCounter() {$/;"	f	class:ImageWriter
 resize	Eigen/src/Core/ArrayWrapper.h	/^    void resize(Index nbRows, Index nbCols) { m_expression.const_cast_derived().resize(nbRows,nbCols); }$/;"	f	class:Eigen::ArrayWrapper
 resize	Eigen/src/Core/ArrayWrapper.h	/^    void resize(Index nbRows, Index nbCols) { m_expression.const_cast_derived().resize(nbRows,nbCols); }$/;"	f	class:Eigen::MatrixWrapper
 resize	Eigen/src/Core/ArrayWrapper.h	/^    void resize(Index newSize) { m_expression.const_cast_derived().resize(newSize); }$/;"	f	class:Eigen::ArrayWrapper
@@ -9485,6 +9510,8 @@ rightCols	Eigen/src/plugins/BlockMethods.h	/^inline ConstColsBlockXpr rightCols(
 rightCols	Eigen/src/plugins/BlockMethods.h	/^inline typename ConstNColsBlockXpr<N>::Type rightCols(Index n = N) const$/;"	f
 rightCols	Eigen/src/plugins/BlockMethods.h	/^inline typename NColsBlockXpr<N>::Type rightCols(Index n = N)$/;"	f
 rightHouseholderSequence	Eigen/src/Householder/HouseholderSequence.h	/^HouseholderSequence<VectorsType,CoeffsType,OnTheRight> rightHouseholderSequence(const VectorsType& v, const CoeffsType& h)$/;"	f	namespace:Eigen
+right_camera_matrix_	PositionEstimator/PositionEstimator.hpp	/^  CameraMatrix right_camera_matrix_;$/;"	m	class:PositionEstimator
+rng_	ImageViewer/ImageViewer.hpp	/^  cv::RNG rng_;$/;"	m	class:ImageViewer
 rotM	Utils/TransformationMatrix.cpp	/^const Eigen::Matrix3d& TransformationMatrix::rotM() const {$/;"	f	class:TransformationMatrix
 rotate	Eigen/src/Eigen2Support/Geometry/Transform.h	/^Transform<Scalar,Dim>::rotate(const RotationType& rotation)$/;"	f	class:Eigen::Transform
 rotate	Eigen/src/Geometry/Transform.h	/^Transform<Scalar,Dim,Mode,Options>::rotate(const RotationType& rotation)$/;"	f	class:Eigen::Transform
@@ -10051,6 +10078,8 @@ shared4	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^  } shared4 ;$/;"	m	struct:in
 shear	Eigen/src/Eigen2Support/Geometry/Transform.h	/^Transform<Scalar,Dim>::shear(Scalar sx, Scalar sy)$/;"	f	class:Eigen::Transform
 shear	Eigen/src/Geometry/Transform.h	/^Transform<Scalar,Dim,Mode,Options>::shear(const Scalar& sx, const Scalar& sy)$/;"	f	class:Eigen::Transform
 shift	Eigen/src/Householder/HouseholderSequence.h	/^    Index shift() const { return m_shift; }    \/**< \\brief Returns the shift of the Householder sequence. *\/$/;"	f	class:Eigen::HouseholderSequence
+showCamera	ImageViewer/ImageViewer.cpp	/^void ImageViewer::showCamera(Camera camera) {$/;"	f	class:ImageViewer
+showImage	ImageViewer/ImageViewer.cpp	/^void ImageViewer::showImage(const cv::Mat& img) {$/;"	f	class:ImageViewer
 showMultipleImages	WindowManager/WindowManager.cpp	/^cv::Mat& WindowManager::showMultipleImages(int rows)$/;"	f	class:WindowManager
 showTrackbars	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::showTrackbars(const char* windowName) {$/;"	f	class:PeopleDetection
 show_debug_	Utils/print.cpp	/^bool show_debug_;$/;"	v
@@ -10108,6 +10137,7 @@ slerp	Eigen/src/Geometry/Rotation2D.h	/^  inline Rotation2D slerp(const Scalar& 
 smart_copy	Eigen/src/Core/util/Memory.h	/^template<typename T> void smart_copy(const T* start, const T* end, T* target)$/;"	f	namespace:Eigen::internal
 smart_copy_helper	Eigen/src/Core/util/Memory.h	/^template<typename T> struct smart_copy_helper<T,false> {$/;"	s	namespace:Eigen::internal
 smart_copy_helper	Eigen/src/Core/util/Memory.h	/^template<typename T> struct smart_copy_helper<T,true> {$/;"	s	namespace:Eigen::internal
+snapshots	ImageViewer/ImageViewer.cpp	/^void ImageViewer::snapshots(Camera camera) {$/;"	f	class:ImageViewer
 solve	Eigen/src/Cholesky/LDLT.h	/^    bool solve(const MatrixBase<OtherDerived>& b, ResultType *result) const$/;"	f	class:Eigen::LDLT
 solve	Eigen/src/Cholesky/LDLT.h	/^    solve(const MatrixBase<Rhs>& b) const$/;"	f	class:Eigen::LDLT
 solve	Eigen/src/Cholesky/LLT.h	/^    bool solve(const MatrixBase<OtherDerived>& b, ResultType *result) const$/;"	f	class:Eigen::LLT
@@ -10588,6 +10618,7 @@ triangular_solver_selector	Eigen/src/Core/SolveTriangular.h	/^struct triangular_
 triangular_solver_selector	Eigen/src/Core/SolveTriangular.h	/^struct triangular_solver_selector<Lhs,Rhs,Side,Mode,NoUnrolling,Dynamic>$/;"	s	namespace:Eigen::internal
 triangular_solver_unroller	Eigen/src/Core/SolveTriangular.h	/^struct triangular_solver_unroller<Lhs,Rhs,Mode,Index,Size,false> {$/;"	s	namespace:Eigen::internal
 triangular_solver_unroller	Eigen/src/Core/SolveTriangular.h	/^struct triangular_solver_unroller<Lhs,Rhs,Mode,Index,Size,true> {$/;"	s	namespace:Eigen::internal
+triangulate	PositionEstimator/PositionEstimator.cpp	/^void PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedPoints1, const std::vector<Eigen::Vector2d>& matchedPoints2) {$/;"	f	class:PositionEstimator
 tribb_kernel	Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h	/^struct tribb_kernel$/;"	s	namespace:Eigen::internal
 tridiagonal_qr_step	Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h	/^static void tridiagonal_qr_step(RealScalar* diag, RealScalar* subdiag, Index start, Index end, Scalar* matrixQ, Index n)$/;"	f	namespace:Eigen::internal
 tridiagonalization_inplace	Eigen/src/Eigenvalues/Tridiagonalization.h	/^void tridiagonalization_inplace(MatrixType& mat, DiagonalType& diag, SubDiagonalType& subdiag, bool extractQ)$/;"	f	namespace:Eigen::internal
@@ -10908,11 +10939,13 @@ w	Eigen/src/Geometry/Quaternion.h	/^  inline Scalar w() const { return this->der
 w	Eigen/src/Geometry/Quaternion.h	/^  inline Scalar& w() { return this->derived().coeffs().coeffRef(3); }$/;"	f	class:Eigen::QuaternionBase
 width_	CameraInterface/CameraInterface.hpp	/^  unsigned int width_;$/;"	m	class:CameraInterface
 window_name_	FaceDetection/FaceDetection.hpp	/^	std::string window_name_;  $/;"	m	class:FaceDetection
+window_name_	ImageViewer/ImageViewer.hpp	/^  std::string window_name_;$/;"	m	class:ImageViewer
 window_name_	PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	std::string window_name_;$/;"	m	class:PeopleDetectionHOG
 workaround_msvc_stl_support	Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support() : T() {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	Eigen/src/StlSupport/details.h	/^    inline workaround_msvc_stl_support(const T& other) : T(other) {}$/;"	f	struct:Eigen::internal::workaround_msvc_stl_support
 workaround_msvc_stl_support	Eigen/src/StlSupport/details.h	/^  template<typename T> struct workaround_msvc_stl_support : public T$/;"	s	namespace:Eigen::internal
 writeConfig	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::writeConfig() {$/;"	f	class:PeopleDetection
+writeImage	ImageWriter/ImageWriter.cpp	/^void ImageWriter::writeImage(const cv::Mat& img, std::string filename) {$/;"	f	class:ImageWriter
 writePacket	Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::ArrayWrapper
 writePacket	Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index index, const PacketScalar& val)$/;"	f	class:Eigen::MatrixWrapper
 writePacket	Eigen/src/Core/ArrayWrapper.h	/^    inline void writePacket(Index rowId, Index colId, const PacketScalar& val)$/;"	f	class:Eigen::ArrayWrapper

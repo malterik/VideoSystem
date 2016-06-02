@@ -7,15 +7,23 @@ PositionEstimator::PositionEstimator(const CameraMatrix& leftCameraMatrix, const
   right_camera_matrix_(rightCameraMatrix)
 {
 }
+PositionEstimator::PositionEstimator(Camera camera1, std::string path1, Camera camera2, std::string path2) :
+  left_camera_matrix_(camera1, path1),
+  right_camera_matrix_(camera2, path2)
+{
+}
 
+void PositionEstimator::triangulate(const std::array<std::vector<Eigen::Vector2d>,2>& matchedPoints) {
+  triangulate(matchedPoints[0], matchedPoints[1]);
+}
 void PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedPoints1, const std::vector<Eigen::Vector2d>& matchedPoints2) {
 
   if(matchedPoints1.size() != matchedPoints2.size()) {
      print(LogLevel::ERROR, "Number of points does not match!");
      return;
   }
-  // int N = matchedPoints1.size();
-  int N = 2;
+
+  int N = matchedPoints1.size();
 
   cv::Mat mp1(1,N,CV_64FC2);
   cv::Mat mp2(1,N,CV_64FC2);
