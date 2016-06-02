@@ -23,6 +23,9 @@ int main(void)
   std::vector<Eigen::Vector2d> mp2 = JSONParser::getInstance().getVector("config/matchedPoints2.json");
   pe.triangulate(mp1,mp2);
 
-  cv::Mat frame = camera.getImage();
-  iv.dualView(frame, frame);
+  cv::Mat frame;
+  cv::Mat frame2;
+  camera.getImage().copyTo(frame);
+  camera.getImage().copyTo(frame2);
+  iv.dualView(frame, frame2);
 }

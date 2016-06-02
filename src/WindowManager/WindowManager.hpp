@@ -12,9 +12,10 @@ public:
   void addImage(cv::Mat image);
   void addImage(std::vector<cv::Mat> imageVector);
   void drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
+  void drawCircle(cv::Point coord, cv::Scalar color, int index);
   cv::Mat& showMultipleImages(int rows );
   void reset();
-  std::array<cv::Vec2i,5> getInfo();
+  std::array<int,5> getInfo();
 
 private:
   WindowManager();

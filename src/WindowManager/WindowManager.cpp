@@ -52,7 +52,6 @@ cv::Mat& WindowManager::showMultipleImages(int rows)
       }
       imageCounter++;
     }
-
   }
   end : return dst_;
 }
@@ -68,12 +67,16 @@ void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& i
   addImage(bBoxImg);
 }
 
-std::array<cv::Vec2i,5> WindowManager::getInfo() {
-  std::array<cv::Vec2i,5> result;
+std::array<int,5> WindowManager::getInfo() {
+  std::array<int,5> result;
   result[0] = dst_heigth_;
   result[1] = dst_width_;
   result[2] = dst_rows_;
   result[3] = dst_cols_;
   result[4] = img_vector_.size();
   return result;
+}
+
+void WindowManager::drawCircle(cv::Point coord, cv::Scalar color, int index) {
+  cv::circle(img_vector_[index], coord, 5, color, 3);
 }

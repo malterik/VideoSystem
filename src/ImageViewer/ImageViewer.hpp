@@ -21,4 +21,10 @@ private:
   Camera camera_;
   CameraInterface camera_interface_;
 
+  std::vector<cv::Point> image_coordinates_l_;
+  std::vector<cv::Point> image_coordinates_r_;
+  cv::RNG rng_;
+  int color_counter_;
+  cv::Scalar circle_color_;
+
 };
