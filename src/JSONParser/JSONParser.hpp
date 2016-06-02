@@ -12,9 +12,11 @@ using json = nlohmann::json;
 class JSONParser
 {
 public:
-  JSONParser();
+  static JSONParser& getInstance();
   std::vector<Eigen::Vector2d> getVector(std::string filename);
 
 private:
+  JSONParser();
+  JSONParser(const JSONParser& wm);
   unsigned int numberOfLines(std::ifstream file);
 };

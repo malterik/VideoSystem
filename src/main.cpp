@@ -18,13 +18,11 @@ int main(void)
   camera.setResolution(1280,720);
   ImageWriter iw("Images/");
 
-  JSONParser jp;
-  std::vector<Eigen::Vector2d> mp1 = jp.getVector("config/matchedPoints1.json");
-  std::vector<Eigen::Vector2d> mp2 = jp.getVector("config/matchedPoints2.json");
+  std::vector<Eigen::Vector2d> mp1 = JSONParser::getInstance().getVector("config/matchedPoints1.json");
+  std::vector<Eigen::Vector2d> mp2 = JSONParser::getInstance().getVector("config/matchedPoints2.json");
   pe.triangulate(mp1,mp2);
 
   cv::namedWindow(windowName,1);
-  int counter=0;
   while(1)
   {
     WindowManager::getInstance().reset();

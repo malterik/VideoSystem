@@ -4,6 +4,11 @@ JSONParser::JSONParser()
 {
 }
 
+JSONParser& JSONParser::getInstance() {
+  static JSONParser instance_;
+  return instance_;
+}
+
 std::vector<Eigen::Vector2d> JSONParser::getVector(std::string filename)
 {
   json vec;

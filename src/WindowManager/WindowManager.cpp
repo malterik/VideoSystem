@@ -4,8 +4,8 @@
 WindowManager::WindowManager() {
 }
 WindowManager& WindowManager::getInstance() {
-  static WindowManager instace_;
-  return instace_;
+  static WindowManager instance_;
+  return instance_;
 }
 void WindowManager::reset() {
   img_vector_.clear();
