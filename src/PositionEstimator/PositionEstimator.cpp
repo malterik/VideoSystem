@@ -54,3 +54,10 @@ void PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedP
 
 }
 
+CameraMatrix PositionEstimator::getCameraMatrix(Side cameraSide) {
+  if(cameraSide == LEFT) {
+    return left_camera_matrix_;
+  } else {
+    return right_camera_matrix_;
+  }
+}

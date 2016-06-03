@@ -3,11 +3,12 @@
 #include <fstream>
 #include "../Utils/print.hpp"
 #include "../json/json.hpp"
+#include "../JSONParser/JSONParser.hpp"
 
 using json = nlohmann::json;
 
 CameraMatrix::CameraMatrix(Camera camType, std::string camera2groundFile) :
-    camera2ground_(camera2groundFile),
+    camera2ground_(JSONParser::getInstance().getTransformationMatrix(camera2groundFile)),
     cam_type_(camType)
 {
   if(cam_type_ == IP_CAM) {
@@ -15,8 +16,6 @@ CameraMatrix::CameraMatrix(Camera camType, std::string camera2groundFile) :
   } else if(cam_type_ == LOCAL_CAM) {
     FILE_NAME_ = "config/CamMatrix.json";
   }
-
-  // Read the values from the json file
   readConfig();
   // Construct the Matrix
   intrinsic_paramter_ = Eigen::Matrix3d::Zero();
@@ -37,7 +36,6 @@ CameraMatrix::CameraMatrix(Camera camType, std::string camera2groundFile) :
   bottomRight2topLeft_(0,2)=  640;
   bottomRight2topLeft_(1,2)=  480;
 }
-
 void CameraMatrix::readConfig() {
 
   json config;

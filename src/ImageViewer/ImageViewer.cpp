@@ -30,20 +30,19 @@ void ImageViewer::mouseCallback(int event, int x, int y)
       int icolor = (unsigned) rng_;
       circle_color_= cv::Scalar( icolor&255, (icolor>>8)&255, (icolor>>16)&255 );
       color_counter_ = 0;
-      std::cout << "nEW COLOR!!" << std::endl;
     }
 
     if(x < (windowInfo[1] / windowInfo[3])) {
       WindowManager::getInstance().drawCircle(cv::Point(x,y), circle_color_, 0);
       color_counter_++;
       image_coordinates_l_.emplace_back(x,y);
-      std::cout << circle_color_<< std::endl;
+      std::cout << cv::Point(x,y) << std::endl;
     } else {
       x -= (windowInfo[1] / windowInfo[3]);
       WindowManager::getInstance().drawCircle(cv::Point(x,y), circle_color_, 1);
       color_counter_++;
       image_coordinates_r_.emplace_back(x,y);
-      std::cout << circle_color_<< std::endl;
+      std::cout << cv::Point(x,y) << std::endl;
     }
   }
   if  ( event == cv::EVENT_RBUTTONDOWN ) {
@@ -84,6 +83,7 @@ void ImageViewer::dualView(const cv::Mat& img1, const cv::Mat& img2) {
 void ImageViewer::showCamera(Camera camera) {
   camera_ = camera;
   camera_interface_.reset(camera);
+  camera_interface_.setResolution(1280,720);
   while(1) {
     WindowManager::getInstance().reset();
     cv::Mat frame = camera_interface_.getImage();
@@ -99,6 +99,7 @@ void ImageViewer::showCamera(Camera camera) {
 void ImageViewer::snapshots(Camera camera) {
   camera_ = camera;
   camera_interface_.reset(camera);
+  camera_interface_.setResolution(1280,720);
   while(1) {
     WindowManager::getInstance().reset();
     cv::Mat frame = camera_interface_.getImage();

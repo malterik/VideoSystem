@@ -1,5 +1,6 @@
 #include "TransformationMatrix.hpp"
 #include <fstream>
+#include "../Utils/print.hpp"
 
 TransformationMatrix::TransformationMatrix(const Eigen::Matrix3d& rotation_matrix, const Eigen::Vector3d& position_vector) :
     rotation_matrix_(rotation_matrix), position_vector_(position_vector)
@@ -73,7 +74,8 @@ const Eigen::Matrix4d& TransformationMatrix::getMatrix() const {
 Eigen::MatrixXd TransformationMatrix::getSingularMatrix() const {
   Eigen::MatrixXd result(3,4);
   result.block<3,3>(0,0) = rotation_matrix_;
-  result.block<3,1>(0,3) = position_vector_;
+  // result.block<3,1>(0,3) = position_vector_;
+  result.block<3,1>(0,3) =  rotation_matrix_ * -position_vector_;
 
   return result;
 }

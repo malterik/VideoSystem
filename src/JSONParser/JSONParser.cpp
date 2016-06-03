@@ -34,3 +34,25 @@ std::vector<Eigen::Vector2d> JSONParser::getVector(std::string filename)
   return result;
 }
 
+TransformationMatrix JSONParser::getTransformationMatrix(std::string filename) {
+  json matrix;
+  std::ifstream jsonFile(filename);
+  Eigen::Vector3d translation;
+  Eigen::Matrix3d rotation;
+  if (jsonFile.is_open()) {
+    std::string str((std::istreambuf_iterator<char>(jsonFile)), std::istreambuf_iterator<char>());
+    matrix = json::parse(str);
+    jsonFile.close();
+    for(unsigned int i = 0; i < 3; i++) {
+      translation[i] = matrix["vec"][i];
+      for (int j = 0; j < 3; j++) {
+        rotation(i,j) = matrix["rot"][i][j];
+      }
+
+    }
+
+  }else {
+    std::cout << "Could not load file:" << filename << std::endl;
+  }
+  return TransformationMatrix(rotation, translation);
+}
