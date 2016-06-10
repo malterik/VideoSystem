@@ -7,16 +7,14 @@
 
 int main(void)
 {
+  std::vector<Eigen::Vector3d> points;
   Camera cam = LOCAL_CAM;
   ImageViewer iv("Main Window");
 
-  cv::Mat img1 = cv::imread("/home/erik/Master/Images/P50-Office/test0.png", CV_LOAD_IMAGE_COLOR);
-  cv::Mat img2 = cv::imread("/home/erik/Master/Images/P50-Office/test1.png", CV_LOAD_IMAGE_COLOR);
+  cv::Mat img1 = cv::imread("/home/erik/Master/Images/P50-Home/Ball/snapshot0.png", CV_LOAD_IMAGE_COLOR);
+  cv::Mat img2 = cv::imread("/home/erik/Master/Images/P50-Home/Ball/snapshot1.png", CV_LOAD_IMAGE_COLOR);
   print(LogLevel::DEBUG, "DEBUG");
   PositionEstimator pe(cam, "config/CameraPose1.json", cam, "config/CameraPose2.json");
-
-  pe.triangulate(iv.pointPairs(img1, img2));
-  std::cout << "Left Camera Matrix : " << std::endl << pe.getCameraMatrix(LEFT).getCameraMatrix()  << std::endl;
-  std::cout << std::endl << std::endl;
-  std::cout << "Right Camera Matrix : " << std::endl << pe.getCameraMatrix(RIGHT).getCameraMatrix()  << std::endl;
+  // iv.snapshots(cam);
+  points = pe.triangulate(iv.pointPairs(img1, img2));
 }

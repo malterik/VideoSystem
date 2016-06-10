@@ -13,21 +13,23 @@ PositionEstimator::PositionEstimator(Camera camera1, std::string path1, Camera c
 {
 }
 
-void PositionEstimator::triangulate(const std::array<std::vector<Eigen::Vector2d>,2>& matchedPoints) {
-  triangulate(matchedPoints[0], matchedPoints[1]);
+std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::array<std::vector<Eigen::Vector2d>,2>& matchedPoints) {
+  return triangulate(matchedPoints[0], matchedPoints[1]);
 }
-void PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedPoints1, const std::vector<Eigen::Vector2d>& matchedPoints2) {
 
+std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedPoints1, const std::vector<Eigen::Vector2d>& matchedPoints2) {
+
+  std::vector<Eigen::Vector3d> Points3D;
   if(matchedPoints1.size() != matchedPoints2.size()) {
      print(LogLevel::ERROR, "Number of points does not match!");
-     return;
+     return std::vector<Eigen::Vector3d>();
   }
 
   int N = matchedPoints1.size();
 
   cv::Mat mp1(1,N,CV_64FC2);
   cv::Mat mp2(1,N,CV_64FC2);
-  cv::Mat result;
+  cv::Mat Points4D;;
   cv::Mat lCam(3,4,CV_64FC1);
   cv::Mat rCam(3,4,CV_64FC1);
 
@@ -46,12 +48,22 @@ void PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedP
     mp2.at<cv::Vec2d>(0,i)[1] = matchedPoints2[i][1];
   }
 
-  cv::triangulatePoints(lCam, rCam, mp1, mp2, result);
-
-  std::cout << "4D Points: " << std::endl << result << std::endl;
+  cv::triangulatePoints(lCam, rCam, mp1, mp2, Points4D);
 
 
-
+  std::cout << Points4D << std::endl;
+  //convert resulting points to a vector of Eigen Vectors
+  for (int i = 0; i < Points4D.cols ; i++) {
+    Eigen::Vector3d vec;
+    vec(0) = Points4D.at<double>(0,i) / Points4D.at<double>(3,i);
+    vec(1) = Points4D.at<double>(1,i) / Points4D.at<double>(3,i);
+    vec(2) = Points4D.at<double>(2,i) / Points4D.at<double>(3,i);
+    Points3D.push_back(vec);
+  }
+  std::cout << "3D Points" << std::endl;
+  for(auto& it : Points3D)
+    std::cout << it << std::endl;
+  return Points3D;
 }
 
 CameraMatrix PositionEstimator::getCameraMatrix(Side cameraSide) {
