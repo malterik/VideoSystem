@@ -3,10 +3,12 @@
 #include <array>
 #include "../Utils/print.hpp"
 
-ImageViewer::ImageViewer(std::string windowName, Camera cam) :
+ImageViewer::ImageViewer(std::string windowName, Camera camLeft, Camera camRight) :
   window_name_(windowName),
-  camera_(cam),
-  camera_interface_(camera_.ct),
+  camera_left_(camLeft),
+  camera_right_(camRight),
+  camera_interface_left_(camera_left_.ct),
+  camera_interface_right_(camera_right_.ct),
   image_writer_("Images/"),
   image_coordinates_l_(),
   image_coordinates_r_(),
@@ -14,7 +16,10 @@ ImageViewer::ImageViewer(std::string windowName, Camera cam) :
   color_counter_(2),
   circle_color_()
 {
-  camera_interface_.setResolution(camera_.img_height, camera_.img_height);
+  camera_interface_left_.setResolution(camera_left_.img_height, camera_left_.img_height);
+  camera_interface_right_.setResolution(camera_right_.img_height, camera_right_.img_height);
+  print(LogLevel::DEBUG, "Camera Left %d", camera_left_.ct);
+  print(LogLevel::DEBUG, "Camera Right %d", camera_right_.ct);
   cv::namedWindow(window_name_,1);
   cv::setMouseCallback(window_name_, ImageViewer::mouseCallback, this);
 }
@@ -80,11 +85,21 @@ void ImageViewer::dualView(const cv::Mat& img1, const cv::Mat& img2) {
   }
 }
 
-void ImageViewer::showCamera() {
+void ImageViewer::showCamera(CameraSide cs) {
   while(1) {
     WindowManager::getInstance().reset();
-    cv::Mat frame = camera_interface_.getImage();
-    WindowManager::getInstance().addImage(frame);
+    if (cs == LEFT_CAM) {
+      cv::Mat frameLeft = camera_interface_left_.getImage();
+      WindowManager::getInstance().addImage(frameLeft);
+    } else if(cs == RIGHT_CAM) {
+      cv::Mat frameRight = camera_interface_right_.getImage();
+      WindowManager::getInstance().addImage(frameRight);
+    } else if(cs == BOTH) {
+      cv::Mat frameLeft = camera_interface_left_.getImage();
+      cv::Mat frameRight = camera_interface_right_.getImage();
+      WindowManager::getInstance().addImage(frameLeft);
+      WindowManager::getInstance().addImage(frameRight);
+    }
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {
       break;
@@ -93,18 +108,38 @@ void ImageViewer::showCamera() {
   }
 }
 
-void ImageViewer::snapshots() {
+void ImageViewer::snapshots(CameraSide cs) {
   while(1) {
     WindowManager::getInstance().reset();
-    cv::Mat frame = camera_interface_.getImage();
-    WindowManager::getInstance().addImage(frame);
+    cv::Mat frameLeft;
+    cv::Mat frameRight;
+    if (cs == LEFT_CAM) {
+      frameLeft = camera_interface_left_.getImage();
+      WindowManager::getInstance().addImage(frameLeft);
+    } else if(cs == RIGHT_CAM) {
+      frameRight = camera_interface_right_.getImage();
+      WindowManager::getInstance().addImage(frameRight);
+    } else if(cs == BOTH) {
+      frameLeft = camera_interface_left_.getImage();
+      frameRight = camera_interface_right_.getImage();
+      WindowManager::getInstance().addImage(frameLeft);
+      WindowManager::getInstance().addImage(frameRight);
+    }
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {
       break;
     } else if(key == 32) {
-      image_writer_.writeImage(frame,"snapshot");
+      if (cs == LEFT_CAM) {
+        image_writer_.writeImage(frameLeft,"cameraLeft");
+      } else if(cs == RIGHT_CAM) {
+        image_writer_.writeImage(frameRight,"cameraRight");
+      } else if(cs == BOTH) {
+        image_writer_.writeImage(frameLeft,"cameraLeft");
+        image_writer_.writeImage(frameRight,"cameraRight");
+      }
     }
-    cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1) );
+    // cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1) );
+    cv::imshow(window_name_, frameRight );
   }
 }
 std::array<std::vector<Eigen::Vector2d>,2> ImageViewer::pointPairs(const cv::Mat& img1, const cv::Mat& img2) {

@@ -1,11 +1,14 @@
 #include "CameraInterface.hpp"
 #include <iostream>
+#include "../Utils/print.hpp"
 
 CameraInterface::CameraInterface(CameraType CamType) : image_(), cam_type_(CamType)
 {
   if(cam_type_ == IP_CAM1) {
+    print(LogLevel::DEBUG, "IP_CAM1");
     cap_.open(STREAM_ADDR1);
   } else if(cam_type_ == IP_CAM2) {
+    print(LogLevel::DEBUG, "IP_CAM2");
     cap_.open(STREAM_ADDR2);
   } else if(cam_type_ == LOCAL_CAM) {
     cap_.open(0);
