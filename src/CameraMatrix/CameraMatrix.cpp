@@ -7,11 +7,11 @@
 
 using json = nlohmann::json;
 
-CameraMatrix::CameraMatrix(Camera camType, std::string camera2groundFile) :
+CameraMatrix::CameraMatrix(CameraType camType, std::string camera2groundFile) :
     camera2ground_(JSONParser::getInstance().getTransformationMatrix(camera2groundFile)),
     cam_type_(camType)
 {
-  if(cam_type_ == IP_CAM) {
+  if(cam_type_ == IP_CAM1) {
     FILE_NAME_ = "config/IPCamMatrix.json";
   } else if(cam_type_ == LOCAL_CAM) {
     FILE_NAME_ = "config/CamMatrix.json";
@@ -29,12 +29,6 @@ CameraMatrix::CameraMatrix(Camera camType, std::string camera2groundFile) :
 
   // camera_matrix = intrinsic_paramter_ * camera2ground_.getMatrix();
 
-  bottomRight2topLeft_ = Eigen::Matrix3d::Zero();
-  bottomRight2topLeft_(0,0)= -1;
-  bottomRight2topLeft_(1,1)= -1;
-  bottomRight2topLeft_(2,2)=  1;
-  bottomRight2topLeft_(0,2)=  640;
-  bottomRight2topLeft_(1,2)=  480;
 }
 void CameraMatrix::readConfig() {
 

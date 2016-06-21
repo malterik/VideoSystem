@@ -1,4 +1,5 @@
 #pragma once
+#include "../Utils/DisableWarnings.hpp"
 #include <string>
 #include "../Eigen/Dense"
 #include "../Utils/TransformationMatrix.hpp"
@@ -7,7 +8,7 @@
 class CameraMatrix
 {
 public:
-  CameraMatrix(Camera camType, std::string camera2groundFile);
+  CameraMatrix(CameraType camType, std::string camera2groundFile);
   Eigen::MatrixXd getCameraMatrix();
   Eigen::MatrixXd getIntrinsicMatrix();
   Eigen::MatrixXd getExtrinsicMatrix();
@@ -24,10 +25,10 @@ private:
 
   Eigen::Matrix3d intrinsic_paramter_;
   Eigen::Matrix3d intrinsic_paramter_inv_;
-  Eigen::Matrix3d bottomRight2topLeft_;
+  // Eigen::Matrix3d bottomRight2topLeft_;
   TransformationMatrix camera2ground_;
 
   std::string FILE_NAME_;
-  Camera cam_type_;
+  CameraType cam_type_;
 
 };

@@ -3,10 +3,10 @@
 #include <array>
 #include "../Utils/print.hpp"
 
-ImageViewer::ImageViewer(std::string windowName) :
+ImageViewer::ImageViewer(std::string windowName, Camera cam) :
   window_name_(windowName),
-  camera_(LOCAL_CAM),
-  camera_interface_(camera_),
+  camera_(cam),
+  camera_interface_(camera_.ct),
   image_writer_("Images/"),
   image_coordinates_l_(),
   image_coordinates_r_(),
@@ -14,7 +14,7 @@ ImageViewer::ImageViewer(std::string windowName) :
   color_counter_(2),
   circle_color_()
 {
-  camera_interface_.setResolution(1280,720);
+  camera_interface_.setResolution(camera_.img_height, camera_.img_height);
   cv::namedWindow(window_name_,1);
   cv::setMouseCallback(window_name_, ImageViewer::mouseCallback, this);
 }
@@ -80,10 +80,7 @@ void ImageViewer::dualView(const cv::Mat& img1, const cv::Mat& img2) {
   }
 }
 
-void ImageViewer::showCamera(Camera camera) {
-  camera_ = camera;
-  camera_interface_.reset(camera);
-  camera_interface_.setResolution(1280,720);
+void ImageViewer::showCamera() {
   while(1) {
     WindowManager::getInstance().reset();
     cv::Mat frame = camera_interface_.getImage();
@@ -96,10 +93,7 @@ void ImageViewer::showCamera(Camera camera) {
   }
 }
 
-void ImageViewer::snapshots(Camera camera) {
-  camera_ = camera;
-  camera_interface_.reset(camera);
-  camera_interface_.setResolution(1280,720);
+void ImageViewer::snapshots() {
   while(1) {
     WindowManager::getInstance().reset();
     cv::Mat frame = camera_interface_.getImage();

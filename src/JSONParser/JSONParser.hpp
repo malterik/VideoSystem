@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Utils/DisableWarnings.hpp"
 #include "../Eigen/Dense"
 
 #include <vector>

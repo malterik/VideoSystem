@@ -7,7 +7,7 @@ PositionEstimator::PositionEstimator(const CameraMatrix& leftCameraMatrix, const
   right_camera_matrix_(rightCameraMatrix)
 {
 }
-PositionEstimator::PositionEstimator(Camera camera1, std::string path1, Camera camera2, std::string path2) :
+PositionEstimator::PositionEstimator(CameraType camera1, std::string path1, CameraType camera2, std::string path2) :
   left_camera_matrix_(camera1, path1),
   right_camera_matrix_(camera2, path2)
 {

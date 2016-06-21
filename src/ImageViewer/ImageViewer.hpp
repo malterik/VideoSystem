@@ -1,5 +1,6 @@
 #pragma once
 
+#include "../Utils/DisableWarnings.hpp"
 #include <opencv2/opencv.hpp>
 #include <string>
 
@@ -10,13 +11,13 @@
 class ImageViewer
 {
 public:
-  ImageViewer(std::string windowName);
+  ImageViewer(std::string windowName, Camera cam);
   void mouseCallback(int event, int x, int y);
   static void mouseCallback(int event, int x, int y, int, void* this_);
   void showImage(const cv::Mat& img);
   void dualView(const cv::Mat& img1, const cv::Mat& img2);
-  void showCamera(Camera camera);
-  void snapshots(Camera camera);
+  void showCamera();
+  void snapshots();
   std::array<std::vector<Eigen::Vector2d>,2> pointPairs(const cv::Mat& img1, const cv::Mat& img2);
 
 private:
