@@ -23,9 +23,9 @@ const cv::Mat& CameraInterface::getImage()
 {
   cap_ >> image_;
 
-  if(cam_type_ == IP_CAM1 || cam_type_ == IP_CAM2) {
-    cv::resize(image_,image_,cv::Size(width_, height_));
-  }
+  // if(cam_type_ == IP_CAM1 || cam_type_ == IP_CAM2) {
+  //   cv::resize(image_,image_,cv::Size(width_, height_));
+  // }
   return image_;
 
 }

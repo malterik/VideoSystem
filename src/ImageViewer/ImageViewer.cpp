@@ -138,8 +138,7 @@ void ImageViewer::snapshots(CameraSide cs) {
         image_writer_.writeImage(frameRight,"cameraRight");
       }
     }
-    // cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1) );
-    cv::imshow(window_name_, frameRight );
+    cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1) );
   }
 }
 std::array<std::vector<Eigen::Vector2d>,2> ImageViewer::pointPairs(const cv::Mat& img1, const cv::Mat& img2) {
