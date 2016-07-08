@@ -7,6 +7,7 @@
 class PeopleDetection
 {
 public:
+        PeopleDetection(cv::Mat initBackground);
         PeopleDetection();
         const std::vector<cv::Rect>& detect(const cv::Mat& image);
         void debugImage() const;
@@ -32,7 +33,7 @@ private:
 
         //Pointer for the backgroundsubtractor
         cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor_;
-        cv::Ptr<cv::BackgroundSubtractorMOG2> p_background_subtractor2_;
+        cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor2_;
         cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor3_;
         cv::Ptr<ImageSubtractor> p_image_subtractor_;
 

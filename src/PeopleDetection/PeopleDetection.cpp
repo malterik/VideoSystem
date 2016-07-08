@@ -9,6 +9,27 @@
 using json = nlohmann::json;
 
 
+PeopleDetection::PeopleDetection(cv::Mat initBackground) :
+    background_image_(), blur_img_(), contour_img_(),
+    image_(), kernel_(), thresh_img_(),
+    contours_(), contours_poly(), hierarchy_(),
+    people_candidates_(), //p_background_subtractor2_(new cv::BackgroundSubtractorMOG2),
+    FILE_NAME_("config/PeopleDetection.json")
+{
+    readConfig();
+    p_background_subtractor2_ = cv::createBackgroundSubtractorMOG2();
+    p_image_subtractor_->setBackground(initBackground);
+
+    // CameraInterface camera;
+    // p_image_subtractor_ = new ImageSubtractor(camera.getImage());
+    kernel_= cv::getStructuringElement(0,
+                cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1),
+                cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)
+             );
+    // p_background_subtractor2_->set("nmixtures",1);
+
+
+}
 PeopleDetection::PeopleDetection() :
     background_image_(), blur_img_(), contour_img_(),
     image_(), kernel_(), thresh_img_(),
@@ -18,6 +39,7 @@ PeopleDetection::PeopleDetection() :
 {
     readConfig();
     p_background_subtractor2_ = cv::createBackgroundSubtractorMOG2();
+    // p_image_subtractor_->setBackground(initBackground);
 
     // CameraInterface camera;
     // p_image_subtractor_ = new ImageSubtractor(camera.getImage());
@@ -93,9 +115,9 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
     image_=image;
     // p_background_subtractor_->operator()(image,background_image_);
     print(DEBUG,"Debug 1");
-    background_image_ = p_image_subtractor_->subtractBackground(image);
+    // background_image_ = p_image_subtractor_->subtractBackground(image);
     print(DEBUG,"Debug 2");
-    // p_background_subtractor2_->operator()(image,background_image_);
+    p_background_subtractor2_->apply(image,background_image_);
     // p_background_subtractor3_->operator()(image,background_image_);
     // cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
     cv::blur(background_image_, blur_img_, cv::Size(2 * BLUR_KERNEL_SIZE_ + 1, 2 * BLUR_KERNEL_SIZE_ +1));

@@ -5,42 +5,41 @@
 #include "JSONParser/JSONParser.hpp"
 #include "Utils/TransformationMatrix.hpp"
 #include "Utils/print.hpp"
+#include "CameraInterface/StereoInterface.hpp"
+#include "WindowManager/WindowManager.hpp"
+#include "ImageSubtractor/ImageSubtractor.hpp"
 
 int main(void)
 {
-  // CameraType camtypeL = IP_CAM1;
-  CameraType camtypeL = LOCAL_CAM;
+  CameraType camtypeL = DLINK_CAM_1;
   Camera camL;
   camL.ct = camtypeL;
-  camL.img_width = 1920;
-  camL.img_height = 1080;
-  // CameraType camtypeR = LOCAL_CAM;
-  CameraType camtypeR = IP_CAM2;
+  camL.img_width = 640;
+  camL.img_height = 480;
+  CameraType camtypeR = DLINK_CAM_2;
   Camera camR;
   camR.ct = camtypeR;
-  camR.img_width = 1920;
-  camR.img_height = 1080;
-  // cv::VideoCapture camera2("rtp://239.192.140.12:5004");
-  // cv::VideoCapture camera1("rtp://239.192.140.11:5004");
-  // while(1) {
-  //   char key = (char)cv::waitKey(10);
-  //   cv::Mat frameR;
-  //   cv::Mat frameL;
-  //   camera2 >> frameR;
-  //   camera1 >> frameL;
-  //   if( key  == 27 ) {
-  //     break;
-  //   }
-  //   cv::imshow("Left", frameL);
-  //   cv::imshow("Right", frameR);
-  // }
-  ImageViewer iv("Main Window", camL, camR);
+  camR.img_width = 640;
+  camR.img_height = 480;
 
-  // cv::Mat img1 = cv::imread("/home/erik/Master/Images/P50-Home/Ball/snapshot0.png", CV_LOAD_IMAGE_COLOR);
-  // cv::Mat img2 = cv::imread("/home/erik/Master/Images/P50-Home/Ball/snapshot1.png", CV_LOAD_IMAGE_COLOR);
-  // PositionEstimator pe(cam, "config/CameraPose1.json", cam, "config/CameraPose2.json");
-  // iv.snapshots(cam);
-  // points = pe.triangulate(iv.pointPairs(img1, img2));
-  // iv.snapshots(LEFT_CAM);
-  iv.snapshots(LEFT_CAM);
+  StereoInterface si(camL, camR);
+  cv::Mat initFrame = si.getLeftImage();
+  ImageSubtractor is(initFrame);
+
+  while(1) {
+    WindowManager::getInstance().reset();
+    cv::Mat leftFrame = si.getLeftImage();
+    cv::Mat rightFrame = si.getRightImage();
+
+    WindowManager::getInstance().addImage(leftFrame);
+    WindowManager::getInstance().addImage(rightFrame);
+    char key = (char)cv::waitKey(10);
+    if( key  == 27 ) {
+      break;
+    } else if( key == 32 ) {
+      is.setBackground(leftFrame);
+    }
+    cv::imshow("Window1" , WindowManager::getInstance().showMultipleImages(2) );
+  }
+  cv::waitKey(0);
 }

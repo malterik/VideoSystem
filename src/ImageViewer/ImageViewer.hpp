@@ -28,7 +28,8 @@ private:
   Camera camera_right_;
   CameraInterface camera_interface_left_;
   CameraInterface camera_interface_right_;
-  ImageWriter image_writer_;
+  ImageWriter image_writer_left_;
+  ImageWriter image_writer_right_;
 
   std::vector<Eigen::Vector2d> image_coordinates_l_;
   std::vector<Eigen::Vector2d> image_coordinates_r_;

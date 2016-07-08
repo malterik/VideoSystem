@@ -15,7 +15,12 @@ CameraMatrix::CameraMatrix(CameraType camType, std::string camera2groundFile) :
     FILE_NAME_ = "config/IPCamMatrix.json";
   } else if(cam_type_ == LOCAL_CAM) {
     FILE_NAME_ = "config/CamMatrix.json";
+  } else if(cam_type_ == DLINK_CAM_1) {
+    FILE_NAME_ = "config/DLINK20Param.json";
+  } else if(cam_type_ == DLINK_CAM_2) {
+    FILE_NAME_ = "config/DLINK22Param.json";
   }
+
   readConfig();
   // Construct the Matrix
   intrinsic_paramter_ = Eigen::Matrix3d::Zero();
@@ -33,7 +38,6 @@ CameraMatrix::CameraMatrix(CameraType camType, std::string camera2groundFile) :
 void CameraMatrix::readConfig() {
 
   json config;
-  std::cout << FILE_NAME_ << std::endl;
   std::ifstream configFile(FILE_NAME_);
   if (configFile.is_open()) {
     std::string str((std::istreambuf_iterator<char>(configFile)), std::istreambuf_iterator<char>());
@@ -45,7 +49,7 @@ void CameraMatrix::readConfig() {
     f_y_ = config["f_y"];
 
     configFile.close();
-  } else print(ERROR, "Unable to open CameraMatrix config file");
+  } else print(ERROR, "Unable to open File: %s", FILE_NAME_.c_str());
 }
 
 

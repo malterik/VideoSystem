@@ -4,7 +4,8 @@ enum CameraType {
   IP_CAM1,
   IP_CAM2,
   LOCAL_CAM,
-  DLINK_CAM
+  DLINK_CAM_1,
+  DLINK_CAM_2
 
 };
 

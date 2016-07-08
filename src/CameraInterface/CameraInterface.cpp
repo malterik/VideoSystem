@@ -12,8 +12,10 @@ CameraInterface::CameraInterface(CameraType CamType) : image_(), cam_type_(CamTy
     cap_.open(STREAM_ADDR2);
   } else if(cam_type_ == LOCAL_CAM) {
     cap_.open(0);
-  } else if(cam_type_ == DLINK_CAM) {
+  } else if(cam_type_ == DLINK_CAM_1) {
     cap_.open(DLINK_STREAM_ADDR);
+  } else if(cam_type_ == DLINK_CAM_2) {
+    cap_.open(DLINK_STREAM_ADDR_2);
   }
   if(!cap_.isOpened()) {
     std::cout << "Could not open camera"  << std::endl;
@@ -44,8 +46,10 @@ void CameraInterface::reset(CameraType cameraToUse) {
     cap_.open(STREAM_ADDR2);
   } else if(cam_type_ == LOCAL_CAM) {
     cap_.open(0);
-  } else if(cam_type_ == DLINK_CAM) {
+  } else if(cam_type_ == DLINK_CAM_1) {
     cap_.open(DLINK_STREAM_ADDR);
+  } else if(cam_type_ == DLINK_CAM_2) {
+    cap_.open(DLINK_STREAM_ADDR_2);
   }
   if(cap_.isOpened()) {
     cap_.release();

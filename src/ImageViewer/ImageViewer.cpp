@@ -9,7 +9,8 @@ ImageViewer::ImageViewer(std::string windowName, Camera camLeft, Camera camRight
   camera_right_(camRight),
   camera_interface_left_(camera_left_.ct),
   camera_interface_right_(camera_right_.ct),
-  image_writer_("Images/"),
+  image_writer_left_("Images/"),
+  image_writer_right_("Images/"),
   image_coordinates_l_(),
   image_coordinates_r_(),
   rng_(0xFFFFFFFF),
@@ -130,12 +131,12 @@ void ImageViewer::snapshots(CameraSide cs) {
       break;
     } else if(key == 32) {
       if (cs == LEFT_CAM) {
-        image_writer_.writeImage(frameLeft,"cameraLeft");
+        image_writer_left_.writeImage(frameLeft,"cameraLeft");
       } else if(cs == RIGHT_CAM) {
-        image_writer_.writeImage(frameRight,"cameraRight");
+        image_writer_right_.writeImage(frameRight,"cameraRight");
       } else if(cs == BOTH) {
-        image_writer_.writeImage(frameLeft,"cameraLeft");
-        image_writer_.writeImage(frameRight,"cameraRight");
+        image_writer_left_.writeImage(frameLeft,"cameraLeft");
+        image_writer_right_.writeImage(frameRight,"cameraRight");
       }
     }
     cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1) );
