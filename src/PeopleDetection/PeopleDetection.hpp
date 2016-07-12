@@ -31,11 +31,7 @@ class PeopleDetection
     std::vector<cv::Vec4i> hierarchy_;
     std::vector<cv::Rect> people_candidates_;
 
-    //Pointer for the backgroundsubtractor
-    cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor_;
-    cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor2_;
-    cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor3_;
-    cv::Ptr<ImageSubtractor> p_image_subtractor_;
+    ImageSubtractor image_subtractor_;
 
     //Parameter
     int DILATE_KERNEL_SIZE_;

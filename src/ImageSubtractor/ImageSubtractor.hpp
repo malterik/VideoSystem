@@ -5,6 +5,7 @@ class ImageSubtractor {
 
 public:
   ImageSubtractor(const cv::Mat& initialBackground);
+  ImageSubtractor();
   void setBackground( const cv::Mat& img);
   cv::Mat& getBackground();
   cv::Mat& subtractBackground(const cv::Mat& img);

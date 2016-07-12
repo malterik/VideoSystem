@@ -8,26 +8,21 @@
 
 using json = nlohmann::json;
 
-
 PeopleDetection::PeopleDetection(cv::Mat initBackground) :
     background_image_(), blur_img_(), contour_img_(),
     image_(), kernel_(), thresh_img_(),
     contours_(), contours_poly(), hierarchy_(),
-    people_candidates_(), //p_background_subtractor2_(new cv::BackgroundSubtractorMOG2),
+    people_candidates_(),
+    image_subtractor_(initBackground),
     FILE_NAME_("config/PeopleDetection.json")
 {
 
   readConfig();
-  p_background_subtractor2_ = cv::createBackgroundSubtractorMOG2();
-  p_image_subtractor_->setBackground(initBackground);
 
-  // CameraInterface camera;
-  // p_image_subtractor_ = new ImageSubtractor(camera.getImage());
   kernel_= cv::getStructuringElement(0,
       cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1),
       cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)
       );
-  // p_background_subtractor2_->set("nmixtures",1);
 
 
 }
@@ -35,22 +30,15 @@ PeopleDetection::PeopleDetection() :
   background_image_(), blur_img_(), contour_img_(),
   image_(), kernel_(), thresh_img_(),
   contours_(), contours_poly(), hierarchy_(),
-  people_candidates_(), //p_background_subtractor2_(new cv::BackgroundSubtractorMOG2),
+  people_candidates_(),
+  image_subtractor_(),
   FILE_NAME_("config/PeopleDetection.json")
 {
   readConfig();
-  p_background_subtractor2_ = cv::createBackgroundSubtractorMOG2();
-  // p_image_subtractor_->setBackground(initBackground);
-
-  // CameraInterface camera;
-  // p_image_subtractor_ = new ImageSubtractor(camera.getImage());
   kernel_= cv::getStructuringElement(0,
       cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1),
       cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)
       );
-  // p_background_subtractor2_->set("nmixtures",1);
-
-
 }
 
 void PeopleDetection::reset() {
@@ -71,6 +59,7 @@ void on_trackbar_dilate( int, void* )
 {
   PeopleDetection peopleDetector;
   if(dilateKernel == 0) return;
+  peopleDetector.setDilateKernelSize(dilateKernel);
   peopleDetector.writeConfig();
 }
 
@@ -78,18 +67,21 @@ void on_trackbar_blur( int, void* )
 {
   PeopleDetection peopleDetector;
   if(blurKernel == 0) return;
+  peopleDetector.setBlurKernelSize(blurKernel);
   peopleDetector.writeConfig();
 }
 
 void on_trackbar_threshold( int, void* )
 {
   PeopleDetection peopleDetector;
+  peopleDetector.setThreshold(threshold);
   peopleDetector.writeConfig();
 }
 
 void on_trackbar_area( int, void* )
 {
   PeopleDetection peopleDetector;
+  peopleDetector.setMinBoundingBoxArea(minBoundingBoxArea);
   peopleDetector.writeConfig();
 }
 
@@ -110,44 +102,31 @@ void PeopleDetection::showTrackbars(const char* windowName) {
 const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
 
   readConfig();
-  cv::HOGDescriptor hog;
-  hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
   std::vector<cv::Point> foundLocations;
-  image_=image;
-  // p_background_subtractor_->operator()(image,background_image_);
-  print(DEBUG,"Debug 1");
-  // background_image_ = p_image_subtractor_->subtractBackground(image);
-  print(DEBUG,"Debug 2");
-  p_background_subtractor2_->apply(image,background_image_);
-  // p_background_subtractor3_->operator()(image,background_image_);
-  // cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
+  image_ = image.clone();;
+  print(LogLevel::DEBUG, "Debug1");
+  background_image_=  image_subtractor_.subtractBackground(image_);
+  print(LogLevel::DEBUG, "Debug2");
+  cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
   cv::blur(background_image_, blur_img_, cv::Size(2 * BLUR_KERNEL_SIZE_ + 1, 2 * BLUR_KERNEL_SIZE_ +1));
+  print(LogLevel::DEBUG, "Debug3");
   cv::dilate(blur_img_, contour_img_,cv::getStructuringElement(0,
         cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1),
-        cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)));
+          cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)));
+    print(LogLevel::DEBUG, "Debug4");
   cv::findContours(contour_img_, contours_, hierarchy_, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE, cv::Point(0,0));
+  print(LogLevel::DEBUG, "Debug5");
   contours_poly.resize( contours_.size() );
+  print(LogLevel::DEBUG, "Debug6");
   for( unsigned int i = 0; i < contours_.size(); i++ )
   {
     approxPolyDP( cv::Mat(contours_[i]), contours_poly[i], 3, true );
     cv::Rect boundRect = boundingRect( cv::Mat(contours_poly[i]) );
-    // cv::Mat roi = image(boundRect);
-    // cv::Mat window;
-    // cv::resize(roi, window, cv::Size(64,128));
-    // hog.detect(window, foundLocations);
-    // cv::imshow("window", window);
-    // if(!foundLocations.empty()) {
-    //     //is person
-    //     people_candidates_.push_back(boundRect);
-    // }
     if(boundRect.area() > MIN_BOUNDING_BOX_AREA_)
     {
       people_candidates_.push_back(boundRect);
     }
   }
-
-
-  // HOG verification of bounding boxes
   return people_candidates_;
 }
 
@@ -170,6 +149,7 @@ void PeopleDetection::writeConfig() {
 
   configFile.open(FILE_NAME_);
   if (configFile.is_open()) {
+    print(LogLevel::DEBUG, "PeopleDetection config write!!");
     configFile<< peopleDetectionConfig.dump(4) << std::endl;
     configFile.close();
   }
