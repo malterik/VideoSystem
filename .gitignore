@@ -3,3 +3,5 @@ build/
 CMakeLists.txt.user
 *.log
 __pycache__
+.ycm_extra_conf.pyc
+
