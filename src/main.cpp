@@ -30,25 +30,33 @@ int main(void)
   camLocal.img_height = 480;
 
   CameraInterface localCam(camLocal.ct);
+  StereoInterface si(camL,camR);
 
   localCam.setResolution(camLocal.img_width, camLocal.img_height);
 
-  cv::Mat initFrame = localCam.getImage();
-  PeopleDetection pd(initFrame);
-  std::vector<cv::Rect> people;
+  // cv::Mat initFrame = localCam.getImage();
+  PeopleDetection pdL(si.getLeftImage());
+  PeopleDetection pdR(si.getRightImage());
+  std::vector<cv::Rect> peopleL, peopleR;
 
   namedWindow(trackBarWindow, cv::WINDOW_AUTOSIZE );
-  pd.showTrackbars(trackBarWindow.c_str());
+  pdR.showTrackbars(trackBarWindow.c_str());
 
   while(1) {
     WindowManager::getInstance().reset();
-    pd.reset();
-    cv::Mat frame = localCam.getImage();
-    people = pd.detect(frame);
-    pd.debugImage();
+    pdL.reset();
+    pdR.reset();
+    cv::Mat frameL = si.getLeftImage();
+    cv::Mat frameR = si.getRightImage();
+    peopleL = pdL.detect(frameL);
+    peopleR = pdR.detect(frameR);
+    pdL.debugImage();
+    pdR.debugImage();
 
-    WindowManager::getInstance().addImage(frame);
-    WindowManager::getInstance().drawBoundingBox(people,frame);
+    // WindowManager::getInstance().addImage(frameL);
+    // WindowManager::getInstance().addImage(frameR);
+    WindowManager::getInstance().drawBoundingBox(peopleL,frameL);
+    WindowManager::getInstance().drawBoundingBox(peopleR,frameR);
 
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {

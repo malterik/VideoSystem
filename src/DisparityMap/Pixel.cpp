@@ -1,12 +1,6 @@
 #include "Pixel.hpp"
 
-Pixel::Pixel(int numberOfLabels) : 
+Pixel::Pixel() :
   best_assignment()
 {
-  for(int i = 0; i < 5; i++) {
-    msg[i] = new unsigned int [numberOfLabels];
-  }
-    
-
-
 }

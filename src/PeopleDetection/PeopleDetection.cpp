@@ -104,20 +104,14 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
   readConfig();
   std::vector<cv::Point> foundLocations;
   image_ = image.clone();;
-  print(LogLevel::DEBUG, "Debug1");
   background_image_=  image_subtractor_.subtractBackground(image_);
-  print(LogLevel::DEBUG, "Debug2");
   cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
-  cv::blur(background_image_, blur_img_, cv::Size(2 * BLUR_KERNEL_SIZE_ + 1, 2 * BLUR_KERNEL_SIZE_ +1));
-  print(LogLevel::DEBUG, "Debug3");
+  cv::blur(thresh_img_, blur_img_, cv::Size(2 * BLUR_KERNEL_SIZE_ + 1, 2 * BLUR_KERNEL_SIZE_ +1));
   cv::dilate(blur_img_, contour_img_,cv::getStructuringElement(0,
         cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1),
           cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)));
-    print(LogLevel::DEBUG, "Debug4");
   cv::findContours(contour_img_, contours_, hierarchy_, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE, cv::Point(0,0));
-  print(LogLevel::DEBUG, "Debug5");
   contours_poly.resize( contours_.size() );
-  print(LogLevel::DEBUG, "Debug6");
   for( unsigned int i = 0; i < contours_.size(); i++ )
   {
     approxPolyDP( cv::Mat(contours_[i]), contours_poly[i], 3, true );
@@ -132,10 +126,10 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
 
 void PeopleDetection::debugImage() const  {
 
-  WindowManager::getInstance().addImage(background_image_);
-  WindowManager::getInstance().addImage(thresh_img_);
-  WindowManager::getInstance().addImage(blur_img_);
-  WindowManager::getInstance().addImage(contour_img_);
+  // WindowManager::getInstance().addImage(background_image_);
+  // WindowManager::getInstance().addImage(thresh_img_);
+  // WindowManager::getInstance().addImage(blur_img_);
+  // WindowManager::getInstance().addImage(contour_img_);
 }
 
 void PeopleDetection::writeConfig() {
@@ -149,7 +143,6 @@ void PeopleDetection::writeConfig() {
 
   configFile.open(FILE_NAME_);
   if (configFile.is_open()) {
-    print(LogLevel::DEBUG, "PeopleDetection config write!!");
     configFile<< peopleDetectionConfig.dump(4) << std::endl;
     configFile.close();
   }

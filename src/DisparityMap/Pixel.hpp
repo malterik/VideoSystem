@@ -1,8 +1,8 @@
 class Pixel
 {
   public:
-    Pixel(int numberOfLabels);
-    unsigned int* msg[5];
+    Pixel();
+    unsigned int msg[5][16];
     int best_assignment;
 
   private:
