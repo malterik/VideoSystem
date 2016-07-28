@@ -56,7 +56,7 @@ cv::Mat& WindowManager::showMultipleImages(int rows)
   end : return dst_;
 }
 
-void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& img) {
+cv::Mat WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& img) {
   cv::Mat bBoxImg;
   img.copyTo(bBoxImg);
   for( unsigned int i = 0; i< bBox.size(); i++ )
@@ -65,6 +65,7 @@ void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& i
     rectangle(bBoxImg, bBox[i].tl(),bBox[i].br(), color, 2, 8, 0 );
   }
   addImage(bBoxImg);
+  return bBoxImg;
 }
 
 std::array<int,5> WindowManager::getInfo() {

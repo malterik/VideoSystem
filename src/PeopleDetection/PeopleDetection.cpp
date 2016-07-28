@@ -5,11 +5,12 @@
 #include <fstream>
 #include "../CameraInterface/CameraInterface.hpp"
 #include "../Utils/print.hpp"
+#include "../ImageWriter/ImageWriter.hpp"
 
 using json = nlohmann::json;
 
 PeopleDetection::PeopleDetection(cv::Mat initBackground) :
-    background_image_(), blur_img_(), contour_img_(),
+    background_image_(), blur_img_(), contour_img_(), dilate_img_(),
     image_(), kernel_(), thresh_img_(),
     contours_(), contours_poly(), hierarchy_(),
     people_candidates_(),
@@ -39,6 +40,11 @@ PeopleDetection::PeopleDetection() :
       cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1),
       cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)
       );
+}
+
+void PeopleDetection::setBackground(const cv::Mat backgroundImage)
+{
+  background_image_ = backgroundImage;
 }
 
 void PeopleDetection::reset() {
@@ -107,9 +113,10 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
   background_image_=  image_subtractor_.subtractBackground(image_);
   cv::threshold(background_image_, thresh_img_, THRESHOLD_, 255, CV_THRESH_BINARY);
   cv::blur(thresh_img_, blur_img_, cv::Size(2 * BLUR_KERNEL_SIZE_ + 1, 2 * BLUR_KERNEL_SIZE_ +1));
-  cv::dilate(blur_img_, contour_img_,cv::getStructuringElement(0,
+  cv::dilate(blur_img_, dilate_img_,cv::getStructuringElement(0,
         cv::Size(2 * DILATE_KERNEL_SIZE_+ 1, 2 * DILATE_KERNEL_SIZE_+ 1),
           cv::Point(DILATE_KERNEL_SIZE_, DILATE_KERNEL_SIZE_)));
+  dilate_img_.copyTo(contour_img_);
   cv::findContours(contour_img_, contours_, hierarchy_, CV_RETR_EXTERNAL, CV_CHAIN_APPROX_NONE, cv::Point(0,0));
   contours_poly.resize( contours_.size() );
   for( unsigned int i = 0; i < contours_.size(); i++ )
@@ -126,10 +133,19 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
 
 void PeopleDetection::debugImage() const  {
 
-  // WindowManager::getInstance().addImage(background_image_);
-  // WindowManager::getInstance().addImage(thresh_img_);
-  // WindowManager::getInstance().addImage(blur_img_);
-  // WindowManager::getInstance().addImage(contour_img_);
+  WindowManager::getInstance().addImage(background_image_);
+  WindowManager::getInstance().addImage(thresh_img_);
+  WindowManager::getInstance().addImage(blur_img_);
+  WindowManager::getInstance().addImage(dilate_img_);
+  WindowManager::getInstance().addImage(contour_img_);
+}
+void PeopleDetection::saveDebugImages() const  {
+  ImageWriter iw("Images/");
+  iw.writeImage(background_image_,"BackgroundImage");
+  iw.writeImage(thresh_img_,"ThresholdImage");
+  iw.writeImage(blur_img_,"BlurImage");
+  iw.writeImage(contour_img_,"ContourImage");
+  iw.writeImage(dilate_img_,"DilateImage");
 }
 
 void PeopleDetection::writeConfig() {

@@ -12,7 +12,7 @@ public:
   static WindowManager& getInstance();
   void addImage(cv::Mat image);
   void addImage(std::vector<cv::Mat> imageVector);
-  void drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
+  cv::Mat drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
   void drawCircle(cv::Point coord, cv::Scalar color, int index);
   cv::Mat& showMultipleImages(int rows );
   void reset();

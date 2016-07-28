@@ -15,12 +15,15 @@ class PeopleDetection
     void writeConfig();
     void readConfig();
     void showTrackbars(const char* windowName);
+    void setBackground(const cv::Mat backgroundImage);
+    void saveDebugImages() const;
 
   private:
     //Images
     cv::Mat background_image_;
     cv::Mat blur_img_;
     cv::Mat contour_img_;
+    cv::Mat dilate_img_;
     cv::Mat image_;
     cv::Mat kernel_;
     cv::Mat thresh_img_;
