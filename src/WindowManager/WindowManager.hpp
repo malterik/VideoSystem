@@ -13,6 +13,8 @@ public:
   void addImage(cv::Mat image);
   void addImage(std::vector<cv::Mat> imageVector);
   cv::Mat drawBoundingBox( std::vector<cv::Rect> bBox, const cv::Mat& img);
+  void drawBoundingBoxStereo(std::vector<std::vector<cv::Rect>> bBox, const cv::Mat& imgLeft, const cv::Mat& imgRight);
+  void drawPointsStereo(std::vector<std::vector<cv::Point>>  pointPairs, const cv::Mat& imgLeft, const cv::Mat& imgRight);
   void drawCircle(cv::Point coord, cv::Scalar color, int index);
   cv::Mat& showMultipleImages(int rows );
   void reset();

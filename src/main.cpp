@@ -9,6 +9,7 @@
 #include "WindowManager/WindowManager.hpp"
 #include "ImageSubtractor/ImageSubtractor.hpp"
 #include "PeopleDetection/PeopleDetection.hpp"
+#include "StereoMatcher/StereoMatcher.hpp"
 
 int main(void)
 {
@@ -31,6 +32,7 @@ int main(void)
 
   CameraInterface localCam(camLocal.ct);
   StereoInterface si(camL,camR);
+  StereoMatcher sm;
 
   localCam.setResolution(camLocal.img_width, camLocal.img_height);
 
@@ -38,6 +40,7 @@ int main(void)
   PeopleDetection pdL(si.getLeftImage());
   PeopleDetection pdR(si.getRightImage());
   std::vector<cv::Rect> peopleL, peopleR;
+  std::vector<std::vector<cv::Rect>> matched_boxes;
 
   namedWindow(trackBarWindow, cv::WINDOW_AUTOSIZE );
   pdR.showTrackbars(trackBarWindow.c_str());
@@ -50,13 +53,15 @@ int main(void)
     cv::Mat frameR = si.getRightImage();
     peopleL = pdL.detect(frameL);
     peopleR = pdR.detect(frameR);
-    pdL.debugImage();
-    pdR.debugImage();
+    // pdL.debugImage();
+    // pdR.debugImage();
 
     // WindowManager::getInstance().addImage(frameL);
     // WindowManager::getInstance().addImage(frameR);
-    WindowManager::getInstance().drawBoundingBox(peopleL,frameL);
-    WindowManager::getInstance().drawBoundingBox(peopleR,frameR);
+    matched_boxes = sm.findPointPairs(peopleL, peopleR);
+    WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
+    WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
+    WindowManager::getInstance().drawBoundingBoxStereo(matched_boxes, frameL, frameR);
 
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {

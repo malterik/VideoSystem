@@ -68,6 +68,35 @@ cv::Mat WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat
   return bBoxImg;
 }
 
+void WindowManager::drawBoundingBoxStereo(std::vector<std::vector<cv::Rect>> bBox, const cv::Mat& imgLeft, const cv::Mat& imgRight) {
+  cv::Mat bBoxImgL;
+  cv::Mat bBoxImgR;
+  imgLeft.copyTo(bBoxImgL);
+  imgRight.copyTo(bBoxImgR);
+  for( unsigned int i = 0; i< bBox.size(); i++ )
+  {
+    cv::Scalar color = cv::Scalar( 255, 0, 0 );
+    rectangle(bBoxImgL, bBox[i][0].tl(),bBox[i][0].br(), color, 2, 8, 0 );
+    rectangle(bBoxImgR, bBox[i][1].tl(),bBox[i][1].br(), color, 2, 8, 0 );
+  }
+  addImage(bBoxImgL);
+  addImage(bBoxImgR);
+}
+
+void WindowManager::drawPointsStereo(std::vector<std::vector<cv::Point>> pointPairs, const cv::Mat& imgLeft, const cv::Mat& imgRight) {
+  cv::Mat leftImage;
+  cv::Mat rightImage;
+  imgLeft.copyTo(leftImage);
+  imgRight.copyTo(rightImage);
+  for(auto pairs : pointPairs) {
+    cv::Scalar color = cv::Scalar( 255, 0, 0 );
+    circle(leftImage, pairs[0], 2, color);
+    circle(rightImage, pairs[1], 2, color);
+  }
+  addImage(leftImage);
+  addImage(rightImage);
+}
+
 std::array<int,5> WindowManager::getInfo() {
   std::array<int,5> result;
   result[0] = dst_heigth_;

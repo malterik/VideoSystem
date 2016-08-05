@@ -102,7 +102,7 @@ void PeopleDetection::showTrackbars(const char* windowName) {
   cv::createTrackbar("Dilate Kernel" , windowName, &dilateKernel, 30, on_trackbar_dilate );
   cv::createTrackbar("Blur Kernel" , windowName, &blurKernel, 30, on_trackbar_blur );
   cv::createTrackbar("Threshold" , windowName, &threshold, 255, on_trackbar_threshold );
-  cv::createTrackbar("minBoundingBoxArea" , windowName, &minBoundingBoxArea, 50000, on_trackbar_area );
+  cv::createTrackbar("minBoundingBoxArea" , windowName, &minBoundingBoxArea,  50000, on_trackbar_area );
 
 }
 const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
