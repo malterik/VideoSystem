@@ -137,8 +137,10 @@ BLASLONG	Eigen/src/misc/blas.h	/^typedef long long BLASLONG;$/;"	t
 BLASULONG	Eigen/src/misc/blas.h	/^typedef unsigned long BLASULONG;$/;"	t
 BLASULONG	Eigen/src/misc/blas.h	/^typedef unsigned long long BLASULONG;$/;"	t
 BLAS_H	Eigen/src/misc/blas.h	2;"	d
-BLUR_KERNEL_SIZE_	PeopleDetection/PeopleDetection.hpp	/^        int BLUR_KERNEL_SIZE_;$/;"	m	class:PeopleDetection
+BLUR_KERNEL_SIZE_	PeopleDetection/PeopleDetection.hpp	/^    int BLUR_KERNEL_SIZE_;$/;"	m	class:PeopleDetection
+BOTH	ImageViewer/ImageViewer.hpp	/^enum CameraSide { LEFT_CAM, RIGHT_CAM, BOTH  };$/;"	e	enum:CameraSide
 BOTH_MATRICES_MUST_HAVE_THE_SAME_STORAGE_ORDER	Eigen/src/Core/util/StaticAssert.h	/^        BOTH_MATRICES_MUST_HAVE_THE_SAME_STORAGE_ORDER,$/;"	e	enum:Eigen::internal::static_assertion::__anon338
+BP	DisparityMap/DisparityMap.cpp	/^void DisparityMap::BP(MRF2D &mrf, DIRECTION direction)$/;"	f	class:DisparityMap
 BandMatrix	Eigen/src/Core/BandMatrix.h	/^    inline BandMatrix(Index rows=Rows, Index cols=Cols, Index supers=Supers, Index subs=Subs)$/;"	f	class:Eigen::internal::BandMatrix
 BandMatrix	Eigen/src/Core/BandMatrix.h	/^class BandMatrix : public BandMatrixBase<BandMatrix<_Scalar,Rows,Cols,Supers,Subs,Options> >$/;"	c	namespace:Eigen::internal
 BandMatrixBase	Eigen/src/Core/BandMatrix.h	/^class BandMatrixBase : public EigenBase<Derived>$/;"	c	namespace:Eigen::internal
@@ -349,11 +351,13 @@ COL_IS_ALIVE	Eigen/src/OrderingMethods/Eigen_Colamd.h	120;"	d
 COL_IS_DEAD	Eigen/src/OrderingMethods/Eigen_Colamd.h	119;"	d
 COL_IS_DEAD_PRINCIPAL	Eigen/src/OrderingMethods/Eigen_Colamd.h	121;"	d
 CRUISE	SituationKnowledge/SituationKnowledge.hpp	/^enum FlightPhase {PARKING, TAKEOFF, CRUISE, LANDING };$/;"	e	enum:FlightPhase
-Camera	Utils/Utils.hpp	/^enum Camera {$/;"	g
-CameraInterface	CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface(Camera CamType) : image_(), cam_type_(CamType)$/;"	f	class:CameraInterface
+Camera	Utils/Utils.hpp	/^struct Camera {$/;"	s
+CameraInterface	CameraInterface/CameraInterface.cpp	/^CameraInterface::CameraInterface(CameraType CamType) : image_(), cam_type_(CamType)$/;"	f	class:CameraInterface
 CameraInterface	CameraInterface/CameraInterface.hpp	/^class CameraInterface$/;"	c
-CameraMatrix	CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix(Camera camType, std::string camera2groundFile) :$/;"	f	class:CameraMatrix
+CameraMatrix	CameraMatrix/CameraMatrix.cpp	/^CameraMatrix::CameraMatrix(CameraType camType, std::string camera2groundFile) :$/;"	f	class:CameraMatrix
 CameraMatrix	CameraMatrix/CameraMatrix.hpp	/^class CameraMatrix$/;"	c
+CameraSide	ImageViewer/ImageViewer.hpp	/^enum CameraSide { LEFT_CAM, RIGHT_CAM, BOTH  };$/;"	g
+CameraType	Utils/Utils.hpp	/^enum CameraType {$/;"	g
 CanVectorizeInner	Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner =    SameType$/;"	e	enum:Eigen::internal::traits::__anon242
 CanVectorizeInner	Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeInner = internal::traits<CoeffBasedProduct>::CanVectorizeInner$/;"	e	enum:Eigen::CoeffBasedProduct::__anon243
 CanVectorizeLhs	Eigen/src/Core/products/CoeffBasedProduct.h	/^      CanVectorizeLhs = (!LhsRowMajor) && (LhsFlags & PacketAccessBit)$/;"	e	enum:Eigen::internal::traits::__anon242
@@ -710,15 +714,24 @@ CwiseUnaryView	Eigen/src/Core/CwiseUnaryView.h	/^    inline CwiseUnaryView(const
 CwiseUnaryView	Eigen/src/Core/CwiseUnaryView.h	/^class CwiseUnaryView : public CwiseUnaryViewImpl<ViewOp, MatrixType, typename internal::traits<MatrixType>::StorageKind>$/;"	c	namespace:Eigen
 CwiseUnaryViewImpl	Eigen/src/Core/CwiseUnaryView.h	/^class CwiseUnaryViewImpl<ViewOp,MatrixType,Dense>$/;"	c	namespace:Eigen
 CwiseUnaryViewImpl	Eigen/src/SparseCore/SparseCwiseUnaryOp.h	/^class CwiseUnaryViewImpl<ViewOp,MatrixType,Sparse>$/;"	c	namespace:Eigen
+DATA	DisparityMap/DisparityMap.hpp	/^enum DIRECTION {LEFT, RIGHT, UP, DOWN, DATA};$/;"	e	enum:DIRECTION
 DEAD	Eigen/src/OrderingMethods/Eigen_Colamd.h	109;"	d
 DEAD_NON_PRINCIPAL	Eigen/src/OrderingMethods/Eigen_Colamd.h	113;"	d
 DEAD_PRINCIPAL	Eigen/src/OrderingMethods/Eigen_Colamd.h	112;"	d
 DEBUG	Utils/print.hpp	/^    DEBUG,$/;"	e	enum:LogLevel
 DECL_GSISX	Eigen/src/SuperLUSupport/SuperLUSupport.h	51;"	d
 DECL_GSSVX	Eigen/src/SuperLUSupport/SuperLUSupport.h	15;"	d
-DILATE_KERNEL_SIZE_	PeopleDetection/PeopleDetection.hpp	/^        int DILATE_KERNEL_SIZE_;$/;"	m	class:PeopleDetection
+DILATE_KERNEL_SIZE_	PeopleDetection/PeopleDetection.hpp	/^    int DILATE_KERNEL_SIZE_;$/;"	m	class:PeopleDetection
+DIRECTION	DisparityMap/DisparityMap.hpp	/^enum DIRECTION {LEFT, RIGHT, UP, DOWN, DATA};$/;"	g
+DLINK_CAM_1	Utils/Utils.hpp	/^  DLINK_CAM_1,$/;"	e	enum:CameraType
+DLINK_CAM_2	Utils/Utils.hpp	/^  DLINK_CAM_2$/;"	e	enum:CameraType
+DLINK_STREAM_ADDR	CameraInterface/CameraInterface.hpp	/^  const std::string DLINK_STREAM_ADDR="rtsp:\/\/admin:@192.168.0.20:554\/live1.sdp";$/;"	m	class:CameraInterface
+DLINK_STREAM_ADDR_2	CameraInterface/CameraInterface.hpp	/^  const std::string DLINK_STREAM_ADDR_2="rtsp:\/\/admin:@192.168.0.22:554\/live1.sdp";$/;"	m	class:CameraInterface
+DLINK_STREAM_ADDR_HTTP	CameraInterface/CameraInterface.hpp	/^  const std::string DLINK_STREAM_ADDR_HTTP="http:\/\/admin:@192.168.0.20:80\/video1.mjpg";$/;"	m	class:CameraInterface
+DOWN	DisparityMap/DisparityMap.hpp	/^enum DIRECTION {LEFT, RIGHT, UP, DOWN, DATA};$/;"	e	enum:DIRECTION
 DST_CHAN	Eigen/src/Core/arch/AltiVec/PacketMath.h	55;"	d
 DST_CTRL	Eigen/src/Core/arch/AltiVec/PacketMath.h	56;"	d
+DataCostStereo	DisparityMap/DisparityMap.cpp	/^unsigned int DisparityMap::DataCostStereo(const cv::Mat &left, const cv::Mat &right, int x, int y, int label)$/;"	f	class:DisparityMap
 DataRowsAtCompileTime	Eigen/src/Core/BandMatrix.h	/^      DataRowsAtCompileTime = ((Supers!=Dynamic) && (Subs!=Dynamic))$/;"	e	enum:Eigen::internal::BandMatrixBase::__anon20
 DataRowsAtCompileTime	Eigen/src/Core/BandMatrix.h	/^    DataRowsAtCompileTime = ((Supers!=Dynamic) && (Subs!=Dynamic)) ? 1 + Supers + Subs : Dynamic$/;"	e	enum:Eigen::internal::traits::__anon22
 DataRowsAtCompileTime	Eigen/src/Core/BandMatrix.h	/^    DataRowsAtCompileTime = ((Supers!=Dynamic) && (Subs!=Dynamic)) ? 1 + Supers + Subs : Dynamic$/;"	e	enum:Eigen::internal::traits::__anon23
@@ -880,6 +893,8 @@ DirectLinearAccessType	Eigen/src/Core/util/BlasUtil.h	/^    >::type DirectLinear
 DirectWriteAccessors	Eigen/src/Core/util/Constants.h	/^  DirectWriteAccessors$/;"	e	enum:Eigen::AccessorLevels
 Direction	Eigen/src/Geometry/Homogeneous.h	/^    enum { Direction = _Direction };$/;"	e	enum:Eigen::Homogeneous::__anon372
 DirectionType	Eigen/src/Core/util/Constants.h	/^enum DirectionType { $/;"	g	namespace:Eigen
+DisparityMap	DisparityMap/DisparityMap.cpp	/^DisparityMap::DisparityMap() :$/;"	f	class:DisparityMap
+DisparityMap	DisparityMap/DisparityMap.hpp	/^class DisparityMap$/;"	c
 DontAlign	Eigen/src/Core/util/Constants.h	/^  DontAlign = 0x2$/;"	e	enum:Eigen::__anon278
 DontAlignCols	Eigen/src/Core/IO.h	/^enum { DontAlignCols = 1 };$/;"	e	enum:Eigen::__anon150
 DoublePacket	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^  struct DoublePacket$/;"	s	class:Eigen::internal::gebp_traits
@@ -1741,7 +1756,7 @@ ExtractType	Eigen/src/Core/util/BlasUtil.h	/^  typedef Transpose<const typename 
 ExtractType	Eigen/src/Core/util/BlasUtil.h	/^  typedef const XprType& ExtractType;$/;"	t	struct:Eigen::internal::blas_traits
 ExtractType	Eigen/src/Core/util/BlasUtil.h	/^  typedef typename Base::ExtractType ExtractType;$/;"	t	struct:Eigen::internal::blas_traits
 FILE_NAME_	CameraMatrix/CameraMatrix.hpp	/^  std::string FILE_NAME_;$/;"	m	class:CameraMatrix
-FILE_NAME_	PeopleDetection/PeopleDetection.hpp	/^        std::string FILE_NAME_;$/;"	m	class:PeopleDetection
+FILE_NAME_	PeopleDetection/PeopleDetection.hpp	/^    std::string FILE_NAME_;$/;"	m	class:PeopleDetection
 FILE_NAME_	Utils/print.cpp	9;"	d	file:
 FLOATING_POINT_ARGUMENT_PASSED__INTEGER_WAS_EXPECTED	Eigen/src/Core/util/StaticAssert.h	/^        FLOATING_POINT_ARGUMENT_PASSED__INTEGER_WAS_EXPECTED,$/;"	e	enum:Eigen::internal::static_assertion::__anon338
 FaceDetection	FaceDetection/FaceDetection.cpp	/^FaceDetection::FaceDetection(std::string faceConfig, std::string eyeConfig):$/;"	f	class:FaceDetection
@@ -2034,7 +2049,8 @@ INVALID_STORAGE_ORDER_FOR_THIS_VECTOR_EXPRESSION	Eigen/src/Core/util/StaticAsser
 INVALID_VECTOR_VECTOR_PRODUCT__IF_YOU_WANTED_A_DOT_OR_COEFF_WISE_PRODUCT_YOU_MUST_USE_THE_EXPLICIT_FUNCTIONS	Eigen/src/Core/util/StaticAssert.h	/^        INVALID_VECTOR_VECTOR_PRODUCT__IF_YOU_WANTED_A_DOT_OR_COEFF_WISE_PRODUCT_YOU_MUST_USE_THE_EXPLICIT_FUNCTIONS,$/;"	e	enum:Eigen::internal::static_assertion::__anon338
 IOFormat	Eigen/src/Core/IO.h	/^  IOFormat(int _precision = StreamPrecision, int _flags = 0,$/;"	f	struct:Eigen::IOFormat
 IOFormat	Eigen/src/Core/IO.h	/^struct IOFormat$/;"	s	namespace:Eigen
-IP_CAM	Utils/Utils.hpp	/^  IP_CAM,$/;"	e	enum:Camera
+IP_CAM1	Utils/Utils.hpp	/^  IP_CAM1,$/;"	e	enum:CameraType
+IP_CAM2	Utils/Utils.hpp	/^  IP_CAM2,$/;"	e	enum:CameraType
 Identity	Eigen/src/Core/CwiseNullaryOp.h	/^MatrixBase<Derived>::Identity()$/;"	f	class:Eigen::MatrixBase
 Identity	Eigen/src/Core/CwiseNullaryOp.h	/^MatrixBase<Derived>::Identity(Index nbRows, Index nbCols)$/;"	f	class:Eigen::MatrixBase
 Identity	Eigen/src/Eigen2Support/Geometry/Quaternion.h	/^  static inline Quaternion Identity() { return Quaternion(1, 0, 0, 0); }$/;"	f	class:Eigen::Quaternion
@@ -2050,9 +2066,10 @@ IdentityPreconditioner	Eigen/src/IterativeLinearSolvers/BasicPreconditioners.h	/
 IdentityReturnType	Eigen/src/Core/MatrixBase.h	/^    typedef CwiseNullaryOp<internal::scalar_identity_op<Scalar>,Derived> IdentityReturnType;$/;"	t	class:Eigen::MatrixBase
 ImagReturnType	Eigen/src/plugins/CommonCwiseUnaryOps.h	/^typedef CwiseUnaryOp<internal::scalar_imag_op<Scalar>, const Derived> ImagReturnType;$/;"	t
 ImageResultType	Eigen/src/Eigen2Support/LU.h	/^    > ImageResultType;$/;"	t	class:Eigen::LU
+ImageSubtractor	ImageSubtractor/ImageSubtractor.cpp	/^ImageSubtractor::ImageSubtractor()$/;"	f	class:ImageSubtractor
 ImageSubtractor	ImageSubtractor/ImageSubtractor.cpp	/^ImageSubtractor::ImageSubtractor(const cv::Mat& initialBackground) : background_image_(initialBackground.clone())$/;"	f	class:ImageSubtractor
 ImageSubtractor	ImageSubtractor/ImageSubtractor.hpp	/^class ImageSubtractor {$/;"	c
-ImageViewer	ImageViewer/ImageViewer.cpp	/^ImageViewer::ImageViewer(std::string windowName) :$/;"	f	class:ImageViewer
+ImageViewer	ImageViewer/ImageViewer.cpp	/^ImageViewer::ImageViewer(std::string windowName, Camera camLeft, Camera camRight) :$/;"	f	class:ImageViewer
 ImageViewer	ImageViewer/ImageViewer.hpp	/^class ImageViewer$/;"	c
 ImageWriter	ImageWriter/ImageWriter.cpp	/^ImageWriter::ImageWriter(const std::string& imageFolder) :$/;"	f	class:ImageWriter
 ImageWriter	ImageWriter/ImageWriter.hpp	/^class ImageWriter$/;"	c
@@ -2256,6 +2273,7 @@ IndicesType	Eigen/src/Core/Transpositions.h	/^  typedef Map<const Matrix<Index,S
 IndicesType	Eigen/src/Core/Transpositions.h	/^  typedef Matrix<Index, SizeAtCompileTime, 1, 0, MaxSizeAtCompileTime, 1> IndicesType;$/;"	t	struct:Eigen::internal::traits
 IndicesType	Eigen/src/Core/Transpositions.h	/^  typedef _IndicesType IndicesType;$/;"	t	struct:Eigen::internal::traits
 Infinity	Eigen/src/Core/util/Constants.h	/^const int Infinity = -1;$/;"	m	namespace:Eigen
+InitDataCost	DisparityMap/DisparityMap.cpp	/^void DisparityMap::InitDataCost(const std::string &left_file, const std::string &right_file, MRF2D &mrf)$/;"	f	class:DisparityMap
 InnerIterator	Eigen/src/Core/CoreIterators.h	/^    EIGEN_STRONG_INLINE InnerIterator(const Derived& expr, Index outer)$/;"	f	class:Eigen::DenseBase::InnerIterator
 InnerIterator	Eigen/src/Core/CoreIterators.h	/^template<typename Derived> class DenseBase<Derived>::InnerIterator$/;"	c	class:Eigen::DenseBase
 InnerIterator	Eigen/src/Core/Flagged.h	/^    typedef typename ExpressionType::InnerIterator InnerIterator;$/;"	t	class:Eigen::Flagged
@@ -2425,6 +2443,9 @@ LDLTTraits	Eigen/src/SparseCholesky/SimplicialCholesky.h	/^    typedef internal:
 LDLTType	Eigen/src/Cholesky/LDLT.h	/^  typedef LDLT<_MatrixType,_UpLo> LDLTType;$/;"	t	struct:Eigen::internal::solve_retval
 LDLT_Traits	Eigen/src/Cholesky/LDLT.h	/^template<typename MatrixType> struct LDLT_Traits<MatrixType,Lower>$/;"	s	namespace:Eigen::internal
 LDLT_Traits	Eigen/src/Cholesky/LDLT.h	/^template<typename MatrixType> struct LDLT_Traits<MatrixType,Upper>$/;"	s	namespace:Eigen::internal
+LEFT	DisparityMap/DisparityMap.hpp	/^enum DIRECTION {LEFT, RIGHT, UP, DOWN, DATA};$/;"	e	enum:DIRECTION
+LEFT	PositionEstimator/PositionEstimator.hpp	/^enum Side {LEFT, RIGHT};$/;"	e	enum:Side
+LEFT_CAM	ImageViewer/ImageViewer.hpp	/^enum CameraSide { LEFT_CAM, RIGHT_CAM, BOTH  };$/;"	e	enum:CameraSide
 LLT	Eigen/src/Cholesky/LLT.h	/^    LLT() : m_matrix(), m_isInitialized(false) {}$/;"	f	class:Eigen::LLT
 LLT	Eigen/src/Cholesky/LLT.h	/^    LLT(Index size) : m_matrix(size, size),$/;"	f	class:Eigen::LLT
 LLT	Eigen/src/Cholesky/LLT.h	/^    LLT(const MatrixType& matrix)$/;"	f	class:Eigen::LLT
@@ -2435,7 +2456,7 @@ LLT_Traits	Eigen/src/Cholesky/LLT.h	/^template<typename MatrixType> struct LLT_T
 LLT_Traits	Eigen/src/Cholesky/LLT.h	/^template<typename MatrixType> struct LLT_Traits<MatrixType,Upper>$/;"	s	namespace:Eigen::internal
 LLVL	Eigen/src/SparseLU/SparseLU_Structs.h	/^typedef enum {LUSUP, UCOL, LSUB, USUB, LLVL, ULVL} MemType; $/;"	e	enum:Eigen::internal::__anon463
 LMatrixType	Eigen/src/SuperLUSupport/SuperLUSupport.h	/^    typedef TriangularView<LUMatrixType, Lower|UnitDiag>  LMatrixType;$/;"	t	class:Eigen::SuperLU
-LOCAL_CAM	Utils/Utils.hpp	/^  LOCAL_CAM$/;"	e	enum:Camera
+LOCAL_CAM	Utils/Utils.hpp	/^  LOCAL_CAM,$/;"	e	enum:CameraType
 LSUB	Eigen/src/SparseLU/SparseLU_Structs.h	/^typedef enum {LUSUP, UCOL, LSUB, USUB, LLVL, ULVL} MemType; $/;"	e	enum:Eigen::internal::__anon463
 LU	Eigen/src/Eigen2Support/LU.h	/^    explicit LU(const T& t) : Base(t), m_originalMatrix(t) {}$/;"	f	class:Eigen::LU
 LU	Eigen/src/Eigen2Support/LU.h	/^class LU : public FullPivLU<MatrixType>$/;"	c	namespace:Eigen
@@ -2538,8 +2559,10 @@ LowerTriangularBit	Eigen/src/Eigen2Support/TriangularSolver.h	/^const unsigned i
 LvalueBit	Eigen/src/Core/util/Constants.h	/^const unsigned int LvalueBit = 0x20;$/;"	m	namespace:Eigen
 MADD	Eigen/src/Core/products/GeneralBlockPanelKernel.h	106;"	d
 MADD	Eigen/src/Core/products/GeneralBlockPanelKernel.h	131;"	d
+MAP	DisparityMap/DisparityMap.cpp	/^unsigned int DisparityMap::MAP(MRF2D &mrf)$/;"	f	class:DisparityMap
 METIS_SUPPORT_H	Eigen/src/MetisSupport/MetisSupport.h	10;"	d
-MIN_BOUNDING_BOX_AREA_	PeopleDetection/PeopleDetection.hpp	/^        int MIN_BOUNDING_BOX_AREA_;$/;"	m	class:PeopleDetection
+MIN_BOUNDING_BOX_AREA_	PeopleDetection/PeopleDetection.hpp	/^    int MIN_BOUNDING_BOX_AREA_;$/;"	m	class:PeopleDetection
+MRF2D	DisparityMap/DisparityMap.hpp	/^struct MRF2D$/;"	s
 M_PI	Eigen/src/Eigen2Support/Geometry/All.h	7;"	d
 Map	Eigen/src/Core/Map.h	/^    inline Map(PointerArgType dataPtr, Index a_size, const StrideType& a_stride = StrideType())$/;"	f	class:Eigen::Map
 Map	Eigen/src/Core/Map.h	/^    inline Map(PointerArgType dataPtr, Index nbRows, Index nbCols, const StrideType& a_stride = StrideType())$/;"	f	class:Eigen::Map
@@ -3222,6 +3245,7 @@ PastixLU	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    PastixLU() : Base()$/;"	f
 PastixLU	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    PastixLU(const MatrixType& matrix):Base()$/;"	f	class:Eigen::PastixLU
 PastixLU	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^class PastixLU : public PastixBase< PastixLU<_MatrixType> >$/;"	c	namespace:Eigen
 PeopleDetection	PeopleDetection/PeopleDetection.cpp	/^PeopleDetection::PeopleDetection() :$/;"	f	class:PeopleDetection
+PeopleDetection	PeopleDetection/PeopleDetection.cpp	/^PeopleDetection::PeopleDetection(cv::Mat initBackground) :$/;"	f	class:PeopleDetection
 PeopleDetection	PeopleDetection/PeopleDetection.hpp	/^class PeopleDetection$/;"	c
 PeopleDetectionHOG	PeopleDetectionHOG/PeopleDetectionHOG.cpp	/^PeopleDetectionHOG::PeopleDetectionHOG() {$/;"	f	class:PeopleDetectionHOG
 PeopleDetectionHOG	PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^class PeopleDetectionHOG$/;"	c
@@ -3258,6 +3282,8 @@ PermutationType	Eigen/src/SparseQR/SparseQR.h	/^    typedef PermutationMatrix<Dy
 PermutationWrapper	Eigen/src/Core/PermutationMatrix.h	/^    inline PermutationWrapper(const IndicesType& a_indices)$/;"	f	class:Eigen::PermutationWrapper
 PermutationWrapper	Eigen/src/Core/PermutationMatrix.h	/^class PermutationWrapper : public PermutationBase<PermutationWrapper<_IndicesType> >$/;"	c	namespace:Eigen
 Pivoting	Eigen/src/Core/util/Constants.h	/^  Pivoting            = 0x01, $/;"	e	enum:Eigen::DecompositionOptions
+Pixel	DisparityMap/Pixel.cpp	/^Pixel::Pixel() :$/;"	f	class:Pixel
+Pixel	DisparityMap/Pixel.hpp	/^class Pixel$/;"	c
 PlainObject	Eigen/src/Core/Array.h	/^    typedef typename Base::PlainObject PlainObject;$/;"	t	class:Eigen::Array
 PlainObject	Eigen/src/Core/ArrayBase.h	/^          > PlainObject;$/;"	t	class:Eigen::ArrayBase
 PlainObject	Eigen/src/Core/DiagonalMatrix.h	/^    typedef DiagonalMatrix<Scalar,DiagonalVectorType::SizeAtCompileTime,DiagonalVectorType::MaxSizeAtCompileTime> PlainObject;$/;"	t	class:Eigen::DiagonalBase
@@ -3287,6 +3313,7 @@ PointerType	Eigen/src/Core/Map.h	/^    typedef typename Base::PointerType Pointe
 PointerType	Eigen/src/Core/MapBase.h	/^                     PointerType;$/;"	t	class:Eigen::MapBase
 PointerType	Eigen/src/Core/MapBase.h	/^    typedef typename Base::PointerType PointerType;$/;"	t	class:Eigen::MapBase
 PoseEstimator	PoseEstimator/PoseEstimator.hpp	/^class PoseEstimator$/;"	c
+PositionEstimator	PositionEstimator/PositionEstimator.cpp	/^PositionEstimator::PositionEstimator(CameraType camera1, std::string path1, CameraType camera2, std::string path2) :$/;"	f	class:PositionEstimator
 PositionEstimator	PositionEstimator/PositionEstimator.cpp	/^PositionEstimator::PositionEstimator(const CameraMatrix& leftCameraMatrix, const CameraMatrix& rightCameraMatrix) :$/;"	f	class:PositionEstimator
 PositionEstimator	PositionEstimator/PositionEstimator.hpp	/^class PositionEstimator$/;"	c
 PositiveSemiDef	Eigen/src/Cholesky/LDLT.h	/^  enum SignMatrix { PositiveSemiDef, NegativeSemiDef, ZeroSign, Indefinite };$/;"	e	enum:Eigen::internal::SignMatrix
@@ -3352,6 +3379,9 @@ Quaternionf	Eigen/src/Eigen2Support/Geometry/All.h	85;"	d
 Quaternionf	Eigen/src/Eigen2Support/Geometry/Quaternion.h	/^typedef Quaternion<float> Quaternionf;$/;"	t	namespace:Eigen
 Quaternionf	Eigen/src/Geometry/Quaternion.h	/^typedef Quaternion<float> Quaternionf;$/;"	t	namespace:Eigen
 QuickSplit	Eigen/src/IterativeLinearSolvers/IncompleteLUT.h	/^Index QuickSplit(VectorV &row, VectorI &ind, Index ncut)$/;"	f	namespace:Eigen::internal
+RIGHT	DisparityMap/DisparityMap.hpp	/^enum DIRECTION {LEFT, RIGHT, UP, DOWN, DATA};$/;"	e	enum:DIRECTION
+RIGHT	PositionEstimator/PositionEstimator.hpp	/^enum Side {LEFT, RIGHT};$/;"	e	enum:Side
+RIGHT_CAM	ImageViewer/ImageViewer.hpp	/^enum CameraSide { LEFT_CAM, RIGHT_CAM, BOTH  };$/;"	e	enum:CameraSide
 ROW_IS_ALIVE	Eigen/src/OrderingMethods/Eigen_Colamd.h	118;"	d
 ROW_IS_DEAD	Eigen/src/OrderingMethods/Eigen_Colamd.h	116;"	d
 ROW_IS_MARKED_DEAD	Eigen/src/OrderingMethods/Eigen_Colamd.h	117;"	d
@@ -3744,7 +3774,8 @@ SPQR_QProduct	Eigen/src/SPQRSupport/SuiteSparseQRSupport.h	/^struct SPQR_QProduc
 SPQR_free	Eigen/src/SPQRSupport/SuiteSparseQRSupport.h	/^    void SPQR_free()$/;"	f	class:Eigen::SPQR
 SSE	Eigen/src/Core/util/Constants.h	/^    SSE = 0x1,$/;"	e	enum:Eigen::Architecture::Type
 STORAGE_LAYOUT_DOES_NOT_MATCH	Eigen/src/Core/util/StaticAssert.h	/^        STORAGE_LAYOUT_DOES_NOT_MATCH$/;"	e	enum:Eigen::internal::static_assertion::__anon338
-STREAM_ADDR	CameraInterface/CameraInterface.hpp	/^  const std::string STREAM_ADDR="rtp:\/\/239.192.140.99:5004";$/;"	m	class:CameraInterface
+STREAM_ADDR1	CameraInterface/CameraInterface.hpp	/^  const std::string STREAM_ADDR1="rtp:\/\/239.192.140.11:5004";$/;"	m	class:CameraInterface
+STREAM_ADDR2	CameraInterface/CameraInterface.hpp	/^  const std::string STREAM_ADDR2="rtp:\/\/239.192.140.12:5004";$/;"	m	class:CameraInterface
 SVA_Inner	Eigen/src/SparseCore/SparseVector.h	/^  SVA_Inner,$/;"	e	enum:Eigen::internal::__anon457
 SVA_Outer	Eigen/src/SparseCore/SparseVector.h	/^  SVA_Outer$/;"	e	enum:Eigen::internal::__anon457
 SVA_RuntimeSwitch	Eigen/src/SparseCore/SparseVector.h	/^  SVA_RuntimeSwitch,$/;"	e	enum:Eigen::internal::__anon457
@@ -3996,6 +4027,7 @@ SelfadjointProductMatrix	Eigen/src/Core/products/SelfadjointMatrixMatrix.h	/^str
 SelfadjointProductMatrix	Eigen/src/Core/products/SelfadjointMatrixVector.h	/^  SelfadjointProductMatrix(const Lhs& lhs, const Rhs& rhs) : Base(lhs,rhs) {}$/;"	f	struct:Eigen::SelfadjointProductMatrix
 SelfadjointProductMatrix	Eigen/src/Core/products/SelfadjointMatrixVector.h	/^struct SelfadjointProductMatrix<Lhs,0,true,Rhs,RhsMode,false>$/;"	s	namespace:Eigen
 SelfadjointProductMatrix	Eigen/src/Core/products/SelfadjointMatrixVector.h	/^struct SelfadjointProductMatrix<Lhs,LhsMode,false,Rhs,0,true>$/;"	s	namespace:Eigen
+SendMsg	DisparityMap/DisparityMap.cpp	/^void DisparityMap::SendMsg(MRF2D &mrf, int x, int y, DIRECTION direction)$/;"	f	class:DisparityMap
 Sequential	Eigen/src/Core/util/Constants.h	/^enum Sequential_t { Sequential };$/;"	e	enum:Eigen::Sequential_t
 SequentialLinSpacedReturnType	Eigen/src/Core/DenseBase.h	/^    typedef CwiseNullaryOp<internal::linspaced_op<Scalar,false>,Derived> SequentialLinSpacedReturnType;$/;"	t	class:Eigen::DenseBase
 Sequential_t	Eigen/src/Core/util/Constants.h	/^enum Sequential_t { Sequential };$/;"	g	namespace:Eigen
@@ -4003,6 +4035,7 @@ SetAction	Eigen/src/Core/util/Constants.h	/^enum Action {GetAction, SetAction};$
 SetDiag	Eigen/src/Core/products/TriangularMatrixMatrix.h	/^    SetDiag = (Mode&(ZeroDiag|UnitDiag)) ? 0 : 1$/;"	e	enum:Eigen::internal::product_triangular_matrix_matrix::__anon264
 SetDiag	Eigen/src/Core/products/TriangularMatrixMatrix.h	/^    SetDiag = (Mode&(ZeroDiag|UnitDiag)) ? 0 : 1$/;"	e	enum:Eigen::internal::product_triangular_matrix_matrix::__anon265
 Side	Eigen/src/Core/GeneralProduct.h	/^    enum { Side = Lhs::IsVectorAtCompileTime ? OnTheLeft : OnTheRight };$/;"	e	enum:Eigen::GeneralProduct::__anon146
+Side	PositionEstimator/PositionEstimator.hpp	/^enum Side {LEFT, RIGHT};$/;"	g
 SignMatrix	Eigen/src/Cholesky/LDLT.h	/^  enum SignMatrix { PositiveSemiDef, NegativeSemiDef, ZeroSign, Indefinite };$/;"	g	namespace:Eigen::internal
 SimplicialCholesky	Eigen/src/SparseCholesky/SimplicialCholesky.h	/^    SimplicialCholesky() : Base(), m_LDLT(true) {}$/;"	f	class:Eigen::SimplicialCholesky
 SimplicialCholesky	Eigen/src/SparseCholesky/SimplicialCholesky.h	/^    SimplicialCholesky(const MatrixType& matrix)$/;"	f	class:Eigen::SimplicialCholesky
@@ -4050,6 +4083,7 @@ SluMatrixMapHelper	Eigen/src/SuperLUSupport/SuperLUSupport.h	/^struct SluMatrixM
 Small	Eigen/src/Core/GeneralProduct.h	/^  Small = 3$/;"	e	enum:Eigen::__anon119
 SmallPanelWidth	Eigen/src/Core/products/TriangularMatrixMatrix.h	/^    SmallPanelWidth   = 2 * EIGEN_PLAIN_ENUM_MAX(Traits::mr,Traits::nr),$/;"	e	enum:Eigen::internal::product_triangular_matrix_matrix::__anon264
 SmallPanelWidth	Eigen/src/Core/products/TriangularMatrixMatrix.h	/^    SmallPanelWidth   = EIGEN_PLAIN_ENUM_MAX(Traits::mr,Traits::nr),$/;"	e	enum:Eigen::internal::product_triangular_matrix_matrix::__anon265
+SmoothnessCost	DisparityMap/DisparityMap.cpp	/^unsigned int DisparityMap::SmoothnessCost(int i, int j)$/;"	f	class:DisparityMap
 SparseBase	Eigen/src/SparseCore/SparseVector.h	/^    typedef SparseMatrixBase<SparseVector> SparseBase;$/;"	t	class:Eigen::SparseVector
 SparseDenseOuterProduct	Eigen/src/SparseCore/SparseDenseProduct.h	/^    EIGEN_STRONG_INLINE SparseDenseOuterProduct(const Lhs& lhs, const Rhs& rhs)$/;"	f	class:Eigen::SparseDenseOuterProduct
 SparseDenseOuterProduct	Eigen/src/SparseCore/SparseDenseProduct.h	/^    EIGEN_STRONG_INLINE SparseDenseOuterProduct(const Rhs& rhs, const Lhs& lhs)$/;"	f	class:Eigen::SparseDenseOuterProduct
@@ -4117,6 +4151,10 @@ SrcIsAligned	Eigen/src/Core/Assign.h	/^    SrcIsAligned = OtherDerived::Flags & 
 SrcStorageOrder	Eigen/src/SparseCore/SparsePermutation.h	/^      SrcStorageOrder = MatrixTypeNestedCleaned::Flags&RowMajorBit ? RowMajor : ColMajor,$/;"	e	enum:Eigen::internal::permut_sparsematrix_product_retval::__anon450
 SrcStorageOrder	Eigen/src/SparseCore/SparsePermutation.h	/^    SrcStorageOrder = MatrixTypeNestedCleaned::Flags&RowMajorBit ? RowMajor : ColMajor,$/;"	e	enum:Eigen::internal::traits::__anon449
 StemFunction	Eigen/src/Core/MatrixBase.h	/^    typedef typename internal::stem_function<Scalar>::type StemFunction;$/;"	t	class:Eigen::MatrixBase
+StereoInterface	CameraInterface/StereoInterface.cpp	/^StereoInterface::StereoInterface( Camera cameraLeft, Camera cameraRight) :$/;"	f	class:StereoInterface
+StereoInterface	CameraInterface/StereoInterface.hpp	/^class StereoInterface$/;"	c
+StereoMatcher	StereoMatcher/StereoMatcher.cpp	/^StereoMatcher::StereoMatcher():$/;"	f	class:StereoMatcher
+StereoMatcher	StereoMatcher/StereoMatcher.hpp	/^class StereoMatcher$/;"	c
 Storage	Eigen/src/SparseCore/SparseMatrix.h	/^    typedef internal::CompressedStorage<Scalar,Index> Storage;$/;"	t	class:Eigen::SparseMatrix
 Storage	Eigen/src/SparseCore/SparseVector.h	/^    typedef internal::CompressedStorage<Scalar,Index> Storage;$/;"	t	class:Eigen::SparseVector
 StorageBaseType	Eigen/src/Core/ArrayBase.h	/^    typedef ArrayBase StorageBaseType;$/;"	t	class:Eigen::ArrayBase
@@ -4233,7 +4271,8 @@ THIS_METHOD_IS_ONLY_FOR_OBJECTS_OF_A_SPECIFIC_SIZE	Eigen/src/Core/util/StaticAss
 THIS_METHOD_IS_ONLY_FOR_ROW_MAJOR_MATRICES	Eigen/src/Core/util/StaticAssert.h	/^        THIS_METHOD_IS_ONLY_FOR_ROW_MAJOR_MATRICES,$/;"	e	enum:Eigen::internal::static_assertion::__anon338
 THIS_METHOD_IS_ONLY_FOR_SPECIFIC_TRANSFORMATIONS	Eigen/src/Core/util/StaticAssert.h	/^        THIS_METHOD_IS_ONLY_FOR_SPECIFIC_TRANSFORMATIONS,$/;"	e	enum:Eigen::internal::static_assertion::__anon338
 THIS_METHOD_IS_ONLY_FOR_VECTORS_OF_A_SPECIFIC_SIZE	Eigen/src/Core/util/StaticAssert.h	/^        THIS_METHOD_IS_ONLY_FOR_VECTORS_OF_A_SPECIFIC_SIZE,$/;"	e	enum:Eigen::internal::static_assertion::__anon338
-THRESHOLD_	PeopleDetection/PeopleDetection.hpp	/^        int THRESHOLD_;$/;"	m	class:PeopleDetection
+THRESHOLD_	PeopleDetection/PeopleDetection.hpp	/^    int THRESHOLD_;$/;"	m	class:PeopleDetection
+THRESHOLD_	StereoMatcher/StereoMatcher.hpp	/^  const int THRESHOLD_;$/;"	m	class:StereoMatcher
 Target	Eigen/src/Core/util/Constants.h	/^    Target = SSE$/;"	e	enum:Eigen::Architecture::Type
 ThenMatrixNested	Eigen/src/Core/Select.h	/^  typedef typename ThenMatrixType::Nested ThenMatrixNested;$/;"	t	struct:Eigen::internal::traits
 ThisConstantIsPrivateInPlainObjectBase	Eigen/src/Core/DenseBase.h	/^    enum { ThisConstantIsPrivateInPlainObjectBase };$/;"	e	enum:Eigen::DenseBase::__anon34
@@ -4449,6 +4488,7 @@ UCOL	Eigen/src/SparseLU/SparseLU_Structs.h	/^typedef enum {LUSUP, UCOL, LSUB, US
 ULVL	Eigen/src/SparseLU/SparseLU_Structs.h	/^typedef enum {LUSUP, UCOL, LSUB, USUB, LLVL, ULVL} MemType; $/;"	e	enum:Eigen::internal::__anon463
 UMatrixType	Eigen/src/SuperLUSupport/SuperLUSupport.h	/^    typedef TriangularView<LUMatrixType,  Upper>           UMatrixType;$/;"	t	class:Eigen::SuperLU
 UNALIGNED_LOAD_AND_STORE_OPERATIONS_UNIMPLEMENTED_ON_ALTIVEC	Eigen/src/Core/util/StaticAssert.h	/^        UNALIGNED_LOAD_AND_STORE_OPERATIONS_UNIMPLEMENTED_ON_ALTIVEC,$/;"	e	enum:Eigen::internal::static_assertion::__anon338
+UP	DisparityMap/DisparityMap.hpp	/^enum DIRECTION {LEFT, RIGHT, UP, DOWN, DATA};$/;"	e	enum:DIRECTION
 USUB	Eigen/src/SparseLU/SparseLU_Structs.h	/^typedef enum {LUSUP, UCOL, LSUB, USUB, LLVL, ULVL} MemType; $/;"	e	enum:Eigen::internal::__anon463
 UmfPackLU	Eigen/src/UmfPackSupport/UmfPackSupport.h	/^    UmfPackLU() { init(); }$/;"	f	class:Eigen::UmfPackLU
 UmfPackLU	Eigen/src/UmfPackSupport/UmfPackSupport.h	/^    UmfPackLU(UmfPackLU& ) { }$/;"	f	class:Eigen::UmfPackLU
@@ -4993,7 +5033,7 @@ b	Eigen/src/SVD/JacobiSVD.h	/^         b = MatrixType::RowsAtCompileTime != Dyna
 back	json/json.hpp	/^    const_reference back() const$/;"	f	class:nlohmann::basic_json
 back	json/json.hpp	/^    reference back()$/;"	f	class:nlohmann::basic_json
 background_image_	ImageSubtractor/ImageSubtractor.hpp	/^  cv::Mat background_image_;$/;"	m	class:ImageSubtractor
-background_image_	PeopleDetection/PeopleDetection.hpp	/^        cv::Mat background_image_;$/;"	m	class:PeopleDetection
+background_image_	PeopleDetection/PeopleDetection.hpp	/^    cv::Mat background_image_;$/;"	m	class:PeopleDetection
 base	Eigen/src/Core/PlainObjectBase.h	/^    Base& base() { return *static_cast<Base*>(this); }$/;"	f	class:Eigen::PlainObjectBase
 base	Eigen/src/Core/PlainObjectBase.h	/^    const Base& base() const { return *static_cast<const Base*>(this); }$/;"	f	class:Eigen::PlainObjectBase
 base_iterator	json/json.hpp	/^            : base_iterator(it)$/;"	f	class:nlohmann::basic_json::json_reverse_iterator
@@ -5017,6 +5057,7 @@ basic_json	json/json.hpp	/^class basic_json$/;"	c	namespace:nlohmann
 begin_array	json/json.hpp	/^            begin_array,     \/\/\/< the character for array begin "["$/;"	m	class:nlohmann::basic_json::lexer::token_type
 begin_object	json/json.hpp	/^            begin_object,    \/\/\/< the character for object begin "{"$/;"	m	class:nlohmann::basic_json::lexer::token_type
 begin_value	json/json.hpp	/^        static constexpr difference_type begin_value = 0;$/;"	m	class:nlohmann::basic_json::primitive_iterator_t
+best_assignment	DisparityMap/Pixel.hpp	/^    int best_assignment;$/;"	m	class:Pixel
 betas	Eigen/src/Eigenvalues/GeneralizedEigenSolver.h	/^    VectorType betas() const$/;"	f	class:Eigen::GeneralizedEigenSolver
 bicgstab	Eigen/src/IterativeLinearSolvers/BiCGSTAB.h	/^bool bicgstab(const MatrixType& mat, const Rhs& rhs, Dest& x,$/;"	f	namespace:Eigen::internal
 bidiagonal	Eigen/src/SVD/UpperBidiagonalization.h	/^    const BidiagonalType& bidiagonal() const { return m_bidiagonal; }$/;"	f	class:Eigen::internal::UpperBidiagonalization
@@ -5052,7 +5093,7 @@ blueNorm	Eigen/src/Core/VectorwiseOp.h	/^    const typename ReturnType<internal:
 blueNorm	Eigen/src/SparseCore/SparseDot.h	/^SparseMatrixBase<Derived>::blueNorm() const$/;"	f	class:Eigen::SparseMatrixBase
 blueNorm_impl	Eigen/src/Core/StableNorm.h	/^blueNorm_impl(const EigenBase<Derived>& _vec)$/;"	f	namespace:Eigen::internal
 blurKernel	PeopleDetection/PeopleDetection.cpp	/^int blurKernel;$/;"	v
-blur_img_	PeopleDetection/PeopleDetection.hpp	/^        cv::Mat blur_img_;$/;"	m	class:PeopleDetection
+blur_img_	PeopleDetection/PeopleDetection.hpp	/^    cv::Mat blur_img_;$/;"	m	class:PeopleDetection
 boolean	json/json.hpp	/^        boolean,         \/\/\/< boolean value$/;"	m	class:nlohmann::basic_json::value_t
 boolean	json/json.hpp	/^        boolean_t boolean;$/;"	m	union:nlohmann::basic_json::json_value
 boolean	json/json.hpp	/^        json_value(boolean_t v) noexcept : boolean(v) {}$/;"	f	union:nlohmann::basic_json::json_value
@@ -5062,7 +5103,6 @@ bottomLeftCorner	Eigen/src/plugins/BlockMethods.h	/^inline Block<Derived> bottom
 bottomLeftCorner	Eigen/src/plugins/BlockMethods.h	/^inline const Block<const Derived, CRows, CCols> bottomLeftCorner() const$/;"	f
 bottomLeftCorner	Eigen/src/plugins/BlockMethods.h	/^inline const Block<const Derived, CRows, CCols> bottomLeftCorner(Index cRows, Index cCols) const$/;"	f
 bottomLeftCorner	Eigen/src/plugins/BlockMethods.h	/^inline const Block<const Derived> bottomLeftCorner(Index cRows, Index cCols) const$/;"	f
-bottomRight2topLeft_	CameraMatrix/CameraMatrix.hpp	/^  Eigen::Matrix3d bottomRight2topLeft_;$/;"	m	class:CameraMatrix
 bottomRightCorner	Eigen/src/plugins/BlockMethods.h	/^inline Block<Derived, CRows, CCols> bottomRightCorner()$/;"	f
 bottomRightCorner	Eigen/src/plugins/BlockMethods.h	/^inline Block<Derived, CRows, CCols> bottomRightCorner(Index cRows, Index cCols)$/;"	f
 bottomRightCorner	Eigen/src/plugins/BlockMethods.h	/^inline Block<Derived> bottomRightCorner(Index cRows, Index cCols)$/;"	f
@@ -5073,6 +5113,7 @@ bottomRows	Eigen/src/plugins/BlockMethods.h	/^inline ConstRowsBlockXpr bottomRow
 bottomRows	Eigen/src/plugins/BlockMethods.h	/^inline RowsBlockXpr bottomRows(Index n)$/;"	f
 bottomRows	Eigen/src/plugins/BlockMethods.h	/^inline typename ConstNRowsBlockXpr<N>::Type bottomRows(Index n = N) const$/;"	f
 bottomRows	Eigen/src/plugins/BlockMethods.h	/^inline typename NRowsBlockXpr<N>::Type bottomRows(Index n = N)$/;"	f
+bp_iterations_	DisparityMap/DisparityMap.hpp	/^  int bp_iterations_ = 40;$/;"	m	class:DisparityMap
 bruteforce_det3_helper	Eigen/src/LU/Determinant.h	/^inline const typename Derived::Scalar bruteforce_det3_helper$/;"	f	namespace:Eigen::internal
 bruteforce_det4_helper	Eigen/src/LU/Determinant.h	/^const typename Derived::Scalar bruteforce_det4_helper$/;"	f	namespace:Eigen::internal
 c	Eigen/src/Jacobi/Jacobi.h	/^    Scalar c() const { return m_c; }$/;"	f	class:Eigen::JacobiRotation
@@ -5081,11 +5122,15 @@ c_to_fortran_numbering	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^  void c_to_for
 c_x_	CameraMatrix/CameraMatrix.hpp	/^  double c_x_;$/;"	m	class:CameraMatrix
 c_y_	CameraMatrix/CameraMatrix.hpp	/^  double c_y_;$/;"	m	class:CameraMatrix
 callback	json/json.hpp	/^        parser_callback_t callback;$/;"	m	class:nlohmann::basic_json::parser
-cam_type_	CameraInterface/CameraInterface.hpp	/^  Camera cam_type_;$/;"	m	class:CameraInterface
-cam_type_	CameraMatrix/CameraMatrix.hpp	/^  Camera cam_type_;$/;"	m	class:CameraMatrix
+cam_type_	CameraInterface/CameraInterface.hpp	/^  CameraType cam_type_;$/;"	m	class:CameraInterface
+cam_type_	CameraMatrix/CameraMatrix.hpp	/^  CameraType cam_type_;$/;"	m	class:CameraMatrix
 camera2ground_	CameraMatrix/CameraMatrix.hpp	/^  TransformationMatrix camera2ground_;$/;"	m	class:CameraMatrix
-camera_	ImageViewer/ImageViewer.hpp	/^  Camera camera_;$/;"	m	class:ImageViewer
-camera_interface_	ImageViewer/ImageViewer.hpp	/^  CameraInterface camera_interface_;$/;"	m	class:ImageViewer
+camera_interface_left_	CameraInterface/StereoInterface.hpp	/^  CameraInterface camera_interface_left_;$/;"	m	class:StereoInterface
+camera_interface_left_	ImageViewer/ImageViewer.hpp	/^  CameraInterface camera_interface_left_;$/;"	m	class:ImageViewer
+camera_interface_right_	CameraInterface/StereoInterface.hpp	/^  CameraInterface camera_interface_right_;$/;"	m	class:StereoInterface
+camera_interface_right_	ImageViewer/ImageViewer.hpp	/^  CameraInterface camera_interface_right_;$/;"	m	class:ImageViewer
+camera_left_	ImageViewer/ImageViewer.hpp	/^  Camera camera_left_;$/;"	m	class:ImageViewer
+camera_right_	ImageViewer/ImageViewer.hpp	/^  Camera camera_right_;$/;"	m	class:ImageViewer
 cap_	CameraInterface/CameraInterface.hpp	/^  cv::VideoCapture cap_;$/;"	m	class:CameraInterface
 cast	Eigen/src/Core/MathFunctions.h	/^inline NewType cast(const OldType& x)$/;"	f	namespace:Eigen::internal
 cast	Eigen/src/Eigen2Support/Geometry/AlignedBox.h	/^           AlignedBox<NewScalarType,AmbientDimAtCompileTime> >::type cast() const$/;"	f	class:Eigen::AlignedBox
@@ -5648,9 +5693,9 @@ contains	Eigen/src/Eigen2Support/Geometry/AlignedBox.h	/^  inline bool contains(
 contains	Eigen/src/Eigen2Support/Geometry/AlignedBox.h	/^  inline bool contains(const VectorType& p) const$/;"	f	class:Eigen::AlignedBox
 contains	Eigen/src/Geometry/AlignedBox.h	/^  inline bool contains(const AlignedBox& b) const$/;"	f	class:Eigen::AlignedBox
 contains	Eigen/src/Geometry/AlignedBox.h	/^  inline bool contains(const MatrixBase<Derived>& p) const$/;"	f	class:Eigen::AlignedBox
-contour_img_	PeopleDetection/PeopleDetection.hpp	/^        cv::Mat contour_img_;$/;"	m	class:PeopleDetection
-contours_	PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point>> contours_;$/;"	m	class:PeopleDetection
-contours_poly	PeopleDetection/PeopleDetection.hpp	/^        std::vector<std::vector<cv::Point> > contours_poly;$/;"	m	class:PeopleDetection
+contour_img_	PeopleDetection/PeopleDetection.hpp	/^    cv::Mat contour_img_;$/;"	m	class:PeopleDetection
+contours_	PeopleDetection/PeopleDetection.hpp	/^    std::vector<std::vector<cv::Point>> contours_;$/;"	m	class:PeopleDetection
+contours_poly	PeopleDetection/PeopleDetection.hpp	/^    std::vector<std::vector<cv::Point> > contours_poly;$/;"	m	class:PeopleDetection
 copyCoeff	Eigen/src/Core/DenseCoeffsBase.h	/^    EIGEN_STRONG_INLINE void copyCoeff(Index index, const DenseBase<OtherDerived>& other)$/;"	f	class:Eigen::DenseCoeffsBase
 copyCoeff	Eigen/src/Core/DenseCoeffsBase.h	/^    EIGEN_STRONG_INLINE void copyCoeff(Index row, Index col, const DenseBase<OtherDerived>& other)$/;"	f	class:Eigen::DenseCoeffsBase
 copyCoeff	Eigen/src/Core/SelfCwiseBinaryOp.h	/^    void copyCoeff(Index index, const DenseBase<OtherDerived>& other)$/;"	f	class:Eigen::SelfCwiseBinaryOp
@@ -5690,6 +5735,7 @@ cross3_impl	Eigen/src/Geometry/arch/Geometry_SSE.h	/^struct cross3_impl<Architec
 cross_product_return_type	Eigen/src/Core/MatrixBase.h	/^    template<typename OtherDerived> struct cross_product_return_type {$/;"	s	class:Eigen::MatrixBase
 cs_tdfs	Eigen/src/OrderingMethods/Amd.h	/^Index cs_tdfs(Index j, Index k, Index *head, const Index *next, Index *post, Index *stack)$/;"	f	namespace:Eigen::internal
 cs_wclear	Eigen/src/OrderingMethods/Amd.h	/^static int cs_wclear (Index mark, Index lemax, Index *w, Index n)$/;"	f	namespace:Eigen::internal
+ct	Utils/Utils.hpp	/^  CameraType ct;$/;"	m	struct:Camera
 cube	Eigen/src/Eigen2Support/CwiseOperators.h	/^Cwise<ExpressionType>::cube() const$/;"	f	class:Eigen::Cwise
 cube	Eigen/src/plugins/ArrayCwiseUnaryOps.h	/^cube() const$/;"	f
 current_flight_phase_	SituationKnowledge/SituationKnowledge.hpp	/^    FlightPhase current_flight_phase_;$/;"	m	class:SituationKnowledge
@@ -5844,6 +5890,7 @@ diff_image_	ImageSubtractor/ImageSubtractor.hpp	/^  cv::Mat diff_image_;$/;"	m	c
 difference_type	Eigen/src/Core/util/Memory.h	/^    typedef std::ptrdiff_t difference_type;$/;"	t	class:Eigen::aligned_allocator
 difference_type	Eigen/src/StlSupport/details.h	/^    typedef ptrdiff_t difference_type;$/;"	t	class:Eigen::aligned_allocator_indirection
 dilateKernel	PeopleDetection/PeopleDetection.cpp	/^int dilateKernel;$/;"	v
+dilate_img_	PeopleDetection/PeopleDetection.hpp	/^    cv::Mat dilate_img_;$/;"	m	class:PeopleDetection
 dim	Eigen/src/Eigen2Support/Geometry/AlignedBox.h	/^  inline int dim() const { return AmbientDimAtCompileTime==Dynamic ? m_min.size()-1 : AmbientDimAtCompileTime; }$/;"	f	class:Eigen::AlignedBox
 dim	Eigen/src/Eigen2Support/Geometry/Hyperplane.h	/^  inline int dim() const { return int(AmbientDimAtCompileTime)==Dynamic ? m_coeffs.size()-1 : int(AmbientDimAtCompileTime); }$/;"	f	class:Eigen::Hyperplane
 dim	Eigen/src/Eigen2Support/Geometry/ParametrizedLine.h	/^  inline int dim() const { return m_direction.size(); }$/;"	f	class:Eigen::ParametrizedLine
@@ -5872,8 +5919,10 @@ dot_nocheck	Eigen/src/Core/Dot.h	/^struct dot_nocheck$/;"	s	namespace:Eigen::int
 dot_nocheck	Eigen/src/Core/Dot.h	/^struct dot_nocheck<T, U, true>$/;"	s	namespace:Eigen::internal
 dparm	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    Array<RealScalar,IPARM_SIZE,1>& dparm()$/;"	f	class:Eigen::PastixBase
 dparm	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    double& dparm(int idxparam)$/;"	f	class:Eigen::PastixBase
-drawBoundingBox	WindowManager/WindowManager.cpp	/^void WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& img) {$/;"	f	class:WindowManager
+drawBoundingBox	WindowManager/WindowManager.cpp	/^cv::Mat WindowManager::drawBoundingBox(std::vector<cv::Rect> bBox, const cv::Mat& img) {$/;"	f	class:WindowManager
+drawBoundingBoxStereo	WindowManager/WindowManager.cpp	/^void WindowManager::drawBoundingBoxStereo(std::vector<std::vector<cv::Rect>> bBox, const cv::Mat& imgLeft, const cv::Mat& imgRight) {$/;"	f	class:WindowManager
 drawCircle	WindowManager/WindowManager.cpp	/^void WindowManager::drawCircle(cv::Point coord, cv::Scalar color, int index) {$/;"	f	class:WindowManager
+drawPointsStereo	WindowManager/WindowManager.cpp	/^void WindowManager::drawPointsStereo(std::vector<std::vector<cv::Point>> pointPairs, const cv::Mat& imgLeft, const cv::Mat& imgRight) {$/;"	f	class:WindowManager
 dst_	WindowManager/WindowManager.hpp	/^  cv::Mat dst_;$/;"	m	class:WindowManager
 dst_cols_	WindowManager/WindowManager.hpp	/^  unsigned int dst_cols_;$/;"	m	class:WindowManager
 dst_heigth_	WindowManager/WindowManager.hpp	/^  unsigned int dst_heigth_;$/;"	m	class:WindowManager
@@ -6154,6 +6203,7 @@ finalize	Eigen/src/SparseCore/SparseMatrix.h	/^    inline void finalize()$/;"	f	
 finalize	Eigen/src/SparseCore/SparseVector.h	/^    inline void finalize() {}$/;"	f	class:Eigen::SparseVector
 find	json/json.hpp	/^    const_iterator find(typename object_t::key_type key) const$/;"	f	class:nlohmann::basic_json
 find	json/json.hpp	/^    iterator find(typename object_t::key_type key)$/;"	f	class:nlohmann::basic_json
+findPointPairs	StereoMatcher/StereoMatcher.cpp	/^std::vector<std::vector<cv::Point>> StereoMatcher::findPointPairs(std::vector<cv::Rect> peopleL, std::vector<cv::Rect> peopleR) {$/;"	f	class:StereoMatcher
 findSmallDiagEntry	Eigen/src/Eigenvalues/RealQZ.h	/^    inline typename MatrixType::Index RealQZ<MatrixType>::findSmallDiagEntry(Index f, Index l)$/;"	f	class:Eigen::RealQZ
 findSmallSubdiagEntry	Eigen/src/Eigenvalues/RealQZ.h	/^    inline typename MatrixType::Index RealQZ<MatrixType>::findSmallSubdiagEntry(Index iu)$/;"	f	class:Eigen::RealQZ
 findSmallSubdiagEntry	Eigen/src/Eigenvalues/RealSchur.h	/^inline typename MatrixType::Index RealSchur<MatrixType>::findSmallSubdiagEntry(Index iu)$/;"	f	class:Eigen::RealSchur
@@ -6320,6 +6370,7 @@ getBackground	ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::ge
 getBlobImage	BlobDetection/BlobDetection.cpp	/^cv::Mat BlobDetection::getBlobImage(cv::Mat image) {$/;"	f	class:BlobDetection
 getBlurKernelSize	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getBlurKernelSize() {$/;"	f	class:PeopleDetection
 getCameraMatrix	CameraMatrix/CameraMatrix.cpp	/^Eigen::MatrixXd CameraMatrix::getCameraMatrix() {$/;"	f	class:CameraMatrix
+getCameraMatrix	PositionEstimator/PositionEstimator.cpp	/^CameraMatrix PositionEstimator::getCameraMatrix(Side cameraSide) {$/;"	f	class:PositionEstimator
 getDiffImage	ImageSubtractor/ImageSubtractor.cpp	/^cv::Mat& ImageSubtractor::getDiffImage() {$/;"	f	class:ImageSubtractor
 getDilateKernelSize	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getDilateKernelSize() {$/;"	f	class:PeopleDetection
 getExtrinsicMatrix	CameraMatrix/CameraMatrix.cpp	/^Eigen::MatrixXd CameraMatrix::getExtrinsicMatrix() {$/;"	f	class:CameraMatrix
@@ -6334,6 +6385,7 @@ getL	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixL getL(const MatrixType& 
 getL	Eigen/src/Cholesky/LLT.h	/^  static inline MatrixL getL(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::LLT_Traits
 getL	Eigen/src/Cholesky/LLT.h	/^  static inline MatrixL getL(const MatrixType& m) { return m; }$/;"	f	struct:Eigen::internal::LLT_Traits
 getL	Eigen/src/SparseCholesky/SimplicialCholesky.h	/^  static inline MatrixL getL(const MatrixType& m) { return m; }$/;"	f	struct:Eigen::internal::traits
+getLeftImage	CameraInterface/StereoInterface.cpp	/^cv::Mat StereoInterface::getLeftImage() {$/;"	f	class:StereoInterface
 getMatrix	Eigen/src/PardisoSupport/PardisoSupport.h	/^    void getMatrix(const MatrixType& matrix)$/;"	f	class:Eigen::PardisoLDLT
 getMatrix	Eigen/src/PardisoSupport/PardisoSupport.h	/^    void getMatrix(const MatrixType& matrix)$/;"	f	class:Eigen::PardisoLLT
 getMatrix	Eigen/src/PardisoSupport/PardisoSupport.h	/^    void getMatrix(const MatrixType& matrix)$/;"	f	class:Eigen::PardisoLU
@@ -6343,8 +6395,10 @@ getMaxIterations	Eigen/src/Eigenvalues/ComplexSchur.h	/^    Index getMaxIteratio
 getMaxIterations	Eigen/src/Eigenvalues/EigenSolver.h	/^    Index getMaxIterations()$/;"	f	class:Eigen::EigenSolver
 getMaxIterations	Eigen/src/Eigenvalues/RealSchur.h	/^    Index getMaxIterations()$/;"	f	class:Eigen::RealSchur
 getMinBoundingBoxArea	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getMinBoundingBoxArea() {$/;"	f	class:PeopleDetection
+getRightImage	CameraInterface/StereoInterface.cpp	/^cv::Mat StereoInterface::getRightImage() {$/;"	f	class:StereoInterface
 getSingularMatrix	Utils/TransformationMatrix.cpp	/^Eigen::MatrixXd TransformationMatrix::getSingularMatrix() const {$/;"	f	class:TransformationMatrix
 getThreshold	PeopleDetection/PeopleDetection.cpp	/^int PeopleDetection::getThreshold() {$/;"	f	class:PeopleDetection
+getTransformationMatrix	JSONParser/JSONParser.cpp	/^TransformationMatrix JSONParser::getTransformationMatrix(std::string filename) {$/;"	f	class:JSONParser
 getU	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::LDLT_Traits
 getU	Eigen/src/Cholesky/LDLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m; }$/;"	f	struct:Eigen::internal::LDLT_Traits
 getU	Eigen/src/Cholesky/LLT.h	/^  static inline MatrixU getU(const MatrixType& m) { return m.adjoint(); }$/;"	f	struct:Eigen::internal::LLT_Traits
@@ -6376,6 +6430,7 @@ grabMatrix	Eigen/src/PaStiXSupport/PaStiXSupport.h	/^    void grabMatrix(const M
 grapInput	Eigen/src/UmfPackSupport/UmfPackSupport.h	/^    void grapInput(const InputMatrixType& mat)$/;"	f	class:Eigen::UmfPackLU
 grapInput_impl	Eigen/src/UmfPackSupport/UmfPackSupport.h	/^    void grapInput_impl(const InputMatrixType& mat, internal::false_type)$/;"	f	class:Eigen::UmfPackLU
 grapInput_impl	Eigen/src/UmfPackSupport/UmfPackSupport.h	/^    void grapInput_impl(const InputMatrixType& mat, internal::true_type)$/;"	f	class:Eigen::UmfPackLU
+grid	DisparityMap/DisparityMap.hpp	/^    std::vector <Pixel> grid;$/;"	m	struct:MRF2D
 hCoeffs	Eigen/src/QR/ColPivHouseholderQR.h	/^    const HCoeffsType& hCoeffs() const { return m_hCoeffs; }$/;"	f	class:Eigen::ColPivHouseholderQR
 hCoeffs	Eigen/src/QR/FullPivHouseholderQR.h	/^    const HCoeffsType& hCoeffs() const { return m_hCoeffs; }$/;"	f	class:Eigen::FullPivHouseholderQR
 hCoeffs	Eigen/src/QR/HouseholderQR.h	/^    const HCoeffsType& hCoeffs() const { return m_hCoeffs; }$/;"	f	class:Eigen::HouseholderQR
@@ -6399,9 +6454,10 @@ head	Eigen/src/plugins/BlockMethods.h	/^inline typename ConstFixedSegmentReturnT
 head	Eigen/src/plugins/BlockMethods.h	/^inline typename FixedSegmentReturnType<N>::Type head(Index n = N)$/;"	f
 headhash	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^    Index headhash ;  \/* head of a hash bucket, if col is at the head of *\/$/;"	m	union:internal::colamd_col::__anon404
 heap_relax_snode	Eigen/src/SparseLU/SparseLU_heap_relax_snode.h	/^void SparseLUImpl<Scalar,Index>::heap_relax_snode (const Index n, IndexVector& et, const Index relax_columns, IndexVector& descendants, IndexVector& relax_end)$/;"	f	class:Eigen::internal::SparseLUImpl
+height	DisparityMap/DisparityMap.hpp	/^    int width, height;$/;"	m	struct:MRF2D
 height_	CameraInterface/CameraInterface.hpp	/^  unsigned int height_;$/;"	m	class:CameraInterface
 hessenbergTriangular	Eigen/src/Eigenvalues/RealQZ.h	/^    void RealQZ<MatrixType>::hessenbergTriangular()$/;"	f	class:Eigen::RealQZ
-hierarchy_	PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Vec4i> hierarchy_;$/;"	m	class:PeopleDetection
+hierarchy_	PeopleDetection/PeopleDetection.hpp	/^    std::vector<cv::Vec4i> hierarchy_;$/;"	m	class:PeopleDetection
 hnormalized	Eigen/src/Geometry/Homogeneous.h	/^MatrixBase<Derived>::hnormalized() const$/;"	f	class:Eigen::MatrixBase
 hnormalized	Eigen/src/Geometry/Homogeneous.h	/^VectorwiseOp<ExpressionType,Direction>::hnormalized() const$/;"	f	class:Eigen::VectorwiseOp
 hog_	PeopleDetectionHOG/PeopleDetectionHOG.hpp	/^	cv::HOGDescriptor hog_;$/;"	m	class:PeopleDetectionHOG
@@ -6447,15 +6503,19 @@ imag_retval	Eigen/src/Core/MathFunctions.h	/^struct imag_retval$/;"	s	namespace:
 image	Eigen/src/Eigen2Support/LU.h	/^    const ImageResultType image() const$/;"	f	class:Eigen::LU
 image	Eigen/src/LU/FullPivLU.h	/^      image(const MatrixType& originalMatrix) const$/;"	f	class:Eigen::FullPivLU
 image_	CameraInterface/CameraInterface.hpp	/^  cv::Mat image_;$/;"	m	class:CameraInterface
-image_	PeopleDetection/PeopleDetection.hpp	/^        cv::Mat image_;$/;"	m	class:PeopleDetection
-image_coordinates_l_	ImageViewer/ImageViewer.hpp	/^  std::vector<cv::Point> image_coordinates_l_;$/;"	m	class:ImageViewer
-image_coordinates_r_	ImageViewer/ImageViewer.hpp	/^  std::vector<cv::Point> image_coordinates_r_;$/;"	m	class:ImageViewer
+image_	PeopleDetection/PeopleDetection.hpp	/^    cv::Mat image_;$/;"	m	class:PeopleDetection
+image_coordinates_l_	ImageViewer/ImageViewer.hpp	/^  std::vector<Eigen::Vector2d> image_coordinates_l_;$/;"	m	class:ImageViewer
+image_coordinates_r_	ImageViewer/ImageViewer.hpp	/^  std::vector<Eigen::Vector2d> image_coordinates_r_;$/;"	m	class:ImageViewer
 image_folder_	ImageWriter/ImageWriter.hpp	/^  std::string image_folder_;$/;"	m	class:ImageWriter
 image_retval	Eigen/src/LU/FullPivLU.h	/^struct image_retval<FullPivLU<_MatrixType> >$/;"	s	namespace:Eigen::internal
 image_retval_base	Eigen/src/misc/Image.h	/^  image_retval_base(const DecompositionType& dec, const MatrixType& originalMatrix)$/;"	f	struct:Eigen::internal::image_retval_base
 image_retval_base	Eigen/src/misc/Image.h	/^template<typename _DecompositionType> struct image_retval_base$/;"	s	namespace:Eigen::internal
-image_writer_	ImageViewer/ImageViewer.hpp	/^  ImageWriter image_writer_;$/;"	m	class:ImageViewer
+image_subtractor_	PeopleDetection/PeopleDetection.hpp	/^    ImageSubtractor image_subtractor_;$/;"	m	class:PeopleDetection
+image_writer_left_	ImageViewer/ImageViewer.hpp	/^  ImageWriter image_writer_left_;$/;"	m	class:ImageViewer
+image_writer_right_	ImageViewer/ImageViewer.hpp	/^  ImageWriter image_writer_right_;$/;"	m	class:ImageViewer
+img_height	Utils/Utils.hpp	/^  int img_height;$/;"	m	struct:Camera
 img_vector_	WindowManager/WindowManager.hpp	/^  std::vector<cv::Mat> img_vector_;$/;"	m	class:WindowManager
+img_width	Utils/Utils.hpp	/^  int img_width;$/;"	m	struct:Camera
 impl	Eigen/src/Core/Functors.h	/^  const linspaced_op_impl<Scalar,RandomAccess> impl;$/;"	m	struct:Eigen::internal::linspaced_op
 incrementToNonZero	Eigen/src/SparseCore/SparseView.h	/^  void incrementToNonZero()$/;"	f	class:Eigen::SparseView::InnerIterator
 index	Eigen/src/Core/CoreIterators.h	/^    EIGEN_STRONG_INLINE Index index() const { return m_inner; }$/;"	f	class:Eigen::DenseBase::InnerIterator
@@ -6969,7 +7029,7 @@ kc	Eigen/src/Core/products/GeneralMatrixMatrix.h	/^    inline DenseIndex kc() co
 keep_diag	Eigen/src/IterativeLinearSolvers/IncompleteLUT.h	/^    struct keep_diag {$/;"	s	class:Eigen::IncompleteLUT
 keep_diag	Eigen/src/SparseCholesky/SimplicialCholesky.h	/^    struct keep_diag {$/;"	s	class:Eigen::SimplicialCholeskyBase
 kernel	Eigen/src/LU/FullPivLU.h	/^    inline const internal::kernel_retval<FullPivLU> kernel() const$/;"	f	class:Eigen::FullPivLU
-kernel_	PeopleDetection/PeopleDetection.hpp	/^        cv::Mat kernel_;$/;"	m	class:PeopleDetection
+kernel_	PeopleDetection/PeopleDetection.hpp	/^    cv::Mat kernel_;$/;"	m	class:PeopleDetection
 kernel_retval	Eigen/src/LU/FullPivLU.h	/^struct kernel_retval<FullPivLU<_MatrixType> >$/;"	s	namespace:Eigen::internal
 kernel_retval_base	Eigen/src/misc/Kernel.h	/^  kernel_retval_base(const DecompositionType& dec)$/;"	f	struct:Eigen::internal::kernel_retval_base
 kernel_retval_base	Eigen/src/misc/Kernel.h	/^template<typename _DecompositionType> struct kernel_retval_base$/;"	s	namespace:Eigen::internal
@@ -6980,6 +7040,8 @@ key	json/json.hpp	/^        typename object_t::key_type key() const$/;"	f	class:
 keypoints_	BlobDetection/BlobDetection.hpp	/^    std::vector<cv::KeyPoint> keypoints_;$/;"	m	class:BlobDetection
 l1CacheSize	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^inline std::ptrdiff_t l1CacheSize()$/;"	f	namespace:Eigen
 l2CacheSize	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^inline std::ptrdiff_t l2CacheSize()$/;"	f	namespace:Eigen
+labels_	DisparityMap/DisparityMap.hpp	/^  int labels_ = 16;$/;"	m	class:DisparityMap
+lambda_	DisparityMap/DisparityMap.hpp	/^  int lambda_ = 20;$/;"	m	class:DisparityMap
 lastCoeff	Eigen/src/SparseCore/SparseBlock.h	/^    const Scalar& lastCoeff() const$/;"	f	class:Eigen::BlockImpl
 lastErrorMessage	Eigen/src/SparseLU/SparseLU.h	/^    std::string lastErrorMessage() const$/;"	f	class:Eigen::SparseLU
 lastErrorMessage	Eigen/src/SparseQR/SparseQR.h	/^    std::string lastErrorMessage() const { return m_lastError; }$/;"	f	class:Eigen::SparseQR
@@ -7890,6 +7952,7 @@ mr	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^    mr = 2 * LhsPacketSiz
 mr	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^    mr = 2 * LhsPacketSize,$/;"	e	enum:Eigen::internal::gebp_traits::__anon247
 mr	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^    mr = 2 * ResPacketSize,$/;"	e	enum:Eigen::internal::gebp_traits::__anon248
 mr	Eigen/src/Core/products/GeneralBlockPanelKernel.h	/^    mr = 2*ResPacketSize,$/;"	e	enum:Eigen::internal::gebp_traits::__anon249
+msg	DisparityMap/Pixel.hpp	/^    unsigned int msg[5][16];$/;"	m	class:Pixel
 n	Eigen/src/SparseLU/SparseLU_Structs.h	/^  Index   n; \/\/ Number of columns in the matrix  $/;"	m	struct:Eigen::internal::LU_GlobalLU_t
 name_separator	json/json.hpp	/^            name_separator,  \/\/\/< the name separator ":"$/;"	m	class:nlohmann::basic_json::lexer::token_type
 nbThreads	Eigen/src/Core/products/Parallelizer.h	/^inline int nbThreads()$/;"	f	namespace:Eigen
@@ -8609,10 +8672,6 @@ p4f_ZERO_	Eigen/src/Core/arch/AltiVec/PacketMath.h	/^static Packet4f p4f_ZERO_ =
 p4i_COUNTDOWN	Eigen/src/Core/arch/AltiVec/PacketMath.h	/^static Packet4i p4i_COUNTDOWN = { 3, 2, 1, 0 };$/;"	m	namespace:Eigen::internal
 p4ui_CONJ_XOR	Eigen/src/Core/arch/AltiVec/Complex.h	/^static Packet4ui  p4ui_CONJ_XOR = vec_mergeh((Packet4ui)p4i_ZERO, (Packet4ui)p4f_ZERO_);\/\/{ 0x00000000, 0x80000000, 0x00000000, 0x80000000 };$/;"	m	namespace:Eigen::internal
 p4ui_CONJ_XOR	Eigen/src/Core/arch/NEON/Complex.h	/^static uint32x4_t p4ui_CONJ_XOR = EIGEN_INIT_NEON_PACKET4(0x00000000, 0x80000000, 0x00000000, 0x80000000);$/;"	m	namespace:Eigen::internal
-p_background_subtractor2_	PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractorMOG2> p_background_subtractor2_;$/;"	m	class:PeopleDetection
-p_background_subtractor3_	PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor3_;$/;"	m	class:PeopleDetection
-p_background_subtractor_	PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<cv::BackgroundSubtractor> p_background_subtractor_;$/;"	m	class:PeopleDetection
-p_image_subtractor_	PeopleDetection/PeopleDetection.hpp	/^        cv::Ptr<ImageSubtractor> p_image_subtractor_;$/;"	m	class:PeopleDetection
 pabs	Eigen/src/Core/GenericPacketMath.h	/^pabs(const Packet& a) { using std::abs; return abs(a); }$/;"	f	namespace:Eigen::internal
 pabs	Eigen/src/Core/arch/AltiVec/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4f pabs(const Packet4f& a) { return vec_abs(a); }$/;"	f	namespace:Eigen::internal
 pabs	Eigen/src/Core/arch/AltiVec/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4i pabs(const Packet4i& a) { return vec_abs(a); }$/;"	f	namespace:Eigen::internal
@@ -8816,7 +8875,7 @@ pdiv	Eigen/src/Core/arch/SSE/Complex.h	/^template<> EIGEN_STRONG_INLINE Packet2c
 pdiv	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet2d pdiv<Packet2d>(const Packet2d& a, const Packet2d& b) { return _mm_div_pd(a,b); }$/;"	f	namespace:Eigen::internal
 pdiv	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4f pdiv<Packet4f>(const Packet4f& a, const Packet4f& b) { return _mm_div_ps(a,b); }$/;"	f	namespace:Eigen::internal
 pdiv	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4i pdiv<Packet4i>(const Packet4i& \/*a*\/, const Packet4i& \/*b*\/)$/;"	f	namespace:Eigen::internal
-people_candidates_	PeopleDetection/PeopleDetection.hpp	/^        std::vector<cv::Rect> people_candidates_;$/;"	m	class:PeopleDetection
+people_candidates_	PeopleDetection/PeopleDetection.hpp	/^    std::vector<cv::Rect> people_candidates_;$/;"	m	class:PeopleDetection
 performFrancisQRStep	Eigen/src/Eigenvalues/RealSchur.h	/^inline void RealSchur<MatrixType>::performFrancisQRStep(Index il, Index im, Index iu, bool computeU, const Vector3s& firstHouseholderVector, Scalar* workspace)$/;"	f	class:Eigen::RealSchur
 perfvalues	Eigen/src/SparseLU/SparseLU_Structs.h	/^struct perfvalues {$/;"	s	namespace:Eigen::internal
 permut_matrix_product_retval	Eigen/src/Core/PermutationMatrix.h	/^    permut_matrix_product_retval(const PermutationType& perm, const MatrixType& matrix)$/;"	f	struct:Eigen::internal::permut_matrix_product_retval
@@ -8855,6 +8914,7 @@ pfirst	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE flo
 pfirst	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE int    pfirst<Packet4i>(const Packet4i& a) { int x = _mm_cvtsi128_si32(a); return x; }$/;"	f	namespace:Eigen::internal
 pfirst	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE int    pfirst<Packet4i>(const Packet4i& a) { return _mm_cvtsi128_si32(a); }$/;"	f	namespace:Eigen::internal
 pivotL	Eigen/src/SparseLU/SparseLU_pivotL.h	/^Index SparseLUImpl<Scalar,Index>::pivotL(const Index jcol, const RealScalar& diagpivotthresh, IndexVector& perm_r, IndexVector& iperm_c, Index& pivrow, GlobalLU_t& glu)$/;"	f	class:Eigen::internal::SparseLUImpl
+pixel_	DisparityMap/DisparityMap.hpp	/^  Pixel pixel_;$/;"	m	class:DisparityMap
 plain_array	Eigen/src/Core/DenseStorage.h	/^  plain_array() $/;"	f	struct:Eigen::internal::plain_array
 plain_array	Eigen/src/Core/DenseStorage.h	/^  plain_array() {}$/;"	f	struct:Eigen::internal::plain_array
 plain_array	Eigen/src/Core/DenseStorage.h	/^  plain_array(constructor_without_unaligned_array_assert) $/;"	f	struct:Eigen::internal::plain_array
@@ -8983,6 +9043,8 @@ pnegate	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Pa
 pnegate	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4f pnegate(const Packet4f& a)$/;"	f	namespace:Eigen::internal
 pnegate	Eigen/src/Core/arch/SSE/PacketMath.h	/^template<> EIGEN_STRONG_INLINE Packet4i pnegate(const Packet4i& a)$/;"	f	namespace:Eigen::internal
 pointAt	Eigen/src/Geometry/ParametrizedLine.h	/^ParametrizedLine<_Scalar, _AmbientDim,_Options>::pointAt(const _Scalar& t) const$/;"	f	class:Eigen::ParametrizedLine
+pointPairs	ImageViewer/ImageViewer.cpp	/^std::array<std::vector<Eigen::Vector2d>,2> ImageViewer::pointPairs(const cv::Mat& img1, const cv::Mat& img2) {$/;"	f	class:ImageViewer
+point_pairs_	StereoMatcher/StereoMatcher.hpp	/^  std::vector<Eigen::Vector2i> point_pairs_;$/;"	m	class:StereoMatcher
 pointer	Eigen/src/Core/util/Memory.h	/^    typedef T*        pointer;$/;"	t	class:Eigen::aligned_allocator
 pointer	Eigen/src/StlSupport/details.h	/^    typedef T*        pointer;$/;"	t	class:Eigen::aligned_allocator_indirection
 por	Eigen/src/Core/GenericPacketMath.h	/^por(const Packet& a, const Packet& b) { return a | b; }$/;"	f	namespace:Eigen::internal
@@ -9379,7 +9441,7 @@ reserve	Eigen/src/SparseCore/SparseMatrix.h	/^    inline void reserve(const Size
 reserve	Eigen/src/SparseCore/SparseMatrix.h	/^    inline void reserve(const SizesType& reserveSizes, const typename SizesType::value_type& enableif = typename SizesType::value_type())$/;"	f	class:Eigen::SparseMatrix
 reserve	Eigen/src/SparseCore/SparseVector.h	/^    inline void reserve(Index reserveSize) { m_data.reserve(reserveSize); }$/;"	f	class:Eigen::SparseVector
 reserveInnerVectors	Eigen/src/SparseCore/SparseMatrix.h	/^    inline void reserveInnerVectors(const SizesType& reserveSizes)$/;"	f	class:Eigen::SparseMatrix
-reset	CameraInterface/CameraInterface.cpp	/^void CameraInterface::reset(Camera cameraToUse) {$/;"	f	class:CameraInterface
+reset	CameraInterface/CameraInterface.cpp	/^void CameraInterface::reset(CameraType cameraToUse) {$/;"	f	class:CameraInterface
 reset	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::reset() {$/;"	f	class:PeopleDetection
 reset	WindowManager/WindowManager.cpp	/^void WindowManager::reset() {$/;"	f	class:WindowManager
 resetCounter	ImageWriter/ImageWriter.cpp	/^void ImageWriter::resetCounter() {$/;"	f	class:ImageWriter
@@ -9871,6 +9933,7 @@ run	Eigen/src/SuperLUSupport/SuperLUSupport.h	/^  static void run(MatrixType& ma
 s	Eigen/src/Jacobi/Jacobi.h	/^    Scalar s() const { return m_s; }$/;"	f	class:Eigen::JacobiRotation
 s	Eigen/src/Jacobi/Jacobi.h	/^    Scalar& s() { return m_s; }$/;"	f	class:Eigen::JacobiRotation
 sample	Eigen/src/Geometry/AlignedBox.h	/^  inline VectorType sample() const$/;"	f	class:Eigen::AlignedBox
+saveDebugImages	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::saveDebugImages() const  {$/;"	f	class:PeopleDetection
 scalar_abs2_op	Eigen/src/Core/Functors.h	/^template<typename Scalar> struct scalar_abs2_op {$/;"	s	namespace:Eigen::internal
 scalar_abs_op	Eigen/src/Core/Functors.h	/^template<typename Scalar> struct scalar_abs_op {$/;"	s	namespace:Eigen::internal
 scalar_acos_op	Eigen/src/Core/Functors.h	/^template<typename Scalar> struct scalar_acos_op {$/;"	s	namespace:Eigen::internal
@@ -9985,6 +10048,7 @@ selfadjoint_rank2_update_selector	Eigen/src/Core/products/SelfadjointRank2Update
 selfadjoint_rank2_update_selector	Eigen/src/Core/products/SelfadjointRank2Update.h	/^struct selfadjoint_rank2_update_selector<Scalar,Index,UType,VType,Upper>$/;"	s	namespace:Eigen::internal
 set	Eigen/src/Core/GeneralProduct.h	/^    struct set  { template<typename Dst, typename Src> void operator()(const Dst& dst, const Src& src) const { dst.const_cast_derived()  = src; } };$/;"	s	class:Eigen::GeneralProduct
 setBackground	ImageSubtractor/ImageSubtractor.cpp	/^void ImageSubtractor::setBackground( const cv::Mat& img) {$/;"	f	class:ImageSubtractor
+setBackground	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setBackground(const cv::Mat backgroundImage)$/;"	f	class:PeopleDetection
 setBlurKernelSize	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::setBlurKernelSize(int blurKernelSize) {$/;"	f	class:PeopleDetection
 setBounds	Eigen/src/SparseCore/AmbiVector.h	/^    void setBounds(Index start, Index end) { m_start = start; m_end = end; }$/;"	f	class:Eigen::internal::AmbiVector
 setConstant	Eigen/src/Core/CwiseNullaryOp.h	/^EIGEN_STRONG_INLINE Derived& DenseBase<Derived>::setConstant(const Scalar& val)$/;"	f	class:Eigen::DenseBase
@@ -10078,7 +10142,7 @@ shared4	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^  } shared4 ;$/;"	m	struct:in
 shear	Eigen/src/Eigen2Support/Geometry/Transform.h	/^Transform<Scalar,Dim>::shear(Scalar sx, Scalar sy)$/;"	f	class:Eigen::Transform
 shear	Eigen/src/Geometry/Transform.h	/^Transform<Scalar,Dim,Mode,Options>::shear(const Scalar& sx, const Scalar& sy)$/;"	f	class:Eigen::Transform
 shift	Eigen/src/Householder/HouseholderSequence.h	/^    Index shift() const { return m_shift; }    \/**< \\brief Returns the shift of the Householder sequence. *\/$/;"	f	class:Eigen::HouseholderSequence
-showCamera	ImageViewer/ImageViewer.cpp	/^void ImageViewer::showCamera(Camera camera) {$/;"	f	class:ImageViewer
+showCamera	ImageViewer/ImageViewer.cpp	/^void ImageViewer::showCamera(CameraSide cs) {$/;"	f	class:ImageViewer
 showImage	ImageViewer/ImageViewer.cpp	/^void ImageViewer::showImage(const cv::Mat& img) {$/;"	f	class:ImageViewer
 showMultipleImages	WindowManager/WindowManager.cpp	/^cv::Mat& WindowManager::showMultipleImages(int rows)$/;"	f	class:WindowManager
 showTrackbars	PeopleDetection/PeopleDetection.cpp	/^void PeopleDetection::showTrackbars(const char* windowName) {$/;"	f	class:PeopleDetection
@@ -10137,7 +10201,8 @@ slerp	Eigen/src/Geometry/Rotation2D.h	/^  inline Rotation2D slerp(const Scalar& 
 smart_copy	Eigen/src/Core/util/Memory.h	/^template<typename T> void smart_copy(const T* start, const T* end, T* target)$/;"	f	namespace:Eigen::internal
 smart_copy_helper	Eigen/src/Core/util/Memory.h	/^template<typename T> struct smart_copy_helper<T,false> {$/;"	s	namespace:Eigen::internal
 smart_copy_helper	Eigen/src/Core/util/Memory.h	/^template<typename T> struct smart_copy_helper<T,true> {$/;"	s	namespace:Eigen::internal
-snapshots	ImageViewer/ImageViewer.cpp	/^void ImageViewer::snapshots(Camera camera) {$/;"	f	class:ImageViewer
+smoothness_trunc_	DisparityMap/DisparityMap.hpp	/^  int smoothness_trunc_ = 2;$/;"	m	class:DisparityMap
+snapshots	ImageViewer/ImageViewer.cpp	/^void ImageViewer::snapshots(CameraSide cs) {$/;"	f	class:ImageViewer
 solve	Eigen/src/Cholesky/LDLT.h	/^    bool solve(const MatrixBase<OtherDerived>& b, ResultType *result) const$/;"	f	class:Eigen::LDLT
 solve	Eigen/src/Cholesky/LDLT.h	/^    solve(const MatrixBase<Rhs>& b) const$/;"	f	class:Eigen::LDLT
 solve	Eigen/src/Cholesky/LLT.h	/^    bool solve(const MatrixBase<OtherDerived>& b, ResultType *result) const$/;"	f	class:Eigen::LLT
@@ -10375,7 +10440,7 @@ take_matrix_for_product	Eigen/src/Geometry/Homogeneous.h	/^struct take_matrix_fo
 tan	Eigen/src/plugins/ArrayCwiseUnaryOps.h	/^tan() const$/;"	f
 thenMatrix	Eigen/src/Core/Select.h	/^    const ThenMatrixType& thenMatrix() const$/;"	f	class:Eigen::Select
 thickness	Eigen/src/OrderingMethods/Eigen_Colamd.h	/^    Index thickness ; \/* number of original columns represented by this *\/$/;"	m	union:internal::colamd_col::__anon402
-thresh_img_	PeopleDetection/PeopleDetection.hpp	/^        cv::Mat thresh_img_;$/;"	m	class:PeopleDetection
+thresh_img_	PeopleDetection/PeopleDetection.hpp	/^    cv::Mat thresh_img_;$/;"	m	class:PeopleDetection
 threshold	Eigen/src/LU/FullPivLU.h	/^    RealScalar threshold() const$/;"	f	class:Eigen::FullPivLU
 threshold	Eigen/src/QR/ColPivHouseholderQR.h	/^    RealScalar threshold() const$/;"	f	class:Eigen::ColPivHouseholderQR
 threshold	Eigen/src/QR/FullPivHouseholderQR.h	/^    RealScalar threshold() const$/;"	f	class:Eigen::FullPivHouseholderQR
@@ -10618,7 +10683,8 @@ triangular_solver_selector	Eigen/src/Core/SolveTriangular.h	/^struct triangular_
 triangular_solver_selector	Eigen/src/Core/SolveTriangular.h	/^struct triangular_solver_selector<Lhs,Rhs,Side,Mode,NoUnrolling,Dynamic>$/;"	s	namespace:Eigen::internal
 triangular_solver_unroller	Eigen/src/Core/SolveTriangular.h	/^struct triangular_solver_unroller<Lhs,Rhs,Mode,Index,Size,false> {$/;"	s	namespace:Eigen::internal
 triangular_solver_unroller	Eigen/src/Core/SolveTriangular.h	/^struct triangular_solver_unroller<Lhs,Rhs,Mode,Index,Size,true> {$/;"	s	namespace:Eigen::internal
-triangulate	PositionEstimator/PositionEstimator.cpp	/^void PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedPoints1, const std::vector<Eigen::Vector2d>& matchedPoints2) {$/;"	f	class:PositionEstimator
+triangulate	PositionEstimator/PositionEstimator.cpp	/^std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::array<std::vector<Eigen::Vector2d>,2>& matchedPoints) {$/;"	f	class:PositionEstimator
+triangulate	PositionEstimator/PositionEstimator.cpp	/^std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::vector<Eigen::Vector2d>& matchedPoints1, const std::vector<Eigen::Vector2d>& matchedPoints2) {$/;"	f	class:PositionEstimator
 tribb_kernel	Eigen/src/Core/products/GeneralMatrixMatrixTriangular.h	/^struct tribb_kernel$/;"	s	namespace:Eigen::internal
 tridiagonal_qr_step	Eigen/src/Eigenvalues/SelfAdjointEigenSolver.h	/^static void tridiagonal_qr_step(RealScalar* diag, RealScalar* subdiag, Index start, Index end, Scalar* matrixQ, Index n)$/;"	f	namespace:Eigen::internal
 tridiagonalization_inplace	Eigen/src/Eigenvalues/Tridiagonalization.h	/^void tridiagonalization_inplace(MatrixType& mat, DiagonalType& diag, SubDiagonalType& subdiag, bool extractQ)$/;"	f	namespace:Eigen::internal
@@ -10937,6 +11003,7 @@ w	Eigen/src/Eigen2Support/Geometry/Quaternion.h	/^  inline Scalar w() const { re
 w	Eigen/src/Eigen2Support/Geometry/Quaternion.h	/^  inline Scalar& w() { return m_coeffs.coeffRef(3); }$/;"	f	class:Eigen::Quaternion
 w	Eigen/src/Geometry/Quaternion.h	/^  inline Scalar w() const { return this->derived().coeffs().coeff(3); }$/;"	f	class:Eigen::QuaternionBase
 w	Eigen/src/Geometry/Quaternion.h	/^  inline Scalar& w() { return this->derived().coeffs().coeffRef(3); }$/;"	f	class:Eigen::QuaternionBase
+width	DisparityMap/DisparityMap.hpp	/^    int width, height;$/;"	m	struct:MRF2D
 width_	CameraInterface/CameraInterface.hpp	/^  unsigned int width_;$/;"	m	class:CameraInterface
 window_name_	FaceDetection/FaceDetection.hpp	/^	std::string window_name_;  $/;"	m	class:FaceDetection
 window_name_	ImageViewer/ImageViewer.hpp	/^  std::string window_name_;$/;"	m	class:ImageViewer

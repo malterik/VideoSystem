@@ -10,6 +10,7 @@
 #include "ImageSubtractor/ImageSubtractor.hpp"
 #include "PeopleDetection/PeopleDetection.hpp"
 #include "StereoMatcher/StereoMatcher.hpp"
+#include "ImageWriter/ImageWriter.hpp"
 
 int main(void)
 {
@@ -33,6 +34,7 @@ int main(void)
   CameraInterface localCam(camLocal.ct);
   StereoInterface si(camL,camR);
   StereoMatcher sm;
+  ImageWriter iw("Images/");
 
   localCam.setResolution(camLocal.img_width, camLocal.img_height);
 
@@ -40,7 +42,7 @@ int main(void)
   PeopleDetection pdL(si.getLeftImage());
   PeopleDetection pdR(si.getRightImage());
   std::vector<cv::Rect> peopleL, peopleR;
-  std::vector<std::vector<cv::Rect>> matched_boxes;
+  std::vector<std::vector<cv::Point>> matched_points;
 
   namedWindow(trackBarWindow, cv::WINDOW_AUTOSIZE );
   pdR.showTrackbars(trackBarWindow.c_str());
@@ -51,6 +53,7 @@ int main(void)
     pdR.reset();
     cv::Mat frameL = si.getLeftImage();
     cv::Mat frameR = si.getRightImage();
+    cv::Mat pointsLeft,pointsRight;
     peopleL = pdL.detect(frameL);
     peopleR = pdR.detect(frameR);
     // pdL.debugImage();
@@ -58,15 +61,18 @@ int main(void)
 
     // WindowManager::getInstance().addImage(frameL);
     // WindowManager::getInstance().addImage(frameR);
-    matched_boxes = sm.findPointPairs(peopleL, peopleR);
+    matched_points = sm.findPointPairs(peopleL, peopleR);
     WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
     WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
-    WindowManager::getInstance().drawBoundingBoxStereo(matched_boxes, frameL, frameR);
+    // WindowManager::getInstance().drawBoundingBoxStereo(matched_boxes, frameL, frameR);
+    WindowManager::getInstance().drawPointsStereo(matched_points, frameL, frameR, pointsLeft, pointsRight);
 
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {
       break;
     } else if( key == 32 ) {
+      iw.writeImage(pointsLeft,"LeftPoint");
+      iw.writeImage(pointsRight,"RightPoint");
     }
     cv::imshow("Window1" , WindowManager::getInstance().showMultipleImages(2) );
   }

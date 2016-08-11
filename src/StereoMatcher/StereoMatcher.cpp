@@ -22,6 +22,7 @@ std::vector<std::vector<cv::Point>> StereoMatcher::findPointPairs(std::vector<cv
       }
     }
   }
+
   for(auto pair : matchedPairs) {
     std::vector<cv::Point> temp;
     // top left corner
@@ -44,7 +45,15 @@ std::vector<std::vector<cv::Point>> StereoMatcher::findPointPairs(std::vector<cv
     temp.push_back( pair[1].br());
     result.push_back(temp);
     temp.clear();
-
+    //middle point
+    int add_x1 =pair[0].br().x - pair[0].tl().x;
+    int add_x2 =pair[1].br().x - pair[1].tl().x;
+    int add_y1 =pair[0].br().y - pair[0].tl().y;
+    int add_y2 =pair[1].br().y - pair[1].tl().y;
+    temp.emplace_back(pair[0].tl().x + (add_x1/2), pair[0].tl().y + (add_y1/2));
+    temp.emplace_back(pair[1].tl().x + (add_x2/2), pair[1].tl().y + (add_y2/2));
+    result.push_back(temp);
+    temp.clear();
   }
   return result;
 }
