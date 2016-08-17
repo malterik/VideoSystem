@@ -11,16 +11,17 @@
 #include "PeopleDetection/PeopleDetection.hpp"
 #include "StereoMatcher/StereoMatcher.hpp"
 #include "ImageWriter/ImageWriter.hpp"
+#include "PositionEstimator/PositionEstimator.hpp"
 
 int main(void)
 {
   std::string trackBarWindow="Window";
-  CameraType camtypeL = DLINK_CAM_1;
+  CameraType camtypeL = DLINK_CAM_2;
   Camera camL;
   camL.ct = camtypeL;
   camL.img_width = 640;
   camL.img_height = 480;
-  CameraType camtypeR = DLINK_CAM_2;
+  CameraType camtypeR = DLINK_CAM_1;
   Camera camR;
   camR.ct = camtypeR;
   camR.img_width = 640;
@@ -43,6 +44,7 @@ int main(void)
   PeopleDetection pdR(si.getRightImage());
   std::vector<cv::Rect> peopleL, peopleR;
   std::vector<std::vector<cv::Point>> matched_points;
+  PositionEstimator pe(camtypeL, "config/CameraPose1.json", camtypeR, "config/CameraPose2.json");
 
   namedWindow(trackBarWindow, cv::WINDOW_AUTOSIZE );
   pdR.showTrackbars(trackBarWindow.c_str());
@@ -62,6 +64,8 @@ int main(void)
     // WindowManager::getInstance().addImage(frameL);
     // WindowManager::getInstance().addImage(frameR);
     matched_points = sm.findPointPairs(peopleL, peopleR);
+    pe.triangulate(matched_points);
+
     WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
     WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
     // WindowManager::getInstance().drawBoundingBoxStereo(matched_boxes, frameL, frameR);
@@ -73,6 +77,10 @@ int main(void)
     } else if( key == 32 ) {
       iw.writeImage(pointsLeft,"LeftPoint");
       iw.writeImage(pointsRight,"RightPoint");
+    } else if(key == 10) {
+      print(LogLevel::INFO,"Set new background");
+      pdL.setBackground(frameL);
+      pdR.setBackground(frameR);
     }
     cv::imshow("Window1" , WindowManager::getInstance().showMultipleImages(2) );
   }

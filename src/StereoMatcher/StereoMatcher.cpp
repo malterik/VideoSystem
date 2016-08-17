@@ -23,37 +23,30 @@ std::vector<std::vector<cv::Point>> StereoMatcher::findPointPairs(std::vector<cv
     }
   }
 
+  std::vector<cv::Point> tempL;
+  std::vector<cv::Point> tempR;
   for(auto pair : matchedPairs) {
-    std::vector<cv::Point> temp;
     // top left corner
-    temp.push_back( pair[0].tl());
-    temp.push_back( pair[1].tl());
-    result.push_back(temp);
-    temp.clear();
+    tempL.push_back( pair[0].tl());
+    tempR.push_back( pair[1].tl());
     //top right corner
-    temp.emplace_back(pair[0].br().x, pair[0].tl().y);
-    temp.emplace_back(pair[1].br().x, pair[1].tl().y);
-    result.push_back(temp);
-    temp.clear();
+    tempL.emplace_back(pair[0].br().x, pair[0].tl().y);
+    tempR.emplace_back(pair[1].br().x, pair[1].tl().y);
     //bottom left corner
-    temp.emplace_back(pair[0].tl().x, pair[0].br().y);
-    temp.emplace_back(pair[1].tl().x, pair[1].br().y);
-    result.push_back(temp);
-    temp.clear();
+    tempL.emplace_back(pair[0].tl().x, pair[0].br().y);
+    tempR.emplace_back(pair[1].tl().x, pair[1].br().y);
     //bottom right corner
-    temp.push_back( pair[0].br());
-    temp.push_back( pair[1].br());
-    result.push_back(temp);
-    temp.clear();
+    tempL.push_back( pair[0].br());
+    tempR.push_back( pair[1].br());
     //middle point
-    int add_x1 =pair[0].br().x - pair[0].tl().x;
-    int add_x2 =pair[1].br().x - pair[1].tl().x;
-    int add_y1 =pair[0].br().y - pair[0].tl().y;
-    int add_y2 =pair[1].br().y - pair[1].tl().y;
-    temp.emplace_back(pair[0].tl().x + (add_x1/2), pair[0].tl().y + (add_y1/2));
-    temp.emplace_back(pair[1].tl().x + (add_x2/2), pair[1].tl().y + (add_y2/2));
-    result.push_back(temp);
-    temp.clear();
+    int add_x1 = pair[0].br().x - pair[0].tl().x;
+    int add_x2 = pair[1].br().x - pair[1].tl().x;
+    int add_y1 = pair[0].br().y - pair[0].tl().y;
+    int add_y2 = pair[1].br().y - pair[1].tl().y;
+    tempL.emplace_back(pair[0].tl().x + (add_x1/2), pair[0].tl().y + (add_y1/2));
+    tempR.emplace_back(pair[1].tl().x + (add_x2/2), pair[1].tl().y + (add_y2/2));
   }
+  result.push_back(tempL);
+  result.push_back(tempR);
   return result;
 }

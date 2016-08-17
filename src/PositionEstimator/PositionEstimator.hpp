@@ -2,6 +2,7 @@
 
 #include "../Utils/DisableWarnings.hpp"
 #include "../CameraMatrix/CameraMatrix.hpp"
+#include <opencv2/opencv.hpp>
 #include <vector>
 
 enum Side {LEFT, RIGHT};
@@ -12,6 +13,7 @@ public:
   PositionEstimator(CameraType camera1, std::string path1, CameraType camera2, std::string path2);
   std::vector<Eigen::Vector3d> triangulate(const std::vector<Eigen::Vector2d>& matchedPoints1, const std::vector<Eigen::Vector2d>& matchedPoints2);
   std::vector<Eigen::Vector3d> triangulate(const std::array<std::vector<Eigen::Vector2d>,2>& matchedPoints);
+  std::vector<Eigen::Vector3d> triangulate(const std::vector<std::vector<cv::Point>>& matchedPoints);
   CameraMatrix getCameraMatrix(Side cameraSide);
 
 private:

@@ -87,13 +87,19 @@ void WindowManager::drawBoundingBoxStereo(std::vector<std::vector<cv::Rect>> bBo
 void WindowManager::drawPointsStereo(std::vector<std::vector<cv::Point>> pointPairs, const cv::Mat& imgLeft, const cv::Mat& imgRight, cv::Mat& leftResult, cv::Mat& rightResult) {
   imgLeft.copyTo(leftResult);
   imgRight.copyTo(rightResult);
-  for(auto pairs : pointPairs) {
-    cv::Scalar color = cv::Scalar(0, 0,255);
-    circle(leftResult, pairs[0], 2, color,0);
-    circle(rightResult, pairs[1], 2, color,0);
+  if(!(pointPairs[0].empty() && pointPairs[1].empty())) {
+    for(auto point : pointPairs[0]) {
+      cv::Scalar color = cv::Scalar(0, 0,255);
+      circle(leftResult, point, 2, color,0);
+    }
+    for(auto point : pointPairs[1]) {
+      cv::Scalar color = cv::Scalar(0, 0,255);
+      circle(rightResult, point, 2, color,0);
+    }
   }
   addImage(leftResult);
   addImage(rightResult);
+
 }
 
 std::array<int,5> WindowManager::getInfo() {

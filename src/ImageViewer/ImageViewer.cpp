@@ -27,7 +27,6 @@ ImageViewer::ImageViewer(std::string windowName, Camera camLeft, Camera camRight
 
 void ImageViewer::mouseCallback(int event, int x, int y)
 {
-  //Random Generator for random colors
   if  ( event == cv::EVENT_LBUTTONDOWN )
   {
     std::array<int,5> windowInfo = WindowManager::getInstance().getInfo();
