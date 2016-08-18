@@ -19,5 +19,6 @@ int main(void)
   //Image Viewer Instantiation
   ImageViewer iv("Main Window", camL, camR);
   iv.snapshots(BOTH);
+  cv::waitKey(0);
   while(1) {}
 }
