@@ -58,17 +58,11 @@ int main(void)
     cv::Mat pointsLeft,pointsRight;
     peopleL = pdL.detect(frameL);
     peopleR = pdR.detect(frameR);
-    // pdL.debugImage();
-    // pdR.debugImage();
-
-    // WindowManager::getInstance().addImage(frameL);
-    // WindowManager::getInstance().addImage(frameR);
     matched_points = sm.findPointPairs(peopleL, peopleR);
     pe.triangulate(matched_points);
 
     WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
     WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
-    // WindowManager::getInstance().drawBoundingBoxStereo(matched_boxes, frameL, frameR);
     WindowManager::getInstance().drawPointsStereo(matched_points, frameL, frameR, pointsLeft, pointsRight);
 
     char key = (char)cv::waitKey(10);
