@@ -22,6 +22,8 @@ private:
   double c_y_;
   double f_x_;
   double f_y_;
+  double d_1_;
+  double d_2_;
 
   Eigen::Matrix3d intrinsic_paramter_;
   Eigen::Matrix3d intrinsic_paramter_inv_;

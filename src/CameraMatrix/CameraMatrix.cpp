@@ -47,6 +47,9 @@ void CameraMatrix::readConfig() {
     c_y_ = config["c_y"];
     f_x_ = config["f_x"];
     f_y_ = config["f_y"];
+    d_1_ = config["d"][0];
+    d_2_ = config["d"][1];
+    // print(LogLevel::DEBUG, "d_1: %f, d_2: %f",d_1_,d_2_);
 
     configFile.close();
   } else print(ERROR, "Unable to open File: %s", FILE_NAME_.c_str());
