@@ -67,3 +67,13 @@ Eigen::MatrixXd CameraMatrix::getIntrinsicMatrix() {
 Eigen::MatrixXd CameraMatrix::getExtrinsicMatrix() {
   return camera2ground_.getSingularMatrix();
 }
+TransformationMatrix& CameraMatrix::getCamera2Ground() {
+  return camera2ground_;
+}
+
+Eigen::Vector2d CameraMatrix::getDistortionCoefficients() {
+  Eigen::Vector2d result;
+  result[0] = d_1_;
+  result[1] = d_2_;
+  return result;
+}

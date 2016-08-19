@@ -12,6 +12,8 @@ public:
   Eigen::MatrixXd getCameraMatrix();
   Eigen::MatrixXd getIntrinsicMatrix();
   Eigen::MatrixXd getExtrinsicMatrix();
+  TransformationMatrix& getCamera2Ground();
+  Eigen::Vector2d getDistortionCoefficients();
 
 
 private:
