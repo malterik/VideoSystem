@@ -1,4 +1,5 @@
 #include "JSONParser.hpp"
+#include "../Utils/print.hpp"
 
 JSONParser::JSONParser()
 {
@@ -51,8 +52,6 @@ TransformationMatrix JSONParser::getTransformationMatrix(std::string filename) {
 
     }
 
-  }else {
-    std::cout << "Could not load file:" << filename << std::endl;
-  }
+  } else print(ERROR, "JSONParser: Unable to open File: %s", filename.c_str());
   return TransformationMatrix(rotation, translation);
 }
