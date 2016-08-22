@@ -78,10 +78,11 @@ std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::vector<st
     mp2.at<cv::Vec2d>(i,0)[1] = matchedPoints[1][i].y;
   }
   if(!(mp1.empty() && mp2.empty())) {
-    cv::stereoRectify(intrinsicL, distL, intrinsicR, distR, cv::Size(640,480), rotationR, translationR, R1, R2, P1, P2, Q,cv::CALIB_ZERO_DISPARITY, -1, newSize);
-    cv::undistortPoints(mp1, mp1undistorted, intrinsicL, distL, R1, P1);
-    cv::undistortPoints(mp2, mp2undistorted, intrinsicR, distR, R2, P2);
-    cv::triangulatePoints(lCam, rCam, mp1undistorted, mp2undistorted, Points4D);
+    // cv::stereoRectify(intrinsicL, distL, intrinsicR, distR, cv::Size(640,480), rotationR, translationR, R1, R2, P1, P2, Q,cv::CALIB_ZERO_DISPARITY, -1, newSize);
+    // cv::undistortPoints(mp1, mp1undistorted, intrinsicL, distL, R1, P1);
+    // cv::undistortPoints(mp2, mp2undistorted, intrinsicR, distR, R2, P2);
+    // cv::triangulatePoints(lCam, rCam, mp1undistorted, mp2undistorted, Points4D);
+    cv::triangulatePoints(lCam, rCam, mp1, mp2, Points4D);
 
 
   // std::cout << Points4D << std::endl;
@@ -93,9 +94,9 @@ std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::vector<st
     vec(2) = Points4D.at<double>(2,i) / Points4D.at<double>(3,i);
     Points3D.push_back(vec);
   }
-  // std::cout << "3D Points" << std::endl;
-  // for(auto& it : Points3D)
-  //   std::cout << it << std::endl;
+  std::cout << "3D Points" << std::endl;
+  for(auto& it : Points3D)
+    std::cout << it << std::endl;
   }
   return Points3D;
 }

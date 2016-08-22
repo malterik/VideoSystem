@@ -12,6 +12,7 @@
 #include "StereoMatcher/StereoMatcher.hpp"
 #include "ImageWriter/ImageWriter.hpp"
 #include "PositionEstimator/PositionEstimator.hpp"
+#include "Visualizer/Visualizer.hpp"
 
 int main(void)
 {
@@ -45,6 +46,7 @@ int main(void)
   std::vector<cv::Rect> peopleL, peopleR;
   std::vector<std::vector<cv::Point>> matched_points;
   PositionEstimator pe(camtypeL, "config/CameraPose1.json", camtypeR, "config/CameraPose2.json");
+  Visualizer v;
 
   namedWindow(trackBarWindow, cv::WINDOW_AUTOSIZE );
   pdR.showTrackbars(trackBarWindow.c_str());
@@ -59,11 +61,12 @@ int main(void)
     peopleL = pdL.detect(frameL);
     peopleR = pdR.detect(frameR);
     matched_points = sm.findPointPairs(peopleL, peopleR);
-    pe.triangulate(matched_points);
+    std::vector<Eigen::Vector3d> points = pe.triangulate(matched_points);
+    v.showMap(points);
 
-    WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
-    WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
-    WindowManager::getInstance().drawPointsStereo(matched_points, frameL, frameR, pointsLeft, pointsRight);
+    // WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
+    // WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
+    // WindowManager::getInstance().drawPointsStereo(matched_points, frameL, frameR, pointsLeft, pointsRight);
 
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {

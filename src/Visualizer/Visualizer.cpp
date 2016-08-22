@@ -9,8 +9,10 @@ Visualizer::Visualizer() :
 
 void Visualizer::showMap(std::vector<Eigen::Vector3d> points) {
   clearMap();
-  for(auto it : points) {
-    cv::circle(map_,cv::Point(250 - (it[0] * 100), 500 - (it[1] * 100)), 3, cv::Scalar(255,0,0), 2);
+  if(!points.empty()) {
+    for(auto it : points) {
+      cv::circle(map_,cv::Point(250 - (it[0] * 100), 500 - (it[1] * 100)), 3, cv::Scalar(255,0,0), 2);
+    }
   }
   WindowManager::getInstance().addImage(map_);
 }
