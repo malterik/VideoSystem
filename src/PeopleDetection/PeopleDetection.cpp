@@ -130,7 +130,6 @@ const std::vector<cv::Rect>& PeopleDetection::detect(const cv::Mat& image) {
   }
   return people_candidates_;
 }
-
 void PeopleDetection::debugImage() const  {
 
   WindowManager::getInstance().addImage(background_image_);

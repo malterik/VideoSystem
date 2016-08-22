@@ -44,20 +44,23 @@ std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::vector<st
   cv::Mat translationL(3,1,CV_64FC1);
   cv::Mat translationR(3,1,CV_64FC1);
   cv::Mat distL(4, 1, cv::DataType<float>::type);
-  cv::Mat distR(2, 1, cv::DataType<float>::type);
+  cv::Mat distR(4, 1, cv::DataType<float>::type);
+  cv::Mat R1, R2, P1, P2, Q;
+  cv::Size newSize;
+  cv::Mat undistortedImage;
 
   for (int i = 0; i < 2; i++) {
     distL.at<float>(i, 0) =  left_camera_matrix_.getDistortionCoefficients()[i];
     distR.at<float>(i, 0) =  right_camera_matrix_.getDistortionCoefficients()[i];
   }
-  for(int x = 0; x < 2; x++) {
+  for(int x = 0; x < 3; x++) {
     translationL.at<double>(x) = left_camera_matrix_.getCamera2Ground().posV()(x);
     translationR.at<double>(x) = right_camera_matrix_.getCamera2Ground().posV()(x);
-    for(int y = 0; y < 2; y++) {
+    for(int y = 0; y < 3; y++) {
       intrinsicL.at<double>(x,y) = left_camera_matrix_.getIntrinsicMatrix()(x,y);
       intrinsicR.at<double>(x,y) = right_camera_matrix_.getIntrinsicMatrix()(x,y);
-      intrinsicL.at<double>(x,y) = left_camera_matrix_.getCamera2Ground().rotM()(x,y);
-      intrinsicR.at<double>(x,y) = right_camera_matrix_.getCamera2Ground().rotM()(x,y);
+      rotationL.at<double>(x,y) = left_camera_matrix_.getCamera2Ground().rotM()(x,y);
+      rotationR.at<double>(x,y) = right_camera_matrix_.getCamera2Ground().rotM()(x,y);
     }
   }
   for(int x = 0; x < 3; x++) {
@@ -74,14 +77,11 @@ std::vector<Eigen::Vector3d> PositionEstimator::triangulate(const std::vector<st
     mp2.at<cv::Vec2d>(i,0)[0] = matchedPoints[1][i].x;
     mp2.at<cv::Vec2d>(i,0)[1] = matchedPoints[1][i].y;
   }
-  std::cout << "rotationL" << std::endl <<  rotationL << std::endl;
-  std::cout << "rotationR" << std::endl << rotationR << std::endl;
   if(!(mp1.empty() && mp2.empty())) {
-    // cv::stereoRectify(intrinsicL, distL, intrinsicR, distR, cv::Size(640,480), 
-    cv::undistortPoints(mp1, mp1undistorted, intrinsicL, distL);
-    std::cout << "distorted Points" <<  std::endl <<  mp1 << std::endl;
-    std::cout << "undistorted Points" << std::endl <<  mp1undistorted << std::endl;
-    cv::triangulatePoints(lCam, rCam, mp1, mp2, Points4D);
+    cv::stereoRectify(intrinsicL, distL, intrinsicR, distR, cv::Size(640,480), rotationR, translationR, R1, R2, P1, P2, Q,cv::CALIB_ZERO_DISPARITY, -1, newSize);
+    cv::undistortPoints(mp1, mp1undistorted, intrinsicL, distL, R1, P1);
+    cv::undistortPoints(mp2, mp2undistorted, intrinsicR, distR, R2, P2);
+    cv::triangulatePoints(lCam, rCam, mp1undistorted, mp2undistorted, Points4D);
 
 
   // std::cout << Points4D << std::endl;
