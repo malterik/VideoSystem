@@ -49,7 +49,7 @@ int main(void)
   Visualizer v;
 
   namedWindow(trackBarWindow, cv::WINDOW_AUTOSIZE );
-  pdR.showTrackbars(trackBarWindow.c_str());
+  // pdR.showTrackbars(trackBarWindow.c_str());
 
   while(1) {
     WindowManager::getInstance().reset();
@@ -62,10 +62,10 @@ int main(void)
     peopleR = pdR.detect(frameR);
     matched_points = sm.findPointPairs(peopleL, peopleR);
     std::vector<Eigen::Vector3d> points = pe.triangulate(matched_points);
-    v.showMap(points);
+    cv::imshow(trackBarWindow,v.showMap(points));
 
-    // WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
-    // WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
+    WindowManager::getInstance().drawBoundingBox(peopleL, frameL);
+    WindowManager::getInstance().drawBoundingBox(peopleR, frameR);
     // WindowManager::getInstance().drawPointsStereo(matched_points, frameL, frameR, pointsLeft, pointsRight);
 
     char key = (char)cv::waitKey(10);
@@ -79,7 +79,7 @@ int main(void)
       pdL.setBackground(frameL);
       pdR.setBackground(frameR);
     }
-    cv::imshow("Window1" , WindowManager::getInstance().showMultipleImages(1) );
+    cv::imshow("Window1" , WindowManager::getInstance().showMultipleImages(2) );
   }
   cv::waitKey(0);
 }

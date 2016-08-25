@@ -8,7 +8,7 @@ class Visualizer
 {
 public:
   Visualizer();
-  void showMap(std::vector<Eigen::Vector3d> points);
+  cv::Mat& showMap(std::vector<Eigen::Vector3d> points);
 
 private:
   void clearMap();

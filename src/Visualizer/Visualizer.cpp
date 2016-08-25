@@ -7,14 +7,15 @@ Visualizer::Visualizer() :
   clearMap();
 }
 
-void Visualizer::showMap(std::vector<Eigen::Vector3d> points) {
+cv::Mat& Visualizer::showMap(std::vector<Eigen::Vector3d> points) {
   clearMap();
   if(!points.empty()) {
     for(auto it : points) {
       cv::circle(map_,cv::Point(250 - it[0] , 500 - it[2] ), 3, cv::Scalar(255,0,0), 2);
     }
   }
-  WindowManager::getInstance().addImage(map_);
+  return map_;
+  // WindowManager::getInstance().addImage(map_);
 }
 
 void Visualizer::clearMap() {
