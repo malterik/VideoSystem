@@ -5,12 +5,12 @@
 int main(void)
 {
   // Initialize Cameras
-  CameraType camtypeL = DLINK_CAM_2;
+  CameraType camtypeL = DLINK_CAM_1;
   Camera camL;
   camL.ct = camtypeL;
   camL.img_width = 640;
   camL.img_height = 480;
-  CameraType camtypeR = DLINK_CAM_1;
+  CameraType camtypeR = DLINK_CAM_2;
   Camera camR;
   camR.ct = camtypeR;
   camR.img_width = 640;
