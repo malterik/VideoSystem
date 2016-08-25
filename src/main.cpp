@@ -17,12 +17,12 @@
 int main(void)
 {
   std::string trackBarWindow="Window";
-  CameraType camtypeL = DLINK_CAM_2;
+  CameraType camtypeL = DLINK_CAM_1;
   Camera camL;
   camL.ct = camtypeL;
   camL.img_width = 640;
   camL.img_height = 480;
-  CameraType camtypeR = DLINK_CAM_1;
+  CameraType camtypeR = DLINK_CAM_2;
   Camera camR;
   camR.ct = camtypeR;
   camR.img_width = 640;
@@ -79,7 +79,7 @@ int main(void)
       pdL.setBackground(frameL);
       pdR.setBackground(frameR);
     }
-    cv::imshow("Window1" , WindowManager::getInstance().showMultipleImages(2) );
+    cv::imshow("Window1" , WindowManager::getInstance().showMultipleImages(1) );
   }
   cv::waitKey(0);
 }
