@@ -7,6 +7,8 @@
 #include "../CameraInterface/CameraInterface.hpp"
 #include "../ImageWriter/ImageWriter.hpp"
 #include "../Eigen/Dense"
+#include "../Visualizer/Visualizer.hpp"
+#include "../PositionEstimator/PositionEstimator.hpp"
 
 enum CameraSide { LEFT_CAM, RIGHT_CAM, BOTH  };
 
@@ -20,7 +22,7 @@ public:
   void dualView(const cv::Mat& img1, const cv::Mat& img2);
   void showCamera(CameraSide cs);
   void snapshots(CameraSide cs);
-  std::array<std::vector<Eigen::Vector2d>,2> pointPairs(const cv::Mat& img1, const cv::Mat& img2);
+  std::array<std::vector<Eigen::Vector2d>,2> pointPairs(const cv::Mat& img1, const cv::Mat& img2, PositionEstimator& pe);
 
 private:
   std::string window_name_;
@@ -30,6 +32,7 @@ private:
   CameraInterface camera_interface_right_;
   ImageWriter image_writer_left_;
   ImageWriter image_writer_right_;
+  Visualizer visualizer_;
 
   std::vector<Eigen::Vector2d> image_coordinates_l_;
   std::vector<Eigen::Vector2d> image_coordinates_r_;

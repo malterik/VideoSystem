@@ -11,6 +11,7 @@ ImageViewer::ImageViewer(std::string windowName, Camera camLeft, Camera camRight
   camera_interface_right_(camera_right_.ct),
   image_writer_left_("Images/"),
   image_writer_right_("Images/"),
+  visualizer_(),
   image_coordinates_l_(),
   image_coordinates_r_(),
   rng_(0xFFFFFFFF),
@@ -141,10 +142,11 @@ void ImageViewer::snapshots(CameraSide cs) {
     cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1) );
   }
 }
-std::array<std::vector<Eigen::Vector2d>,2> ImageViewer::pointPairs(const cv::Mat& img1, const cv::Mat& img2) {
+std::array<std::vector<Eigen::Vector2d>,2> ImageViewer::pointPairs(const cv::Mat& img1, const cv::Mat& img2, PositionEstimator& pe) {
   std::array<std::vector<Eigen::Vector2d>,2> result;
   image_coordinates_l_.clear();
   image_coordinates_r_.clear();
+  std::vector<Eigen::Vector3d> points;
   WindowManager::getInstance().reset();
   WindowManager::getInstance().addImage(img1);
   WindowManager::getInstance().addImage(img2);
@@ -152,8 +154,14 @@ std::array<std::vector<Eigen::Vector2d>,2> ImageViewer::pointPairs(const cv::Mat
     char key = (char)cv::waitKey(10);
     if( key  == 27 ) {
       break;
+    } else if ( key == 10) {
+      result[0] = image_coordinates_l_;
+      result[1] = image_coordinates_r_;
+      std::vector<Eigen::Vector3d> points =  pe.triangulate(result);
+      cv::imshow("Map", visualizer_.showMap(points));
     }
     cv::imshow(window_name_, WindowManager::getInstance().showMultipleImages(1));
+
   }
   result[0] = image_coordinates_l_;
   result[1] = image_coordinates_r_;
