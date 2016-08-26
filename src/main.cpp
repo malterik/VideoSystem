@@ -3,7 +3,6 @@
 #include "ImageViewer/ImageViewer.hpp"
 #include <opencv2/core/core.hpp>
 #include "Utils/print.hpp"
-#include "Visualizer/Visualizer.hpp"
 #include "ImageViewer/ImageViewer.hpp"
 #include "CameraInterface/StereoInterface.hpp"
 
@@ -28,12 +27,9 @@ int main(void)
 
   ImageViewer iv("Main", camL, camR);
   PositionEstimator pe(camtypeL, "config/CameraPose1.json", camtypeR, "config/CameraPose2.json");
-  // Visualizer v;
 
   cv::Mat imgL = cv::imread("/home/erik/Master/Matlab/Images/cameraLeft0.png");
   cv::Mat imgR = cv::imread("/home/erik/Master/Matlab/Images/cameraRight0.png");
-  std::vector<Eigen::Vector3d> points =  pe.triangulate(iv.pointPairs(imgL,imgR));
-  // cv::imshow(MapWindow, v.showMap(points));
-  cv::waitKey(0);
+  iv.pointPairs(imgL,imgR, pe);
 
 }
