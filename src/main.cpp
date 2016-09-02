@@ -8,17 +8,15 @@ int main(void)
   CameraType camtypeL = DLINK_CAM_1;
   Camera camL;
   camL.ct = camtypeL;
-  camL.img_width = 640;
-  camL.img_height = 480;
+  camL.img_width = 1920;
+  camL.img_height = 1080;
   CameraType camtypeR = DLINK_CAM_2;
   Camera camR;
   camR.ct = camtypeR;
-  camR.img_width = 640;
-  camR.img_height = 480;
+  camR.img_width = 1920;
+  camR.img_height = 1080;
 
   //Image Viewer Instantiation
   ImageViewer iv("Main Window", camL, camR);
   iv.snapshots(BOTH);
-  cv::waitKey(0);
-  while(1) {}
 }
